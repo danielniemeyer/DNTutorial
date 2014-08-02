@@ -199,6 +199,11 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
+- (void)setDebug;
+{
+    [self resetProgress];
+}
+
 #pragma mark --
 #pragma mark UIScrollView
 #pragma mark --
@@ -206,7 +211,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 {
     // Register initial position
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionGesture];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -224,7 +229,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
     // Should base on direction of current presenting gesture action
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(DNTutorialActionGesture | DNTutorialActionBoth)];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(DNTutorialActionSwipeGesture | DNTutorialActionScroll)];
     
     if ([tutorialElements count] == 0)
     {
@@ -237,7 +242,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Calculate delta based on target direction
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionGesture])
+        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
         {
             delta = [self scrollView:scrollView deltaPositionForElement:tutorialElement];
             break;
@@ -251,7 +256,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 {
     // Check if currently presenting a gesture animation
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionGesture];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -263,7 +268,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionGesture])
+        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
         {
             delta = [self scrollView:scrollView deltaPositionForElement:tutorialElement];
             break;
@@ -281,19 +286,19 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 {
     CGFloat delta = 0.0f;
     
-    DNTutorialGestureDirection direction = [(DNTutorialGesture *)tutorialElement gestureDirection];
+    DNTutorialGestureType direction = [(DNTutorialGesture *)tutorialElement gestureType];
     
     switch (direction) {
-        case DNTutorialGestureDirectionUp:
+        case DNTutorialGestureTypeSwipeUp:
             delta = (scrollView.contentOffset.y - self.initialGesturePoint.y)/CGRectGetWidth(scrollView.bounds);
             break;
-        case DNTutorialGestureDirectionRight:
+        case DNTutorialGestureTypeSwipeRight:
             delta = (self.initialGesturePoint.x - scrollView.contentOffset.x)/CGRectGetWidth(scrollView.bounds);
             break;
-        case DNTutorialGestureDirectionDown:
+        case DNTutorialGestureTypeSwipeDown:
             delta = (self.initialGesturePoint.y - scrollView.contentOffset.y)/CGRectGetWidth(scrollView.bounds);
             break;
-        case DNTutorialGestureDirectionLeft:
+        case DNTutorialGestureTypeSwipeLeft:
             delta = (scrollView.contentOffset.x - self.initialGesturePoint.x)/CGRectGetWidth(scrollView.bounds);
             break;
             
@@ -429,13 +434,13 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [self presentTutorialStep:self.tutorialSteps[0] inView:self.parentView];
 }
 
-- (BOOL)shouldDismissElement:(DNTutorialElement *)element;
+- (BOOL)shouldDismissStep:(DNTutorialStep *)step;
 {
     BOOL toReturn;
     
-    if ([_delegate respondsToSelector:@selector(shouldDismissElement:)])
+    if ([_delegate respondsToSelector:@selector(shouldDismissStep:forKey:)])
     {
-        toReturn = [_delegate shouldDismissElement:element];
+        toReturn = [_delegate shouldDismissStep:step forKey:step.key];
     }
     else
         toReturn = YES;

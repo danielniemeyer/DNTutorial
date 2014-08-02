@@ -8,11 +8,15 @@
 
 #import "DNAppDelegate.h"
 
+#import "DNTutorial.h"
+
 @implementation DNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[DNTutorial sharedInstance] setDebug];
+
     return YES;
 }
 							

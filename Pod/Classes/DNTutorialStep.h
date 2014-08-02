@@ -66,6 +66,6 @@
 - (void)willDismissStep:(DNTutorialStep *)view;
 - (void)didDismissStep:(DNTutorialStep *)view;
 
-- (BOOL)shouldDismissElement:(DNTutorialElement *)element;
+- (BOOL)shouldDismissStep:(DNTutorialStep *)step;
 
 @end

@@ -53,6 +53,10 @@
 - (void)resetProgress;
 
 
+// Set debug mode so a step is always displayed
+- (void)setDebug;
+
+
 // Used for tutorial gesture
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
@@ -66,8 +70,7 @@
 - (void)willDismissView:(DNTutorialElement *)view;
 - (void)didDismissView:(DNTutorialElement *)view;
 
-- (BOOL)shouldDismissElement:(DNTutorialElement *)element;
-
 - (BOOL)shouldPresentStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
+- (BOOL)shouldDismissStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 
 @end

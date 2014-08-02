@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.    
     NSUInteger numberPages = 2;
     
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
@@ -77,31 +77,34 @@
 - (void)presentTutorial;
 {
     CGPoint center = self.view.center;
+    CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.view.bounds)/2.0, 140);
+
     center.x += 50;
     
-    DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"Tap and hold on the graph to view the value, move your finger left and right to see how the value changes over the day." key:@"initialBanner"];
+    DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"Tap and hold on the graph to view the value, move your finger left and right to see how the value changes over the day." completionMessage:@"Congratulations! You now know how to interact with graphs in the app." key:@"initialBanner"];
     [banner styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
 
-    DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Congratulations! You now know how to interact with graphs in the app. " key:@"doneBanner"];
+    DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Tap complete action to continue" completionMessage:@"Congratulations! You now know how to complete actions" key:@"secondBanner"];
     [banner1 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
-    [banner1 setCompleted:YES animated:NO];
     
-    DNTutorialGesture *gesture = [DNTutorialGesture gestureWithPosition:center direction:DNTutorialGestureDirectionLeft key:@"initialGesture"];
+    DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeSwipeLeft key:@"firstGesture"];
+    DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeTap key:@"secondGesture"];
+
     
-    DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, gesture] forKey:@"firtStep"];
-    DNTutorialStep *step2 = [DNTutorialStep stepWithTutorialElements:@[banner1] forKey:@"secondStep"];
+    DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, swipeGesture] forKey:@"firtStep"];
+    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, tapGesture] forKey:@"secondStep"];
     
-    [[DNTutorial sharedInstance] presentTutorialWithSteps:@[step, step2] inView:self.view delegate:self];
+    [[DNTutorial sharedInstance] presentTutorialWithSteps:@[step, step1] inView:self.view delegate:self];
 }
 
-- (BOOL)shouldDismissElement:(DNTutorialElement *)element;
+- (BOOL)shouldDismissStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 {
-    return ![element.key isEqualToString:@"doneBanner"];
+//    return [aKey isEqualToString:@"firtStep"];
+    return YES;
 }
 
 - (BOOL)shouldPresentStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 {
-//    return [aKey isEqualToString:@"secondStep"];
     return YES;
 }
 
@@ -117,7 +120,11 @@
     DNViewController *controller = [self.viewControllers objectAtIndex:page];
     if ((NSNull *)controller == [NSNull null])
     {
-        controller = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"DNViewController"];
+        if (page == 0)
+            controller = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"DNFirstController"];
+        else
+            controller = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"DNViewController"];
+        
         [self.viewControllers replaceObjectAtIndex:page withObject:controller];
     }
     

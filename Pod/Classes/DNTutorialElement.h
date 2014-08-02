@@ -10,11 +10,12 @@
 
 typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
 {
-    DNTutorialActionBanner      = 1 << 0,
-    DNTutorialActionGesture     = 1 << 1,
-    DNTutorialActionBoth        = 1 << 2,
-    DNTutorialActionAny         = ~0UL,
-    DNTutorialActionNone        = 1 << 4
+    DNTutorialActionBanner          = 1 << 0,
+    DNTutorialActionSwipeGesture    = 1 << 1,
+    DNTutorialActionTapGesture      = 1 << 2,
+    DNTutorialActionScroll          = 1 << 3,
+    DNTutorialActionAny             = ~0UL,
+    DNTutorialActionNone            = 1 << 4
 };
 
 @protocol DNTutorialElementDelegate;

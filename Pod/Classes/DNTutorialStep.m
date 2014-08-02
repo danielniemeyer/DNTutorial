@@ -149,7 +149,7 @@
 
 - (BOOL)shouldDismissElement:(DNTutorialElement *)element;
 {
-    return [_delegate shouldDismissElement:element];
+    return [_delegate shouldDismissStep:self];
 }
 
 - (void)willDismissElement:(DNTutorialElement *)element;

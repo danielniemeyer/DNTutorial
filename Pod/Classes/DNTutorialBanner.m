@@ -16,7 +16,9 @@
 @property (nonatomic, weak) UIButton                        *closeButton;
 
 @property (nonatomic, strong) NSString                      *message;
-@property (nonatomic, retain,setter = setBannerFont:)UIFont *messageFont;
+@property (nonatomic, strong) NSString                      *completedMessage;
+
+@property (nonatomic, strong,setter = setBannerFont:)UIFont *messageFont;
 @property (nonatomic, setter = setBannerColor:) UIColor     *backgroundColor;
 @property (nonatomic, strong) UIColor                       *completedColor;
 @property (nonatomic, setter = setBannerOpacity:) CGFloat   opacity;
@@ -30,6 +32,7 @@
 #pragma mark --
 
 + (id)bannerWithMessage:(NSString *)message
+      completionMessage:(NSString *)completionMessage
                   key:(NSString *)key;
 {
     // Proper initialization
@@ -42,6 +45,7 @@
     banner.completedColor = [UIColor greenColor];
     banner.key = key;
     banner.message = message;
+    banner.completedMessage = completionMessage;
     banner.messageFont = [UIFont systemFontOfSize:17];
     
     return banner;
@@ -169,11 +173,13 @@
         {
             _containerView.backgroundColor = _completedColor;
             self.circleLayer.opacity = 0.0;
-            [self.closeButton setImage:[UIImage imageNamed:@"bannerCheck"] forState:UIControlStateNormal];
         }
         
+        [self.messagelabel setText:_completedMessage];
+        [self.closeButton setImage:[UIImage imageNamed:@"bannerCheck"] forState:UIControlStateNormal];
+        
         // Should dismiss
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             if ([_delegate shouldDismissElement:self])
             {
                 [self dismiss];
@@ -215,7 +221,7 @@
 
 - (DNTutorialAction)tutorialActions;
 {
-    return DNTutorialActionBanner;
+    return DNTutorialActionBanner | DNTutorialActionScroll;
 }
 
 
@@ -275,10 +281,6 @@
     
     self.circleLayer.opacity = 0.8;
     self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
-    
-    // Load Checkmark image
-    [self.closeButton setImage:[UIImage imageNamed:@"bannerCheck"] forState:UIControlStateNormal];
-    
 }
 
 - (void)expandCircleInView:(UIView *)view

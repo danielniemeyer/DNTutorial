@@ -15,6 +15,7 @@
 
 // Public method for instantiating a new DNTutorialBanner with an appropriate message
 + (id)bannerWithMessage:(NSString *)message
+      completionMessage:(NSString *)completionMessage
                     key:(NSString *)key;
 
 

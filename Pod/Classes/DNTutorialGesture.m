@@ -10,8 +10,8 @@
 
 @interface DNTutorialGesture()
 
-@property (nonatomic) CGPoint                               startPosition;
-@property (nonatomic, weak) CAShapeLayer                    *circleLayer;
+@property (nonatomic) CGPoint                   startPosition;
+@property (nonatomic, weak) CAShapeLayer        *circleLayer;
 
 @end
 
@@ -22,7 +22,7 @@
 #pragma mark --
 
 + (id)gestureWithPosition:(CGPoint)point
-              direction:(DNTutorialGestureDirection)direction
+                     type:(DNTutorialGestureType)type
                     key:(NSString *)key;
 {
     // Proper initialization
@@ -32,7 +32,7 @@
     DNTutorialGesture *view = [DNTutorialGesture new];
     view.key = key;
     view.startPosition = point;
-    view.gestureDirection = direction;
+    view.gestureType = type;
     view.animationDuration = 1.5;
     return view;
 }
@@ -92,12 +92,6 @@
         return;
     }
     
-    // Notify delegate of dismissal
-    if ([_delegate respondsToSelector:@selector(willDismissElement:)])
-    {
-        [_delegate willDismissElement:self];
-    }
-    
     // Animate removal
     [UIView animateWithDuration:0.2 animations:^{
         _containerView.alpha = 0.0f;
@@ -121,12 +115,7 @@
     if (completed)
     {
         // Should dismiss
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            if ([_delegate shouldDismissElement:self])
-            {
-                [self dismiss];
-            }
-        });
+        [self dismiss];
     }
 }
 
@@ -147,7 +136,12 @@
 
 - (DNTutorialAction)tutorialActions;
 {
-    return DNTutorialActionGesture;
+    if (self.gestureType == DNTutorialGestureTypeTap || self.gestureType == DNTutorialGestureTypeDoubleTap)
+    {
+        return DNTutorialActionTapGesture;
+    }
+    
+    return DNTutorialActionSwipeGesture;
 }
 
 
@@ -207,18 +201,20 @@
 
 - (CGPoint)DNPointOffSet:(CGPoint)origin delta:(CGFloat)delta;
 {
-    switch (self.gestureDirection) {
-        case DNTutorialGestureDirectionUp:
+    switch (self.gestureType) {
+        case DNTutorialGestureTypeSwipeUp:
             origin.y -= delta;
             break;
-        case DNTutorialGestureDirectionRight:
+        case DNTutorialGestureTypeSwipeRight:
             origin.x += delta;
             break;
-        case DNTutorialGestureDirectionDown:
+        case DNTutorialGestureTypeSwipeDown:
             origin.y += delta;
             break;
-        case DNTutorialGestureDirectionLeft:
+        case DNTutorialGestureTypeSwipeLeft:
             origin.x -= delta;
+            break;
+        default:
             break;
     }
     

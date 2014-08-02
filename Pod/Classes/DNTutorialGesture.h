@@ -10,23 +10,25 @@
 
 #import "DNTutorialElement.h"
 
-typedef NS_ENUM (NSUInteger, DNTutorialGestureDirection)
+typedef NS_ENUM (NSUInteger, DNTutorialGestureType)
 {
-    DNTutorialGestureDirectionUp = 0,
-    DNTutorialGestureDirectionRight = 1,
-    DNTutorialGestureDirectionDown = 2,
-    DNTutorialGestureDirectionLeft = 3
+    DNTutorialGestureTypeSwipeUp = 0,
+    DNTutorialGestureTypeSwipeRight = 1,
+    DNTutorialGestureTypeSwipeDown = 2,
+    DNTutorialGestureTypeSwipeLeft = 3,
+    DNTutorialGestureTypeTap = 4,
+    DNTutorialGestureTypeDoubleTap = 5
 };
 
 @interface DNTutorialGesture : DNTutorialElement
 
-@property (nonatomic) CGFloat                               animationDuration;
-@property (nonatomic, assign) DNTutorialGestureDirection    gestureDirection;
+@property (nonatomic) CGFloat                          animationDuration;
+@property (nonatomic, assign) DNTutorialGestureType    gestureType;
 
 
 // Instantiate a new gesture tutorial with the given position and animation direction
 + (id)gestureWithPosition:(CGPoint)point
-              direction:(DNTutorialGestureDirection)direction
-                    key:(NSString *)key;
+                     type:(DNTutorialGestureType)type
+                      key:(NSString *)key;
 
 @end

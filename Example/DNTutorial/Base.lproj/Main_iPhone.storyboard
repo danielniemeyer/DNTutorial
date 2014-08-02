@@ -26,23 +26,13 @@
                                     <action selector="investButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VZh-Zv-W6x"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0F-Va-FIY">
-                                <rect key="frame" x="0.0" y="458" width="320" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset Tutorial">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jom-Ef-s3l"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="167"/>
+            <point key="canvasLocation" x="984" y="494"/>
         </scene>
         <!--Root Controller-->
         <scene sceneID="eEk-Pv-3I7">
@@ -66,13 +56,13 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Grn-6b-IUJ">
                                 <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.36078432199999999" green="0.77647066119999997" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <action selector="changePage:" destination="ohN-Ps-nGw" eventType="valueChanged" id="e3x-TL-1og"/>
                                 </connections>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.36078432199999999" green="0.77647066119999997" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
                         <outlet property="pageControl" destination="Grn-6b-IUJ" id="iHD-Rm-Fgv"/>
@@ -82,6 +72,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wf6-xA-jTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="424" y="167"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wbt-vw-CUj">
+            <objects>
+                <viewController storyboardIdentifier="DNFirstController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZQ7-gX-vtJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UVC-sM-gL7"/>
+                        <viewControllerLayoutGuide type="bottom" id="hGK-8i-iry"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o7A-pR-vZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078432202339172" green="0.77647066116333008" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJQ-iP-S2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="-232"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
