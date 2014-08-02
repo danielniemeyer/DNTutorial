@@ -2,9 +2,6 @@ target 'DNTutorial', :exclusive => true do
   pod "DNTutorial", :path => "../"
 end
 
-target 'Tests', :exclusive => true do
-  pod "DNTutorial", :path => "../"
-
-  pod 'Specta', '~> 0.2.1'
-  pod 'Expecta'
+target 'DNTutorialTests', :exclusive => true do
+    pod "DNTutorial", :path => "../"
 end

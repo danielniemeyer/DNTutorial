@@ -5,6 +5,24 @@
 [![License](https://img.shields.io/cocoapods/l/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
 [![Platform](https://img.shields.io/cocoapods/p/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
 
+## Introduction
+
+App Tutorial inspirations
+
+- https://github.com/lostinthepines/TutorialKit
+- https://github.com/kronik/UIViewController-Tutorial
+
+## TODO
+
+- Dismiss objects based on user actions
+- Look into NSObject as the base type for tutorialElements
+- Add a tutorial step middleman object that handles tutorial progress of middle objects and can take a block before shouldPresentObject: with an associated key.
+
+- Generalize tutorial system to take many tutorial objects as inputs √
+- Flexible implementation with polimorphic base classes for easy cuztomizable subclasses √
+- Pass tutorial key as viewcontroller class name and use it to track current tutorial state √
+- Save state on user defualts √
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

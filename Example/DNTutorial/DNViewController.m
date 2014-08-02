@@ -2,11 +2,13 @@
 //  DNViewController.m
 //  DNTutorial
 //
-//  Created by Daniel Niemeyer on 08/01/2014.
+//  Created by Daniel Niemeyer on 7/24/14.
 //  Copyright (c) 2014 Daniel Niemeyer. All rights reserved.
 //
 
 #import "DNViewController.h"
+
+#import "DNTutorial.h"
 
 @interface DNViewController ()
 
@@ -24,6 +26,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    // [DNTutorial advanceTutorialSequenceWithName:@"example"];
+}
+
+- (IBAction)investButtonAction:(id)sender
+{
+    [[DNTutorial sharedInstance] completedStepForKey:@"secondStep"];
+}
+
+- (IBAction)resetAction:(id)sender
+{
+    [[DNTutorial sharedInstance] resetProgress];
 }
 
 @end
