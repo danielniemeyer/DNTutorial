@@ -48,7 +48,7 @@
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.bounds = frame;
     layer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
-    layer.fillColor = [UIColor lightGrayColor].CGColor;
+    layer.fillColor = [UIColor whiteColor].CGColor;
     layer.opacity = 0.0;
     layer.position = self.startPosition;
     layer.shadowColor = [UIColor blueColor].CGColor;
@@ -138,10 +138,10 @@
 {
     if (self.gestureType == DNTutorialGestureTypeTap || self.gestureType == DNTutorialGestureTypeDoubleTap)
     {
-        return DNTutorialActionTapGesture;
+        return DNTutorialActionTapGesture | DNTutorialActionScroll;
     }
     
-    return DNTutorialActionSwipeGesture;
+    return DNTutorialActionSwipeGesture | DNTutorialActionScroll;
 }
 
 

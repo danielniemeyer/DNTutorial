@@ -38,29 +38,27 @@
 @property (nonatomic, weak) id<DNTutorialDelegate>  delegate;
 
 
-// Shared instance
-+ (DNTutorial *)sharedInstance;
-
-- (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
+// Tells DNTutorial to load the given elements and check if should present them
++ (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
                             inView:(UIView *)aView
                           delegate:(id<DNTutorialDelegate>)delegate;
 
 // Triggers a user action as completed
-- (void)completedStepForKey:(NSString *)aKey;
++ (void)completedStepForKey:(NSString *)aKey;
 
 
 // Reset tutorial to factory settings
-- (void)resetProgress;
++ (void)resetProgress;
 
 
 // Set debug mode so a step is always displayed
-- (void)setDebug;
++ (void)setDebug;
 
 
 // Used for tutorial gesture
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
++ (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
++ (void)scrollViewDidScroll:(UIScrollView *)scrollView;
++ (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 
 @end
 

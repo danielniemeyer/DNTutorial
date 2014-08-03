@@ -31,12 +31,12 @@
 
 - (IBAction)investButtonAction:(id)sender
 {
-    [[DNTutorial sharedInstance] completedStepForKey:@"secondStep"];
+    [DNTutorial completedStepForKey:@"secondStep"];
 }
 
 - (IBAction)resetAction:(id)sender
 {
-    [[DNTutorial sharedInstance] resetProgress];
+    [DNTutorial resetProgress];
 }
 
 @end

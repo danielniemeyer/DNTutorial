@@ -59,9 +59,14 @@
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     // Tutorial
     [self presentTutorial];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,13 +99,7 @@
     DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, swipeGesture] forKey:@"firtStep"];
     DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, tapGesture] forKey:@"secondStep"];
     
-    [[DNTutorial sharedInstance] presentTutorialWithSteps:@[step, step1] inView:self.view delegate:self];
-}
-
-- (BOOL)shouldDismissStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
-{
-//    return [aKey isEqualToString:@"firtStep"];
-    return YES;
+    [DNTutorial presentTutorialWithSteps:@[step, step1] inView:self.view delegate:self];
 }
 
 - (BOOL)shouldPresentStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
@@ -143,18 +142,18 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [[DNTutorial sharedInstance] scrollViewWillBeginDragging:scrollView];
+    [DNTutorial scrollViewWillBeginDragging:scrollView];
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [[DNTutorial sharedInstance] scrollViewDidScroll:scrollView];
+    [DNTutorial scrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [[DNTutorial sharedInstance] scrollViewDidEndDecelerating:scrollView];
+    [DNTutorial scrollViewDidEndDecelerating:scrollView];
     
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;

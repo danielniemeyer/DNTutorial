@@ -13,8 +13,6 @@ NSString* const sUserDefaultsKey = @"DNTutorialDefaults";
 NSString* const sTutorialObjectsCountKey = @"tutorialObjectCount";
 NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 
-
-
 @interface DNTutorialDictionary : NSMutableDictionary
 
 @property (nonatomic, strong) NSMutableDictionary       *dictionary;
@@ -118,20 +116,21 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 @implementation DNTutorial
 
 #pragma mark --
-#pragma mark - Lifecycle
+#pragma mark - Initiation
 #pragma mark --
 
 + (DNTutorial *)sharedInstance;
 {
     static DNTutorial *appTutorial = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (!appTutorial) {
+    if (appTutorial == nil)
+    {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
             appTutorial = [[DNTutorial alloc] init];
             appTutorial.tutorialSteps = [NSMutableArray array];
             appTutorial.userDefaults = [DNTutorialDictionary dictionary];
-        }
-    });
+        });
+    }
     
     return appTutorial;
 }
@@ -140,7 +139,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 #pragma mark Public Methods
 #pragma mark --
 
-- (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
++ (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
                             inView:(UIView *)aView
                           delegate:(id<DNTutorialDelegate>)delegate;
 {
@@ -148,31 +147,36 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     NSAssert(tutorialSteps != nil, @"AppTutorial: Cannot presnet tutorial with nil objetcs");
     NSAssert(aView != nil, @"AppTutorial: Cannot presnet tutorial with nil view");
     NSAssert(delegate != nil, @"AppTutorial: Cannot presnet tutorial with nil delegate");
-
+    
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
     
     // Remember tutorial objects
-    self.tutorialSteps = [tutorialSteps mutableCopy];
-    self.delegate = delegate;
-    self.parentView = aView;
+    tutorial.tutorialSteps = [tutorialSteps mutableCopy];
+    tutorial.delegate = delegate;
+    tutorial.parentView = aView;
     
     // Restore state
-    [self loadData];
+    [tutorial loadData];
     
-    if ([self.tutorialSteps count] == 0)
+    if ([tutorial.tutorialSteps count] == 0)
     {
         // Nothing to present dismiss
         return;
     }
     
-    [self presentTutorialStep:self.tutorialSteps[0] inView:aView];
+    [tutorial presentTutorialStep:tutorial.tutorialSteps[0] inView:aView];
 }
 
-- (void)completedStepForKey:(NSString *)aKey;
++ (void)completedStepForKey:(NSString *)aKey;
 {
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
     // Complete approprate step
     DNTutorialStep *toComplete = nil;
     
-    for (DNTutorialStep *step in self.tutorialSteps)
+    for (DNTutorialStep *step in tutorial.tutorialSteps)
     {
         if ([step.key isEqualToString:aKey])
         {
@@ -183,7 +187,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     if (toComplete == nil)
     {
-        toComplete = self.currentStep;
+        toComplete = tutorial.currentStep;
     }
     
     if (toComplete != nil)
@@ -192,26 +196,29 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     }
 }
 
-- (void)resetProgress;
++ (void)resetProgress;
 {
     // Restore to factory settings
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:sUserDefaultsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
-- (void)setDebug;
++ (void)setDebug;
 {
-    [self resetProgress];
+    [DNTutorial resetProgress];
 }
 
 #pragma mark --
 #pragma mark UIScrollView
 #pragma mark --
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
++ (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 {
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
     // Register initial position
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture];
+    NSArray *tutorialElements = [tutorial.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -220,16 +227,19 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     }
     
     // Register initial point
-    self.initialGesturePoint = scrollView.contentOffset;
+    tutorial.initialGesturePoint = scrollView.contentOffset;
     
     // Stop Animating
-    [self.currentStep stopAnimating];
+    [tutorial.currentStep stopAnimating];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
++ (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
     // Should base on direction of current presenting gesture action
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(DNTutorialActionSwipeGesture | DNTutorialActionScroll)];
+    NSArray *tutorialElements = [tutorial.currentStep tutorialElementsWithAction:(DNTutorialActionScroll)];
     
     if ([tutorialElements count] == 0)
     {
@@ -242,21 +252,24 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Calculate delta based on target direction
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
+        if ([tutorial.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
         {
-            delta = [self scrollView:scrollView deltaPositionForElement:tutorialElement];
+            delta = [tutorial scrollView:scrollView deltaPositionForElement:tutorialElement];
             break;
         }
     }
     
     // Track current position in relation to initial point
-    [self.currentStep setPercentageCompleted:delta];
+    [tutorial.currentStep setPercentageCompleted:delta];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
++ (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 {
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
     // Check if currently presenting a gesture animation
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture];
+    NSArray *tutorialElements = [tutorial.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -268,9 +281,9 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
+        if ([tutorial.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
         {
-            delta = [self scrollView:scrollView deltaPositionForElement:tutorialElement];
+            delta = [tutorial scrollView:scrollView deltaPositionForElement:tutorialElement];
             break;
         }
     }
@@ -278,7 +291,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Start animating
     if (delta <= 0.7)
     {
-        [self.currentStep startAnimating];
+        [tutorial.currentStep startAnimating];
     }
 }
 
