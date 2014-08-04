@@ -43,6 +43,9 @@
                             inView:(UIView *)aView
                           delegate:(id<DNTutorialDelegate>)delegate;
 
+// Presents step for key
++ (void)presentStepForKey:(NSString *)akey;
+
 // Triggers a user action as completed
 + (void)completedStepForKey:(NSString *)aKey;
 

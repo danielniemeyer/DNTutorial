@@ -168,6 +168,20 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [tutorial presentTutorialStep:tutorial.tutorialSteps[0] inView:aView];
 }
 
++ (void)presentStepForKey:(NSString *)akey;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+
+    DNTutorialStep *step = [tutorial tutorialStepForKey:akey];
+    
+    if (step == nil) {
+        return;
+    }
+    
+    [tutorial presentTutorialStep:step inView:tutorial.parentView];
+}
+
 + (void)completedStepForKey:(NSString *)aKey;
 {
     // Retrive DNTutorial instance
@@ -461,17 +475,23 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 
 - (BOOL)containsStepForKey:(NSString *)key
 {
+    // Check for key present in presenting queue
+    return [self tutorialStepForKey:key];
+}
+
+- (id)tutorialStepForKey:(NSString *)key
+{
     // Iterate objects and check for present key
     for (DNTutorialStep *tutorialStep in self.tutorialSteps)
     {
         if ([tutorialStep.key isEqualToString:key])
         {
-            return YES;
+            return tutorialStep;
         }
     }
     
-    // Check for key present in presenting queue
-    return [self.currentStep.key isEqualToString:key];
+    // Nothing found
+    return nil;
 }
 
 #pragma mark --
