@@ -55,7 +55,13 @@
 + (void)setDebug;
 
 
-// Used for tutorial gesture
+// Used for tutorial gestures
+
++ (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
+
 + (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 + (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 + (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;

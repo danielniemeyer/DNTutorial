@@ -11,6 +11,9 @@
 #import "DNTutorial.h"
 
 @interface DNViewController ()
+{
+    BOOL isMovingSquare;
+}
 
 @end
 
@@ -37,6 +40,24 @@
 - (IBAction)resetAction:(id)sender
 {
     [DNTutorial resetProgress];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [DNTutorial touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [DNTutorial touchesMoved:touches withEvent:event];
+    
+    CGPoint touchPoint = [(UITouch *)[touches anyObject] locationInView:self.view];
+    self.square.center = touchPoint;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [DNTutorial touchesEnded:touches withEvent:event];
 }
 
 @end

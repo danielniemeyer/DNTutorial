@@ -208,17 +208,58 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [DNTutorial resetProgress];
 }
 
-#pragma mark --
-#pragma mark UIScrollView
-#pragma mark --
-
-+ (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
++ (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
+    
+    [tutorial swipeBeganWithPoint:touchLocation];
+}
+
++ (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
+    
+    [tutorial swipeMovedWithPoint:touchLocation size:tutorial.parentView.bounds.size];
+}
+
++ (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
+    
+    [tutorial swipeEndedWithPoint:touchLocation size:tutorial.parentView.bounds.size];
+}
+
++ (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
+    
+    [tutorial swipeEndedWithPoint:touchLocation size:tutorial.parentView.bounds.size];
+}
+
+#pragma mark --
+#pragma mark Gesture recognizers
+#pragma mark --
+
+- (void)swipeBeganWithPoint:(CGPoint)point;
+{
     // Register initial position
-    NSArray *tutorialElements = [tutorial.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -227,19 +268,16 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     }
     
     // Register initial point
-    tutorial.initialGesturePoint = scrollView.contentOffset;
+    self.initialGesturePoint = point;
     
     // Stop Animating
-    [tutorial.currentStep stopAnimating];
+    [self.currentStep stopAnimating];
 }
 
-+ (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)swipeMovedWithPoint:(CGPoint)point size:(CGSize)size;
 {
-    // Retrive DNTutorial instance
-    DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
     // Should base on direction of current presenting gesture action
-    NSArray *tutorialElements = [tutorial.currentStep tutorialElementsWithAction:(DNTutorialActionScroll)];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(DNTutorialActionScroll)];
     
     if ([tutorialElements count] == 0)
     {
@@ -252,24 +290,21 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Calculate delta based on target direction
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([tutorial.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
+        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
         {
-            delta = [tutorial scrollView:scrollView deltaPositionForElement:tutorialElement];
+            delta = [self point:point deltaPositionForElement:tutorialElement withSize:size];
             break;
         }
     }
     
     // Track current position in relation to initial point
-    [tutorial.currentStep setPercentageCompleted:delta];
+    [self.currentStep setPercentageCompleted:delta];
 }
 
-+ (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+- (void)swipeEndedWithPoint:(CGPoint)point size:(CGSize)size;
 {
-    // Retrive DNTutorial instance
-    DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
     // Check if currently presenting a gesture animation
-    NSArray *tutorialElements = [tutorial.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -281,9 +316,9 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([tutorial.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
+        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
         {
-            delta = [tutorial scrollView:scrollView deltaPositionForElement:tutorialElement];
+            delta = [self point:point deltaPositionForElement:tutorialElement withSize:size];
             break;
         }
     }
@@ -291,11 +326,39 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Start animating
     if (delta <= 0.7)
     {
-        [tutorial.currentStep startAnimating];
+        [self.currentStep startAnimating];
     }
 }
 
-- (CGFloat)scrollView:(UIScrollView *)scrollView deltaPositionForElement:(DNTutorialElement *)tutorialElement;
+#pragma mark --
+#pragma mark UIScrollView
+#pragma mark --
+
++ (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    [tutorial swipeBeganWithPoint:scrollView.contentOffset];
+}
+
++ (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    [tutorial swipeMovedWithPoint:scrollView.contentOffset size:scrollView.bounds.size];
+}
+
++ (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    [tutorial swipeEndedWithPoint:scrollView.contentOffset size:scrollView.bounds.size];
+}
+
+- (CGFloat)point:(CGPoint)point deltaPositionForElement:(DNTutorialElement *)tutorialElement withSize:(CGSize)size;
 {
     CGFloat delta = 0.0f;
     
@@ -303,16 +366,16 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     switch (direction) {
         case DNTutorialGestureTypeSwipeUp:
-            delta = (scrollView.contentOffset.y - self.initialGesturePoint.y)/CGRectGetWidth(scrollView.bounds);
+            delta = (point.y - self.initialGesturePoint.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeRight:
-            delta = (self.initialGesturePoint.x - scrollView.contentOffset.x)/CGRectGetWidth(scrollView.bounds);
+            delta = (self.initialGesturePoint.x - point.x)/size.width;
             break;
         case DNTutorialGestureTypeSwipeDown:
-            delta = (self.initialGesturePoint.y - scrollView.contentOffset.y)/CGRectGetWidth(scrollView.bounds);
+            delta = (self.initialGesturePoint.y - point.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeLeft:
-            delta = (scrollView.contentOffset.x - self.initialGesturePoint.x)/CGRectGetWidth(scrollView.bounds);
+            delta = (point.x - self.initialGesturePoint.x)/size.width;
             break;
             
         default:

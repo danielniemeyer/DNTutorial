@@ -10,4 +10,6 @@
 
 @interface DNViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIView *square;
+
 @end
