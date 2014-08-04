@@ -82,7 +82,9 @@
 - (void)presentTutorial;
 {
     CGPoint center = self.view.center;
-    CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.view.bounds)/2.0, 140);
+    //CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.view.bounds)/2.0, 140);
+
+    CGPoint buttonCenter = center;
 
     center.x += 50;
     
@@ -93,7 +95,7 @@
     [banner1 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
     
     DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeSwipeLeft key:@"firstGesture"];
-    DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeTap key:@"secondGesture"];
+    DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeSwipeDown key:@"secondGesture"];
 
     
     DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, swipeGesture] forKey:@"firtStep"];

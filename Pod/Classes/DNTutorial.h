@@ -57,10 +57,11 @@
 
 // Used for tutorial gestures
 
-+ (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-+ (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-+ (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
-+ (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
++ (void)touchesMoved:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
++ (void)touchesEnded:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
++ (void)touchesCancelled:(CGPoint)touchPoint inView:(UIView *)view;
+
 
 + (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 + (void)scrollViewDidScroll:(UIScrollView *)scrollView;

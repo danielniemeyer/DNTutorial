@@ -44,20 +44,21 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [DNTutorial touchesBegan:touches withEvent:event];
+    CGPoint touchPoint = [(UITouch *)[touches anyObject] locationInView:self.view];
+    [DNTutorial touchesBegan:touchPoint inView:self.view];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [DNTutorial touchesMoved:touches withEvent:event];
-    
     CGPoint touchPoint = [(UITouch *)[touches anyObject] locationInView:self.view];
+    [DNTutorial touchesMoved:touchPoint destinationSize:CGSizeMake(0, -100)];
     self.square.center = touchPoint;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [DNTutorial touchesEnded:touches withEvent:event];
+    CGPoint touchPoint = [(UITouch *)[touches anyObject] locationInView:self.view];
+    [DNTutorial touchesEnded:touchPoint destinationSize:CGSizeMake(0, -100)];
 }
 
 @end

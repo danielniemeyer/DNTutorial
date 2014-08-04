@@ -208,48 +208,32 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [DNTutorial resetProgress];
 }
 
-+ (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
-    
-    [tutorial swipeBeganWithPoint:touchLocation];
+    [tutorial swipeBeganWithPoint:touchPoint];
 }
 
-+ (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesMoved:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
-    
-    [tutorial swipeMovedWithPoint:touchLocation size:tutorial.parentView.bounds.size];
+    [tutorial swipeMovedWithPoint:touchPoint size:touchSize];
 }
 
-+ (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesEnded:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
-    
-    [tutorial swipeEndedWithPoint:touchLocation size:tutorial.parentView.bounds.size];
+    [tutorial swipeEndedWithPoint:touchPoint size:touchSize];
 }
 
-+ (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
++ (void)touchesCancelled:(CGPoint)touchPoint inView:(UIView *)view;
 {
     // Retrive DNTutorial instance
-    DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchLocation = [touch locationInView:tutorial.parentView];
-    
-    [tutorial swipeEndedWithPoint:touchLocation size:tutorial.parentView.bounds.size];
+    //DNTutorial *tutorial = [DNTutorial sharedInstance];
+    //[tutorial swipeEndedWithPoint:touchPoint size:view.bounds.size];
 }
 
 #pragma mark --
