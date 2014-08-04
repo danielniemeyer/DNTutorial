@@ -25,7 +25,6 @@ typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
     @protected
     BOOL                                        _actionCompleted;
     id<DNTutorialElementDelegate>               _delegate;
-    __strong UIView                             *_containerView;
 }
 
 @property (nonatomic, strong) NSString          *key;

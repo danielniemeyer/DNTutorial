@@ -42,9 +42,6 @@
     // Initialize container view
     CGRect frame = CGRectMake(0, 0, 50, 50);
     
-    UIView *view = [UIView new];
-    view.frame = frame;
-    
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.bounds = frame;
     layer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
@@ -59,17 +56,13 @@
     
     // Add layer
     self.circleLayer = layer;
-    [view.layer addSublayer:layer];
-    [aView addSubview:view];
-    
-    // Override view
-    _containerView = view;    
+    [aView.layer addSublayer:layer];
 }
 
 - (void)tearDown;
 {
+    [_circleLayer removeFromSuperlayer];
     _circleLayer = nil;
-    _containerView = nil;
 }
 
 #pragma mark --
@@ -79,7 +72,6 @@
 - (void)show;
 {
     // Start animation
-    _containerView.alpha = 1.0f;
     _actionCompleted = NO;
 
     [self startAnimating];
@@ -88,20 +80,22 @@
 - (void)dismiss;
 {
     // Check if already dismissed
-    if (!_containerView.superview) {
+    if (!_circleLayer.superlayer) {
         return;
     }
     
     // Animate removal
-    [UIView animateWithDuration:0.2 animations:^{
-        _containerView.alpha = 0.0f;
-    } completion:^(BOOL finished) {
-        if ([_delegate respondsToSelector:@selector(didDismissElement:)])
-        {
-            [_delegate didDismissElement:self];
-        }
-    }];
+    CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    opacityAnimation.duration = 0.2;
+    opacityAnimation.fromValue = @(_circleLayer.opacity);
+    opacityAnimation.toValue = @(0.0);
+    opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
+    [_circleLayer addAnimation:opacityAnimation forKey:@"opacity"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, opacityAnimation.duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [_delegate didDismissElement:self];
+    });
 }
 
 - (void)setCompleted:(BOOL)completed animated:(BOOL)animated;

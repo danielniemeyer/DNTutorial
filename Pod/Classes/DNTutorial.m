@@ -357,6 +357,11 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 - (void)presentTutorialStep:(DNTutorialStep *)step inView:(UIView *)aView;
 {
     // Check if can present step
+    if (self.currentStep == step)
+    {
+        return;
+    }
+    
     BOOL shouldPresent = YES;
     
     if ([_delegate respondsToSelector:@selector(shouldPresentStep:forKey:)])

@@ -15,6 +15,7 @@
 @property (nonatomic, weak) UILabel                         *messagelabel;
 @property (nonatomic, weak) UIButton                        *closeButton;
 
+@property (nonatomic, strong) UIView                        *containerView;
 @property (nonatomic, strong) NSString                      *message;
 @property (nonatomic, strong) NSString                      *completedMessage;
 
@@ -108,6 +109,8 @@
 
 - (void)tearDown;
 {
+    [_containerView removeFromSuperview];
+    
     _message = nil;
     _messagelabel = nil;
     _closeButton = nil;
@@ -137,20 +140,14 @@
     }
     
     // Notify delegate of dismissal
-    if ([_delegate respondsToSelector:@selector(willDismissElement:)])
-    {
-        [_delegate willDismissElement:self];
-    }
+    [_delegate willDismissElement:self];
     
     // Animate removal
     [UIView animateWithDuration:0.2 animations:^{
         _containerView.frame = CGRectOffset(_containerView.frame, 0, CGRectGetHeight(_containerView.frame));
     } completion:^(BOOL finished)
      {
-        if ([_delegate respondsToSelector:@selector(didDismissElement:)])
-        {
-            [_delegate didDismissElement:self];
-        }
+        [_delegate didDismissElement:self];
     }];
 
 }
