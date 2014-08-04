@@ -58,9 +58,14 @@
 + (void)setDebug;
 
 
+// Returns the tutorial step corresponding the given key. If no object is found for the given key,
+// nil is returned instead.
++ (id)tutorialStepForKey:(NSString *)aKey;
+
+
 // Returns the tutorial element corresponding the given key. If no object is found for the given key,
 // nil is returned instead.
-- (id)tutorialElementForKey:(NSString *)aKey;
++ (id)tutorialElementForKey:(NSString *)aKey;
 
 
 // Used for tutorial gestures

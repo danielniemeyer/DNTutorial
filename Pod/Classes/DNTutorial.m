@@ -250,14 +250,31 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [tutorial swipeEnded:DNTutorialActionSwipeGesture withPoint:touchPoint size:view.bounds.size];
 }
 
-- (id)tutorialElementForKey:(NSString *)aKey;
++ (id)tutorialStepForKey:(NSString *)aKey;
 {
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    DNTutorialElement *element = [self.currentStep tutorialElementForKey:aKey];
+    DNTutorialStep *step = tutorial.currentStep;
+    
+    for (int i = 0; step == nil;)
+    {
+        step = tutorial.tutorialSteps[i];
+    }
+    
+    return step;
+}
+
++ (id)tutorialElementForKey:(NSString *)aKey;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    DNTutorialElement *element = [tutorial.currentStep tutorialElementForKey:aKey];
     
     for (int i = 0; element == nil;)
     {
-        element = [self.tutorialSteps[i] tutorialElementForKey:aKey];
+        element = [tutorial.tutorialSteps[i] tutorialElementForKey:aKey];
     }
     
     return element;
