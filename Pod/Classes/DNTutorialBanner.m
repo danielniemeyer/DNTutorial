@@ -218,7 +218,7 @@
 
 - (DNTutorialAction)tutorialActions;
 {
-    return DNTutorialActionBanner | DNTutorialActionScroll;
+    return DNTutorialActionBanner;
 }
 
 

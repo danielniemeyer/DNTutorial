@@ -16,8 +16,12 @@ typedef NS_ENUM (NSUInteger, DNTutorialGestureType)
     DNTutorialGestureTypeSwipeRight = 1,
     DNTutorialGestureTypeSwipeDown = 2,
     DNTutorialGestureTypeSwipeLeft = 3,
-    DNTutorialGestureTypeTap = 4,
-    DNTutorialGestureTypeDoubleTap = 5
+    DNTutorialGestureTypeScrollUp = 4,
+    DNTutorialGestureTypeScrollRight = 5,
+    DNTutorialGestureTypeScrollDown = 6,
+    DNTutorialGestureTypeScrollLeft = 7,
+    DNTutorialGestureTypeTap = 8,
+    DNTutorialGestureTypeDoubleTap = 9,
 };
 
 @interface DNTutorialGesture : DNTutorialElement

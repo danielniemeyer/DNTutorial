@@ -94,12 +94,12 @@
     DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Tap complete action to continue" completionMessage:@"Congratulations! You now know how to complete actions" key:@"secondBanner"];
     [banner1 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
     
-    DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeSwipeLeft key:@"firstGesture"];
-    DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeSwipeDown key:@"secondGesture"];
+    DNTutorialGesture *scrollGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeScrollLeft key:@"firstGesture"];
+    DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeSwipeDown key:@"secondGesture"];
 
     
-    DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, swipeGesture] forKey:@"firtStep"];
-    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, tapGesture] forKey:@"secondStep"];
+    DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, scrollGesture] forKey:@"firtStep"];
+    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, swipeGesture] forKey:@"secondStep"];
     
     [DNTutorial presentTutorialWithSteps:@[step, step1] inView:self.view delegate:self];
 }

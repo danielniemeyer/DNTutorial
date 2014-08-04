@@ -130,12 +130,17 @@
 
 - (DNTutorialAction)tutorialActions;
 {
-    if (self.gestureType == DNTutorialGestureTypeTap || self.gestureType == DNTutorialGestureTypeDoubleTap)
+    if (self.gestureType >= DNTutorialGestureTypeSwipeUp && self.gestureType < DNTutorialGestureTypeScrollUp)
     {
-        return DNTutorialActionTapGesture | DNTutorialActionScroll;
+        return DNTutorialActionSwipeGesture;
     }
     
-    return DNTutorialActionSwipeGesture | DNTutorialActionScroll;
+    if (self.gestureType >= DNTutorialGestureTypeScrollUp && self.gestureType < DNTutorialGestureTypeTap)
+    {
+        return DNTutorialActionScroll;
+    }
+    
+    return DNTutorialActionTapGesture | DNTutorialActionScroll | DNTutorialActionSwipeGesture;
 }
 
 
@@ -206,6 +211,18 @@
             origin.y += delta;
             break;
         case DNTutorialGestureTypeSwipeLeft:
+            origin.x -= delta;
+            break;
+        case DNTutorialGestureTypeScrollUp:
+            origin.y -= delta;
+            break;
+        case DNTutorialGestureTypeScrollRight:
+            origin.x += delta;
+            break;
+        case DNTutorialGestureTypeScrollDown:
+            origin.y += delta;
+            break;
+        case DNTutorialGestureTypeScrollLeft:
             origin.x -= delta;
             break;
         default:

@@ -226,38 +226,38 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    [tutorial swipeBeganWithPoint:touchPoint];
+    [tutorial swipeBegan:DNTutorialActionSwipeGesture withPoint:touchPoint];
 }
 
 + (void)touchesMoved:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    [tutorial swipeMovedWithPoint:touchPoint size:touchSize];
+    [tutorial swipeMoved:DNTutorialActionSwipeGesture withPoint:touchPoint size:touchSize];
 }
 
 + (void)touchesEnded:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    [tutorial swipeEndedWithPoint:touchPoint size:touchSize];
+    [tutorial swipeEnded:DNTutorialActionSwipeGesture withPoint:touchPoint size:touchSize];
 }
 
 + (void)touchesCancelled:(CGPoint)touchPoint inView:(UIView *)view;
 {
     // Retrive DNTutorial instance
-    //DNTutorial *tutorial = [DNTutorial sharedInstance];
-    //[tutorial swipeEndedWithPoint:touchPoint size:view.bounds.size];
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    [tutorial swipeEnded:DNTutorialActionSwipeGesture withPoint:touchPoint size:view.bounds.size];
 }
 
 #pragma mark --
 #pragma mark Gesture recognizers
 #pragma mark --
 
-- (void)swipeBeganWithPoint:(CGPoint)point;
+- (void)swipeBegan:(DNTutorialAction)action withPoint:(CGPoint)point;
 {
     // Register initial position
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:action | DNTutorialActionTapGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -272,10 +272,10 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [self.currentStep stopAnimating];
 }
 
-- (void)swipeMovedWithPoint:(CGPoint)point size:(CGSize)size;
+- (void)swipeMoved:(DNTutorialAction)action withPoint:(CGPoint)point size:(CGSize)size;
 {
     // Should base on direction of current presenting gesture action
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(DNTutorialActionScroll)];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(action)];
     
     if ([tutorialElements count] == 0)
     {
@@ -288,7 +288,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Calculate delta based on target direction
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
+        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:action])
         {
             delta = [self point:point deltaPositionForElement:tutorialElement withSize:size];
             break;
@@ -299,10 +299,10 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [self.currentStep setPercentageCompleted:delta];
 }
 
-- (void)swipeEndedWithPoint:(CGPoint)point size:(CGSize)size;
+- (void)swipeEnded:(DNTutorialAction)action withPoint:(CGPoint)point size:(CGSize)size;
 {
     // Check if currently presenting a gesture animation
-    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:DNTutorialActionSwipeGesture | DNTutorialActionTapGesture];
+    NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:action | DNTutorialActionTapGesture];
     
     if ([tutorialElements count] == 0)
     {
@@ -314,7 +314,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     for (DNTutorialElement *tutorialElement in tutorialElements)
     {
-        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:DNTutorialActionSwipeGesture])
+        if ([self.currentStep tutorialElement:tutorialElement respondsToActions:action])
         {
             delta = [self point:point deltaPositionForElement:tutorialElement withSize:size];
             break;
@@ -337,7 +337,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    [tutorial swipeBeganWithPoint:scrollView.contentOffset];
+    [tutorial swipeBegan:DNTutorialActionScroll withPoint:scrollView.contentOffset];
 }
 
 + (void)scrollViewDidScroll:(UIScrollView *)scrollView;
@@ -345,7 +345,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    [tutorial swipeMovedWithPoint:scrollView.contentOffset size:scrollView.bounds.size];
+    [tutorial swipeMoved:DNTutorialActionScroll withPoint:scrollView.contentOffset size:scrollView.bounds.size];
 }
 
 + (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
@@ -353,7 +353,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    [tutorial swipeEndedWithPoint:scrollView.contentOffset size:scrollView.bounds.size];
+    [tutorial swipeEnded:DNTutorialActionScroll withPoint:scrollView.contentOffset size:scrollView.bounds.size];
 }
 
 - (CGFloat)point:(CGPoint)point deltaPositionForElement:(DNTutorialElement *)tutorialElement withSize:(CGSize)size;
@@ -373,6 +373,18 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
             delta = (self.initialGesturePoint.y - point.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeLeft:
+            delta = (point.x - self.initialGesturePoint.x)/size.width;
+            break;
+        case DNTutorialGestureTypeScrollUp:
+            delta = (point.y - self.initialGesturePoint.y)/size.height;
+            break;
+        case DNTutorialGestureTypeScrollRight:
+            delta = (self.initialGesturePoint.x - point.x)/size.width;
+            break;
+        case DNTutorialGestureTypeScrollDown:
+            delta = (self.initialGesturePoint.y - point.y)/size.height;
+            break;
+        case DNTutorialGestureTypeScrollLeft:
             delta = (point.x - self.initialGesturePoint.x)/size.width;
             break;
             
