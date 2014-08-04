@@ -35,4 +35,8 @@ typedef NS_ENUM (NSUInteger, DNTutorialGestureType)
                      type:(DNTutorialGestureType)type
                       key:(NSString *)key;
 
+
+// Sets the center position
+- (void)setPosition:(CGPoint)point;
+
 @end

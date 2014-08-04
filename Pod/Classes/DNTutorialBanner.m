@@ -205,7 +205,7 @@
     frame.size.width = CGRectGetWidth(_containerView.bounds) * (percentage + 0.1);
     frame.origin.y -= CGRectGetHeight(frame)/2.0;
     
-    self.circleLayer.opacity = percentage;
+    self.circleLayer.opacity = (0.2 + percentage*0.8);
     
     self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
 

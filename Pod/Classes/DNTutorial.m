@@ -250,12 +250,31 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [tutorial swipeEnded:DNTutorialActionSwipeGesture withPoint:touchPoint size:view.bounds.size];
 }
 
+- (id)tutorialElementForKey:(NSString *)aKey;
+{
+    
+    DNTutorialElement *element = [self.currentStep tutorialElementForKey:aKey];
+    
+    for (int i = 0; element == nil;)
+    {
+        element = [self.tutorialSteps[i] tutorialElementForKey:aKey];
+    }
+    
+    return element;
+}
+
 #pragma mark --
 #pragma mark Gesture recognizers
 #pragma mark --
 
 - (void)swipeBegan:(DNTutorialAction)action withPoint:(CGPoint)point;
 {
+    if (self.currentStep == nil)
+        return;
+    
+    // Stop Animating
+    [self.currentStep stopAnimating];
+    
     // Register initial position
     NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:action | DNTutorialActionTapGesture];
     
@@ -267,13 +286,13 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     
     // Register initial point
     self.initialGesturePoint = point;
-    
-    // Stop Animating
-    [self.currentStep stopAnimating];
 }
 
 - (void)swipeMoved:(DNTutorialAction)action withPoint:(CGPoint)point size:(CGSize)size;
 {
+    if (self.currentStep == nil)
+        return;
+    
     // Should base on direction of current presenting gesture action
     NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:(action)];
     
@@ -301,14 +320,11 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 
 - (void)swipeEnded:(DNTutorialAction)action withPoint:(CGPoint)point size:(CGSize)size;
 {
+    if (self.currentStep == nil)
+        return;
+    
     // Check if currently presenting a gesture animation
     NSArray *tutorialElements = [self.currentStep tutorialElementsWithAction:action | DNTutorialActionTapGesture];
-    
-    if ([tutorialElements count] == 0)
-    {
-        // Ignore
-        return;
-    }
     
     CGFloat delta = 0.0f;
     
@@ -325,6 +341,8 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     if (delta <= 0.7)
     {
         [self.currentStep startAnimating];
+        
+        [self.currentStep setPercentageCompleted:0];
     }
 }
 
@@ -367,13 +385,13 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
             delta = (point.y - self.initialGesturePoint.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeRight:
-            delta = (self.initialGesturePoint.x - point.x)/size.width;
+            delta = (point.x - self.initialGesturePoint.x)/size.width;
             break;
         case DNTutorialGestureTypeSwipeDown:
             delta = (self.initialGesturePoint.y - point.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeLeft:
-            delta = (point.x - self.initialGesturePoint.x)/size.width;
+            delta = (self.initialGesturePoint.x - point.x)/size.width;
             break;
         case DNTutorialGestureTypeScrollUp:
             delta = (point.y - self.initialGesturePoint.y)/size.height;
@@ -488,7 +506,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 - (BOOL)containsStepForKey:(NSString *)key
 {
     // Check for key present in presenting queue
-    return [self tutorialStepForKey:key];
+    return [self tutorialStepForKey:key] != nil;
 }
 
 - (id)tutorialStepForKey:(NSString *)key

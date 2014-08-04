@@ -41,6 +41,10 @@
 - (NSArray *)tutorialElementsWithAction:(DNTutorialAction)actions;
 
 
+// Retuns a tutorial element with the given key
+- (id)tutorialElementForKey:(NSString *)aKey;
+
+
 // Check if a certain tutorial element responds to given actions
 - (BOOL)tutorialElement:(DNTutorialElement *)tutorialElement respondsToActions:(DNTutorialAction)actions;
 

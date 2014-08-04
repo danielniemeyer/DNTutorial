@@ -143,11 +143,6 @@
     return DNTutorialActionTapGesture | DNTutorialActionScroll | DNTutorialActionSwipeGesture;
 }
 
-
-#pragma mark --
-#pragma mark - Public Methods
-#pragma mark --
-
 - (void)startAnimating;
 {
     // Check if can animate
@@ -159,7 +154,7 @@
     // Calculate end point based on origin and direction
     CGPoint startPoint = self.startPosition;
     CGPoint endPoint = [self DNPointOffSet:startPoint delta:100];
-
+    
     // Animate position
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
     pathAnimation.duration = self.animationDuration;
@@ -192,6 +187,16 @@
 {
     // Stop animating
     [self.circleLayer removeAnimationForKey:@"gestureAnimation"];
+}
+
+
+#pragma mark --
+#pragma mark - Public Methods
+#pragma mark --
+
+- (void)setPosition:(CGPoint)point;
+{
+    _startPosition = point;
 }
 
 #pragma mark --

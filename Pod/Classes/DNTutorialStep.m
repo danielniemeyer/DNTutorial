@@ -72,6 +72,20 @@
     return [NSArray arrayWithArray:toReturn];
 }
 
+- (id)tutorialElementForKey:(NSString *)aKey;
+{
+    
+    for (DNTutorialElement *element in self.elements)
+    {
+        if ([element.key isEqualToString:aKey])
+        {
+            return element;
+        }
+    }
+    
+    return nil;
+}
+
 - (BOOL)tutorialElement:(DNTutorialElement *)tutorialElement respondsToActions:(DNTutorialAction)actions;
 {
     if (actions & [tutorialElement tutorialActions])

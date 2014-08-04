@@ -58,8 +58,12 @@
 + (void)setDebug;
 
 
-// Used for tutorial gestures
+// Returns the tutorial element corresponding the given key. If no object is found for the given key,
+// nil is returned instead.
+- (id)tutorialElementForKey:(NSString *)aKey;
 
+
+// Used for tutorial gestures
 + (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
 + (void)touchesMoved:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
 + (void)touchesEnded:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;
