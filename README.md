@@ -38,7 +38,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Daniel Niemeyer, danieldn94@gmail.com
+Daniel Niemeyer
 
 ## License
 

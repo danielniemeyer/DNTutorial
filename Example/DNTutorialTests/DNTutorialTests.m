@@ -35,16 +35,16 @@
 
 - (void)testTutorialBanner
 {
-    DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"A test banner" key:@"testBanner"];
+    DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"A test banner" completionMessage:@"Completed"  key:@"testBanner"];
     XCTAssertNotNil(banner, @"DNAppTutorialTests:   Cannot present a nil banner");
+    [banner setCompleted:YES animated:NO];
 }
 
 - (void)testTutorialGesture
 {
-    DNTutorialGesture *gesture = [DNTutorialGesture gestureWithPosition:CGPointZero direction:DNTutorialGestureDirectionDown key:@"testGesture"];
-    //[[DNAppTutorial sharedInstance] presentTutorialWithObjects:@[gesture] inView:self.containerView delegate:self];
+    DNTutorialGesture *gesture = [DNTutorialGesture gestureWithPosition:CGPointZero type:DNTutorialGestureTypeSwipeRight key:@"testGesture"];
     XCTAssertNotNil(gesture, @"DNAppTutorialTests:   Cannot present a nil gesture");
-    XCTAssertNotEqual(gesture.gestureDirection, 0, @"DNAppTutorialTests:   Cannot present a gesture with nil direction");
+    XCTAssertNotEqual(gesture.gestureType, 0, @"DNAppTutorialTests:   Cannot present a gesture with nil direction");
 }
 
 @end
