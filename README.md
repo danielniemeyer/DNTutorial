@@ -1,6 +1,6 @@
 # DNTutorial
 
-[![CI Status](http://img.shields.io/travis/Daniel Niemeyer/DNTutorial.svg?style=flat)](https://travis-ci.org/Daniel Niemeyer/DNTutorial)
+[![CI Status](http://img.shields.io/travis/danielniemeyer/DNTutorial.svg?style=flat)](https://travis-ci.org/danielniemeyer/DNTutorial)
 [![Version](https://img.shields.io/cocoapods/v/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
 [![License](https://img.shields.io/cocoapods/l/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
 [![Platform](https://img.shields.io/cocoapods/p/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
