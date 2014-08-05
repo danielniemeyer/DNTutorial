@@ -45,6 +45,7 @@
 
 
 // Pauses the tutorial, saves the current state and hides all elements
++ (void)showTutorial;
 + (void)hideTutorial;
 
 

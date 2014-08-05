@@ -42,6 +42,11 @@
     [DNTutorial hideTutorial];
 }
 
+- (IBAction)showTutorial:(id)sender
+{
+    [DNTutorial showTutorial];
+}
+
 - (IBAction)resetAction:(id)sender
 {
     [DNTutorial resetProgress];

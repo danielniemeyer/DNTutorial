@@ -96,7 +96,7 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
 - (BOOL)controller:(NSString *)aController getCompletionforElement:(id<NSCopying>)aKey;
 {
     NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
-    return [controllerDictionary objectForKey:controllerDictionary[sTutorialElementsKey]];
+    return [[controllerDictionary objectForKey:controllerDictionary[sTutorialElementsKey]] boolValue];
 }
 
 - (NSMutableDictionary *)dictionaryForController:(NSString *)aController;
@@ -184,6 +184,21 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
     }
     
     [tutorial presentTutorialStep:tutorial.tutorialSteps[0] inView:aView];
+}
+
++ (void)showTutorial;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    
+    // TODO
+    // Elements will be null
+    // Check out if this should be allowed
+    
+    [tutorial.currentStep showInView:tutorial.parentView];
+    
+    NSLog(@"%lu", (unsigned long)[tutorial.tutorialSteps count]);
 }
 
 + (void)hideTutorial;
@@ -510,22 +525,24 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
     }
     
     // Advance tutorial
-    if (objectCount == [_tutorialSteps count])
+    if (objectCount != [_tutorialSteps count])
     {
-        // Advance tutorial
-        NSDictionary *elementsDict = [self.userDefaults controller:[self currentController] getObjectforKey:sTutorialElementsKey];
-        
-        [elementsDict enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop)
+        NSLog(@"DNTutorial: Detected different number of banners being presented than those previously saved.");
+    }
+    
+    // Advance tutorial
+    NSDictionary *elementsDict = [self.userDefaults controller:[self currentController] getObjectforKey:sTutorialElementsKey];
+    
+    [elementsDict enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop)
+    {
+        for (DNTutorialStep *step in [self.tutorialSteps copy])
         {
-            for (DNTutorialStep *step in [self.tutorialSteps copy])
+            if ([key isEqualToString:step.key] && [value boolValue])
             {
-                if ([key isEqualToString:step.key] && [value boolValue])
-                {
-                    [self.tutorialSteps removeObject:step];
-                }
+                [self.tutorialSteps removeObject:step];
             }
-             NSLog(@"%@ => %@", key, value);
-        }];
+        }
+    }];
         
         
 //        NSUInteger toDelete = objectCount - remainingCount;
@@ -534,7 +551,6 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
 //        {
 //            [self.tutorialSteps removeObjectsInRange:NSMakeRange(0, toDelete)];
 //        }
-    }
 }
 
 - (void)saveData;
@@ -650,8 +666,6 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
 
 - (void)didDismissStep:(DNTutorialStep *)tutorialStep;
 {
-    self.currentStep = nil;
-    
     // Check if there are more steps to present and if so show it.
     if ([self.tutorialSteps count] == 0)
     {

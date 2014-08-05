@@ -96,7 +96,7 @@
         <!--View Controller-->
         <scene sceneID="Wbt-vw-CUj">
             <objects>
-                <viewController storyboardIdentifier="DNFirstController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZQ7-gX-vtJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DNFirstController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZQ7-gX-vtJ" customClass="DNViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UVC-sM-gL7"/>
                         <viewControllerLayoutGuide type="bottom" id="hGK-8i-iry"/>
@@ -104,6 +104,20 @@
                     <view key="view" contentMode="scaleToFill" id="o7A-pR-vZ2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27D-sN-hLj">
+                                <rect key="frame" x="0.0" y="104" width="320" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissTutorial:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SJG-z5-2er"/>
+                                    <action selector="showTutorial:" destination="ZQ7-gX-vtJ" eventType="touchUpInside" id="egl-Np-bjf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.36078432202339172" green="0.77647066116333008" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                 </viewController>

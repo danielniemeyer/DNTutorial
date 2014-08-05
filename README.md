@@ -14,9 +14,11 @@ App Tutorial inspirations
 
 ## TODO
 
-- Dismiss objects based on user actions
-- Look into NSObject as the base type for tutorialElements
-- Add a tutorial step middleman object that handles tutorial progress of middle objects and can take a block before shouldPresentObject: with an associated key.
+- Add ability to hide and show a tutorial step and see how it syncs with skiping a tutorial step.
+
+- Dismiss objects based on user actions √
+- Look into NSObject as the base type for tutorialElements √
+- Add a tutorial step middleman object that handles tutorial progress of middle objects and can take a block before shouldPresentObject: with an associated key √
 
 - Generalize tutorial system to take many tutorial objects as inputs √
 - Flexible implementation with polimorphic base classes for easy cuztomizable subclasses √
