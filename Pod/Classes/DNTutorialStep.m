@@ -103,6 +103,11 @@
     {
         [tutorialElement setPercentageCompleted:percentage];
     }
+    
+    if (percentage >= 1.0)
+    {
+        _actionCompleted = YES;
+    }
 }
 
 - (void)setCompleted:(BOOL)completed;
@@ -124,6 +129,11 @@
     }
 }
 
+- (BOOL)isCompleted;
+{
+    return _actionCompleted;
+}
+
 - (void)startAnimating;
 {
     for (DNTutorialElement *tutorialElement in self.elements)
@@ -140,18 +150,27 @@
     }
 }
 
+- (void)dismissStep;
+{
+    if ([self.elements count] == 0)
+        return;
+    
+    DNTutorialElement *element = self.elements[0];
+    [element dismiss];
+}
+
 #pragma mark --
-#pragma mark Private Methods
+#pragma mark Private
 #pragma mark --
 
-- (void)dismiss
+- (void)dismiss;
 {
-    if ([_delegate respondsToSelector:@selector(willDismissStep:)])
+    if (_delegate && [_delegate respondsToSelector:@selector(willDismissStep:)])
     {
         [_delegate willDismissStep:self];
     }
     
-    if ([_delegate respondsToSelector:@selector(didDismissStep:)]) {
+    if (_delegate && [_delegate respondsToSelector:@selector(didDismissStep:)]) {
         [_delegate didDismissStep:self];
     }
 }

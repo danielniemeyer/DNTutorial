@@ -37,6 +37,11 @@
     [DNTutorial completedStepForKey:@"secondStep"];
 }
 
+- (IBAction)dismissTutorial:(id)sender
+{
+    [DNTutorial hideTutorial];
+}
+
 - (IBAction)resetAction:(id)sender
 {
     [DNTutorial resetProgress];

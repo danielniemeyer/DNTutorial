@@ -43,8 +43,18 @@
                             inView:(UIView *)aView
                           delegate:(id<DNTutorialDelegate>)delegate;
 
+
+// Pauses the tutorial, saves the current state and hides all elements
++ (void)hideTutorial;
+
+
 // Presents step for key
-+ (void)presentStepForKey:(NSString *)akey;
++ (void)presentStepForKey:(NSString *)aKey;
+
+
+// Hode step for key
++ (void)hideStepForKey:(NSString *)aKey;
+
 
 // Triggers a user action as completed
 + (void)completedStepForKey:(NSString *)aKey;

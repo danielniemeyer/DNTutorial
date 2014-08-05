@@ -12,6 +12,8 @@ NSString* const sUserDefaultsKey = @"DNTutorialDefaults";
 
 NSString* const sTutorialObjectsCountKey = @"tutorialObjectCount";
 NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
+NSString* const sTutorialElementsKey = @"tutorialSteps";
+
 
 @interface DNTutorialDictionary : NSMutableDictionary
 
@@ -82,6 +84,21 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     return [controllerDictionary objectForKey:aKey];
 }
 
+- (void)controller:(NSString *)aController setCompletion:(BOOL)completion forElement:(id<NSCopying>)aKey;
+{
+    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
+    NSMutableDictionary *elementsDictionary = [controllerDictionary[sTutorialElementsKey] mutableCopy];
+    [elementsDictionary setObject:@(completion) forKey:aKey];
+    [controllerDictionary setObject:elementsDictionary forKey:sTutorialElementsKey];
+    [self setObject:controllerDictionary forKey:aController];
+}
+
+- (BOOL)controller:(NSString *)aController getCompletionforElement:(id<NSCopying>)aKey;
+{
+    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
+    return [controllerDictionary objectForKey:controllerDictionary[sTutorialElementsKey]];
+}
+
 - (NSMutableDictionary *)dictionaryForController:(NSString *)aController;
 {
     // Check for existing entry in user defaults dictionary, create one if needed
@@ -90,6 +107,7 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     if (_dictionary[aController] == nil)
     {
         controllerDictionary = [NSMutableDictionary dictionary];
+        [controllerDictionary setObject:[NSDictionary dictionary] forKey:sTutorialElementsKey];
         [_dictionary setObject:controllerDictionary forKey:aController];
     }
     else
@@ -168,12 +186,34 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [tutorial presentTutorialStep:tutorial.tutorialSteps[0] inView:aView];
 }
 
-+ (void)presentStepForKey:(NSString *)akey;
++ (void)hideTutorial;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    // Dequeue
+    NSMutableArray *copy = [tutorial.tutorialSteps mutableCopy];
+    
+    if (tutorial.currentStep != nil)
+    {
+        [copy insertObject:tutorial.currentStep atIndex:0];
+    }
+        
+    for (DNTutorialStep *step in copy)
+    {
+        // Save step for later
+        [step dismissStep];
+    }
+}
 
-    DNTutorialStep *step = [tutorial tutorialStepForKey:akey];
++ (void)presentStepForKey:(NSString *)aKey;
+{
+    NSAssert(aKey != nil, @"AppTutorial: Cannot present tutorial with nil key");
+    
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+
+    DNTutorialStep *step = [tutorial tutorialStepForKey:aKey];
     
     if (step == nil) {
         return;
@@ -182,8 +222,26 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [tutorial presentTutorialStep:step inView:tutorial.parentView];
 }
 
++ (void)hideStepForKey:(NSString *)aKey;
+{
+    NSAssert(aKey != nil, @"AppTutorial: Cannot hide tutorial with nil key");
+    
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    DNTutorialStep *step = [tutorial tutorialStepForKey:aKey];
+    
+    if (step == nil) {
+        return;
+    }
+    
+    
+}
+
 + (void)completedStepForKey:(NSString *)aKey;
 {
+    NSAssert(aKey != nil, @"AppTutorial: Cannot complete step with nil key");
+
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
@@ -267,6 +325,8 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 
 + (id)tutorialElementForKey:(NSString *)aKey;
 {
+    NSAssert(aKey != nil, @"AppTutorial: Cannot get tutorial element with nil key");
+    
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
@@ -453,13 +513,41 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     if (objectCount == [_tutorialSteps count])
     {
         // Advance tutorial
-        NSUInteger toDelete = objectCount - remainingCount;
+        NSDictionary *elementsDict = [self.userDefaults controller:[self currentController] getObjectforKey:sTutorialElementsKey];
         
-        if (remainingCount < objectCount && toDelete > 0)
+        [elementsDict enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop)
         {
-            [self.tutorialSteps removeObjectsInRange:NSMakeRange(0, toDelete)];
-        }
+            for (DNTutorialStep *step in [self.tutorialSteps copy])
+            {
+                if ([key isEqualToString:step.key] && [value boolValue])
+                {
+                    [self.tutorialSteps removeObject:step];
+                }
+            }
+             NSLog(@"%@ => %@", key, value);
+        }];
+        
+        
+//        NSUInteger toDelete = objectCount - remainingCount;
+//        
+//        if (remainingCount < objectCount && toDelete > 0)
+//        {
+//            [self.tutorialSteps removeObjectsInRange:NSMakeRange(0, toDelete)];
+//        }
     }
+}
+
+- (void)saveData;
+{
+    NSUInteger remainingCount = [self.tutorialSteps count];
+    
+    if (!self.currentStep.isCompleted)
+    {
+        remainingCount++;
+    }
+    
+    // Amount remaining
+    [self.userDefaults controller:[self currentController] setObject:@(remainingCount) forKey:sTutorialRemainingCountKey];
 }
 
 - (void)presentTutorialStep:(DNTutorialStep *)step inView:(UIView *)aView;
@@ -495,10 +583,16 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
     [self.tutorialSteps removeObjectAtIndex:0];
 }
 
+- (void)hideTutorialStep:(DNTutorialStep *)step;
+{
+    [self skipTutorialStep:step];
+}
+
 - (void)skipTutorialStep:(DNTutorialStep *)step;
 {
     // Save step for later
-    [self.userDefaults controller:[self currentController] setObject:@(NO) forKey:step.key];
+//    [self.userDefaults controller:[self currentController] setObject:@(NO) forKey:step.key];
+    [self.userDefaults controller:[self currentController] setCompletion:NO forElement:step.key];
     
     // Dequeue
     [self.tutorialSteps removeObjectAtIndex:0];
@@ -548,8 +642,10 @@ NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 - (void)willDismissStep:(DNTutorialStep *)tutorialStep;
 {
     // Save state
-    [self.userDefaults controller:[self currentController] setObject:@(YES) forKey:tutorialStep.key];
-    [self.userDefaults controller:[self currentController] setObject:@([self.tutorialSteps count]) forKey:sTutorialRemainingCountKey];
+    //[self.userDefaults controller:[self currentController] setObject:@(tutorialStep.isCompleted) forKey:tutorialStep.key];
+    [self.userDefaults controller:[self currentController] setCompletion:tutorialStep.isCompleted forElement:tutorialStep.key];
+
+    [self saveData];
 }
 
 - (void)didDismissStep:(DNTutorialStep *)tutorialStep;

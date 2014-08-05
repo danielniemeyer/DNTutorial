@@ -37,6 +37,26 @@
 - (void)showInView:(UIView *)aView;
 
 
+// Dismiss a step
+- (void)dismissStep;
+
+
+// Set action completed
+- (void)setCompleted:(BOOL)completed;
+
+
+// Getter
+- (BOOL)isCompleted;
+
+
+// Called when element should animate
+- (void)startAnimating;
+
+
+// Called when user action pauses animations
+- (void)stopAnimating;
+
+
 // Return tutorial elements that repond to given actions
 - (NSArray *)tutorialElementsWithAction:(DNTutorialAction)actions;
 
@@ -51,16 +71,6 @@
 
 // Set percentage completed
 - (void)setPercentageCompleted:(CGFloat)percentage;
-
-
-// Set action completed
-- (void)setCompleted:(BOOL)completed;
-
-// Called when element should animate
-- (void)startAnimating;
-
-// Called when user action pauses animations
-- (void)stopAnimating;
 
 @end
 
