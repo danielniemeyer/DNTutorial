@@ -11,6 +11,7 @@
 @interface DNTutorialStep()
 {
     BOOL    isDismissingElement;
+    BOOL    isHidingElement;
 }
 
 @property (nonatomic, strong) NSMutableArray           *elements;
@@ -155,8 +156,12 @@
     if ([self.elements count] == 0)
         return;
     
-    DNTutorialElement *element = self.elements[0];
-    [element dismiss];
+//    isHidingElement = YES;
+
+    for (DNTutorialElement *element in self.elements)
+    {
+        [element dismiss];
+    }    
 }
 
 #pragma mark --
@@ -188,7 +193,7 @@
 - (void)willDismissElement:(DNTutorialElement *)element;
 {
     // Called when element is about to be animated out of the parent view
-    if (isDismissingElement)
+    if (isDismissingElement || isHidingElement)
     {
         return;
     }
@@ -209,6 +214,12 @@
 
 - (void)didDismissElement:(DNTutorialElement *)element;
 {
+    // Check for hiding
+    if (isHidingElement)
+    {
+        return;
+    }
+    
     // Element dismissed!
     [self.elements removeObject:element];
     

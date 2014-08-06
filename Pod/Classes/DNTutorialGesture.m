@@ -94,6 +94,7 @@
     [_circleLayer addAnimation:opacityAnimation forKey:@"opacity"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, opacityAnimation.duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self stopAnimating];
         [_delegate didDismissElement:self];
     });
 }
