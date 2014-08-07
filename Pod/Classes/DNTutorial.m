@@ -447,7 +447,6 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
     [tutorial swipeBegan:DNTutorialActionScroll withPoint:scrollView.contentOffset];
 }
 
@@ -455,7 +454,6 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
     [tutorial swipeMoved:DNTutorialActionScroll withPoint:scrollView.contentOffset size:scrollView.bounds.size];
 }
 
@@ -463,7 +461,6 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
     [tutorial swipeEnded:DNTutorialActionScroll withPoint:scrollView.contentOffset size:scrollView.bounds.size];
 }
 
@@ -613,7 +610,6 @@ NSInteger const sTutorialTrackingDistance = 100;
 - (void)skipTutorialStep:(DNTutorialStep *)step;
 {
     // Save step for later
-//    [self.userDefaults controller:[self currentController] setObject:@(NO) forKey:step.key];
     [self.userDefaults controller:[self currentController] setCompletion:NO forElement:step.key];
     
     // Dequeue
@@ -664,7 +660,6 @@ NSInteger const sTutorialTrackingDistance = 100;
 - (void)willDismissStep:(DNTutorialStep *)tutorialStep;
 {
     // Save state
-    //[self.userDefaults controller:[self currentController] setObject:@(tutorialStep.isCompleted) forKey:tutorialStep.key];
     [self.userDefaults controller:[self currentController] setCompletion:tutorialStep.isCompleted forElement:tutorialStep.key];
 
     [self saveData];
@@ -684,14 +679,12 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (BOOL)shouldDismissStep:(DNTutorialStep *)step;
 {
-    BOOL toReturn;
+    BOOL toReturn = YES;
     
     if ([_delegate respondsToSelector:@selector(shouldDismissStep:forKey:)])
     {
         toReturn = [_delegate shouldDismissStep:step forKey:step.key];
     }
-    else
-        toReturn = YES;
     
     return toReturn;
 }
