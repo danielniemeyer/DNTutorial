@@ -14,6 +14,7 @@ NSString* const sTutorialObjectsCountKey = @"tutorialObjectCount";
 NSString* const sTutorialRemainingCountKey = @"tutorialRemainingCount";
 NSString* const sTutorialElementsKey = @"tutorialSteps";
 
+NSInteger const sTutorialTrackingDistance = 100;
 
 @interface DNTutorialDictionary : NSMutableDictionary
 
@@ -579,6 +580,11 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
     if ([_delegate respondsToSelector:@selector(shouldPresentStep:forKey:)])
     {
         shouldPresent = [_delegate shouldPresentStep:step forKey:step.key];
+    }
+    
+    if (step.isCompleted)
+    {
+        shouldPresent = NO;
     }
     
     if (!shouldPresent)

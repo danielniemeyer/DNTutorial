@@ -190,6 +190,11 @@
     return [_delegate shouldDismissStep:self];
 }
 
+- (void)userDismissedElement:(DNTutorialElement *)element;
+{
+    [self setCompleted:YES];
+}
+
 - (void)willDismissElement:(DNTutorialElement *)element;
 {
     // Called when element is about to be animated out of the parent view

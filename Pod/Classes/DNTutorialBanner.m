@@ -172,7 +172,10 @@
             self.circleLayer.opacity = 0.0;
         }
         
-        [self.messagelabel setText:_completedMessage];
+        if (!_completedMessage || _completedMessage.length > 0)
+        {
+            [self.messagelabel setText:_completedMessage];
+        }
         [self.closeButton setImage:[UIImage imageNamed:@"bannerCheck"] forState:UIControlStateNormal];
         
         // Should dismiss
@@ -320,6 +323,12 @@
 
 - (void)closeAction:(id)sender;
 {
+    // Should never show banner again
+    if (_delegate && [_delegate respondsToSelector:@selector(userDismissedElement:)])
+    {
+        [_delegate userDismissedElement:self];
+    }
+    
     [self dismiss];
 }
 
