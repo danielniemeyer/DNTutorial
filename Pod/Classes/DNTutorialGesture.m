@@ -152,16 +152,37 @@
         return;
     }
     
+    // Animations
+    NSArray *animations;
+    CGFloat multiplier = 1.0;
+    
     // Calculate end point based on origin and direction
     CGPoint startPoint = self.startPosition;
     CGPoint endPoint = [self DNPointOffSet:startPoint delta:100];
     
-    // Animate position
-    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-    pathAnimation.duration = self.animationDuration;
-    pathAnimation.fromValue = [NSValue valueWithCGPoint:startPoint];
-    pathAnimation.toValue = [NSValue valueWithCGPoint:endPoint];
+    CGRect startRect = self.circleLayer.bounds;
+    CGRect endRect = CGRectZero;
+    multiplier = 1.1;
+    
+    // Center function
+    endRect.size.height = endRect.size.width = startRect.size.height * multiplier;
+    endRect.origin.x = startRect.origin.x - (endRect.size.width - startRect.size.width)/2.0;
+    endRect.origin.y = startRect.origin.y - (endRect.size.height - startRect.size.height)/2.0;
+    
+    // Animate path
+    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    pathAnimation.duration = self.animationDuration*0.3;
+    pathAnimation.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:endRect] CGPath];
+    pathAnimation.toValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
     pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    // Animate position
+    CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    positionAnimation.beginTime = pathAnimation.duration;
+    positionAnimation.duration = self.animationDuration*0.7;
+    positionAnimation.fromValue = [NSValue valueWithCGPoint:startPoint];
+    positionAnimation.toValue = [NSValue valueWithCGPoint:endPoint];
+    positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     // Animate opacity
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -177,10 +198,44 @@
     fadeOut.beginTime = opacityAnimation.duration;
     fadeOut.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
+    animations = [NSArray arrayWithObjects:pathAnimation, positionAnimation, opacityAnimation, fadeOut, nil];
+    
+    // Animate tap
+    if (self.gestureType == DNTutorialGestureTypeTap)
+    {
+        // Animate size
+        pathAnimation.duration = self.animationDuration*0.6;
+        pathAnimation.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
+        pathAnimation.toValue = (id)[[UIBezierPath bezierPathWithOvalInRect:endRect] CGPath];
+        pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        CABasicAnimation *shadowAnimation = [CABasicAnimation animationWithKeyPath:@"shadowPath"];
+        shadowAnimation.duration = pathAnimation.duration;
+        shadowAnimation.fromValue = pathAnimation.fromValue;
+        shadowAnimation.toValue = pathAnimation.toValue;
+        shadowAnimation.timingFunction = pathAnimation.timingFunction;
+        
+        CABasicAnimation *pathAnimation1 = [CABasicAnimation animationWithKeyPath:@"path"];
+        pathAnimation1.duration = self.animationDuration*0.4;
+        pathAnimation1.beginTime = pathAnimation.duration;
+        pathAnimation1.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:endRect] CGPath];
+        pathAnimation1.toValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
+        pathAnimation1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        CABasicAnimation *shadowAnimation1 = [CABasicAnimation animationWithKeyPath:@"shadowPath"];
+        shadowAnimation1.beginTime = pathAnimation1.beginTime;
+        shadowAnimation1.duration = pathAnimation1.duration;
+        shadowAnimation1.fromValue = pathAnimation1.fromValue;
+        shadowAnimation1.toValue = pathAnimation1.toValue;
+        shadowAnimation1.timingFunction = pathAnimation1.timingFunction;
+        
+        animations = [NSArray arrayWithObjects:pathAnimation, shadowAnimation, pathAnimation1, shadowAnimation1, opacityAnimation, fadeOut, nil];
+    }
+    
     CAAnimationGroup *opacityGroup = [CAAnimationGroup animation];
-    opacityGroup.animations = @[pathAnimation, opacityAnimation, fadeOut];
+    opacityGroup.animations = animations;
     opacityGroup.repeatCount = HUGE_VALF;
-    opacityGroup.duration = self.animationDuration;
+    opacityGroup.duration = self.animationDuration*multiplier;
     [self.circleLayer addAnimation:opacityGroup forKey:@"gestureAnimation"];
 }
 

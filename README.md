@@ -52,6 +52,7 @@ it, simply add the following line to your Podfile:
 
     pod "DNTutorial"
 
+
 2. Manually add the files into your Xcode project. Slightly simpler, but updates are also manual.
 
 DNTutorial requires iOS 7 or later.
