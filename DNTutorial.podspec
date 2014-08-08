@@ -9,17 +9,13 @@
 
 Pod::Spec.new do |s|
   s.name             = "DNTutorial"
-  s.version          = "0.1.0"
-  s.summary          = "DNTutorial manages a set of tutorial objects that interact with the user."
+  s.version          = "0.1.1"
+  s.summary          = "DNTutorial provides an easy to use introductory tutorial system based on Paper by Facebook."
   s.description      = <<-DESC
-                       DNTutorial manages a set of tutorial objects that interact with the user.
- Once the user completes a task, the tutotial message will never be displayed again.
+                       DNTutorial provides an easy to use introductory tutorial system based on Paper by Facebook.
+ Once the user completes a task, the tutorial message will never be displayed again.
  If the user interacts with a feature that could toggle a tutorial message, that message should never be displayed to the user.
-
- Tutorials consist of multiple types and all elements inheret from a single DNTutorialElement base class.
- DNTutorialBanner displays a banner with an appropriate message and an action that triggers its dismissal.
- DNTutorialGesture displays a gesture motion with a starting location and direction.
- DNTutorialBoth displays a gesture montion alongside a banner with a progress banner
+ s
                        DESC
   s.homepage         = "https://github.com/danielniemeyer/DNTutorial"
   s.screenshots      = "http://f.cl.ly/items/3o0n1K2V2z1L1e0t2X09/tutorial.gif"
