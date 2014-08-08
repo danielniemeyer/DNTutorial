@@ -7,7 +7,7 @@
 
 DNTutorial manages a set of tutorial elements that guide the user on how to interact with your app.
 
-The implementation of DNTutorial is very simple and was mainly by Paper from Facebook.
+The implementation of DNTutorial is very simple and was mainly based on Paper by Facebook.
 
 
 ## Usage
