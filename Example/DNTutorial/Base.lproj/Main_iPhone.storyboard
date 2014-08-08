@@ -32,7 +32,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efr-Mg-NlD">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efr-Mg-NlD">
                                 <rect key="frame" x="0.0" y="414" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dismiss">
@@ -46,13 +46,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.22745099663734436" green="0.55686277151107788" blue="0.729411780834198" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="square" destination="mfc-Mg-5a9" id="RXL-S1-qRv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="494"/>
+            <point key="canvasLocation" x="984" y="490"/>
         </scene>
         <!--Root Controller-->
         <scene sceneID="eEk-Pv-3I7">
@@ -84,6 +85,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.36078432199999999" green="0.77647066119999997" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="pageControl" destination="Grn-6b-IUJ" id="iHD-Rm-Fgv"/>
                         <outlet property="scrollView" destination="HPS-me-DST" id="seU-Ym-7e4"/>
@@ -105,7 +107,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27D-sN-hLj">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27D-sN-hLj">
                                 <rect key="frame" x="0.0" y="104" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show">
@@ -120,6 +122,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.36078432202339172" green="0.77647066116333008" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJQ-iP-S2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

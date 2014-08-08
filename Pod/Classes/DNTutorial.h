@@ -17,6 +17,9 @@
 // DNTutorialGesture displays a gesture motion with a starting location and direction.
 // DNTutorialBoth displays a gesture montion alongside a banner with a progress banner
 
+//- https://github.com/lostinthepines/TutorialKit
+//- https://github.com/kronik/UIViewController-Tutorial
+
 #import <Foundation/Foundation.h>
 
 #import "DNTutorialStep.h"

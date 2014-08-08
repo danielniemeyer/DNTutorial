@@ -81,27 +81,29 @@
 
 - (void)presentTutorial;
 {
-    CGPoint center = self.view.center;
-    //CGPoint buttonCenter = CGPointMake(CGRectGetWidth(self.view.bounds)/2.0, 140);
-
-    CGPoint buttonCenter = center;
+    CGPoint center, buttonCenter, objectCenter;
+    center = buttonCenter = objectCenter = self.view.center;
 
     center.x += 50;
+    buttonCenter.y -= 140;
     
-    DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"Tap and hold on the graph to view the value, move your finger left and right to see how the value changes over the day." completionMessage:@"Congratulations! You now know how to interact with graphs in the app." key:@"initialBanner"];
-    [banner styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
-
-    DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Tap complete action to continue" completionMessage:@"Congratulations! You now know how to complete actions" key:@"secondBanner"];
+    DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Tap and swipe left to navigate to the next page. Swipe anywhere left or right to skip pages." completionMessage:@"Congratulations! You now know how to navigate throughout the app." key:@"initialBanner"];
+    DNTutorialBanner *banner2 = [DNTutorialBanner bannerWithMessage:@"Tap 'complete action' to continue." completionMessage:@"Congratulations! You now know how to complete actions" key:@"secondBanner"];
+    DNTutorialBanner *banner3 = [DNTutorialBanner bannerWithMessage:@"Tap and swipe down to drag objects across the screen." completionMessage:@"Congratulations! You now know how use swipe gestures" key:@"thirdBanner"];
+    
     [banner1 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
+    [banner2 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
+    [banner3 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
     
     DNTutorialGesture *scrollGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeScrollLeft key:@"firstGesture"];
-    DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeSwipeDown key:@"secondGesture"];
-
+    DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeTap key:@"tapGesture"];
+    DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:objectCenter type:DNTutorialGestureTypeSwipeDown key:@"secondGesture"];
     
-    DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, scrollGesture] forKey:@"firtStep"];
-    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, swipeGesture] forKey:@"secondStep"];
+    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, scrollGesture] forKey:@"firtStep"];
+    DNTutorialStep *step2 = [DNTutorialStep stepWithTutorialElements:@[banner2, tapGesture] forKey:@"secondStep"];
+    DNTutorialStep *step3 = [DNTutorialStep stepWithTutorialElements:@[banner3, swipeGesture] forKey:@"thirdStep"];
     
-    [DNTutorial presentTutorialWithSteps:@[step, step1] inView:self.view delegate:self];
+    [DNTutorial presentTutorialWithSteps:@[step1, step2, step3] inView:self.view delegate:self];
 }
 
 - (BOOL)shouldPresentStep:(DNTutorialStep *)step forKey:(NSString *)aKey;

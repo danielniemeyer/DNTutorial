@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
  DNTutorialBoth displays a gesture montion alongside a banner with a progress banner
                        DESC
   s.homepage         = "https://github.com/danielniemeyer/DNTutorial"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots      = "http://f.cl.ly/items/3o0n1K2V2z1L1e0t2X09/tutorial.gif"
   s.license          = 'MIT'
   s.author           = { "Daniel Niemeyer" => "danieldn94@gmail.com" }
   s.source           = { :git => "https://github.com/danielniemeyer/DNTutorial.git", :tag => s.version.to_s }
