@@ -9,6 +9,7 @@ DNTutorial manages a set of tutorial elements that guide the user on how to inte
 
 The implementation of DNTutorial is very simple and was mainly based on Paper by Facebook.
 
+![alt tag](http://f.cl.ly/items/3o0n1K2V2z1L1e0t2X09/tutorial.gif)
 
 ## Usage
 
@@ -19,18 +20,18 @@ To present a tutorial, simply create the tutorial elements you would like to pre
 
 An example of creating a tutorial sequence.
 
-<DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"A banner message" completionMessage:@"Completion message" key:@"banner"];
+    DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"A banner message" completionMessage:@"Completion message" key:@"banner"];
     
     DNTutorialGesture *scrollGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeScrollLeft key:@"gesture"];
 
     DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, scrollGesture] forKey:@"step"];
     
-    [DNTutorial presentTutorialWithSteps:@[step1] inView:self.view delegate:self];>
+    [DNTutorial presentTutorialWithSteps:@[step1] inView:self.view delegate:self];
 
 
 To style the appearance of a banner simply call the style method
 
-<[banner styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];>
+    [banner styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
 
 ## Customization
 
