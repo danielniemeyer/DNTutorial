@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
 [![Platform](https://img.shields.io/cocoapods/p/DNTutorial.svg?style=flat)](http://cocoadocs.org/docsets/DNTutorial)
 
-DNTutorial manages a set of tutorial elements that guide the user on how to interact with your app.
+DNTutorial manages a set of tutorial elements that guide users on how to interact with your app.
 
 The implementation of DNTutorial is very simple and was mainly based on Paper by Facebook.
 
@@ -20,6 +20,7 @@ To present a tutorial, simply create the tutorial elements you would like to pre
 
 An example of creating a tutorial sequence.
 
+```objectivec
     DNTutorialBanner *banner = [DNTutorialBanner bannerWithMessage:@"A banner message" completionMessage:@"Completion message" key:@"banner"];
     
     DNTutorialGesture *scrollGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeScrollLeft key:@"gesture"];
@@ -27,12 +28,12 @@ An example of creating a tutorial sequence.
     DNTutorialStep *step = [DNTutorialStep stepWithTutorialElements:@[banner, scrollGesture] forKey:@"step"];
     
     [DNTutorial presentTutorialWithSteps:@[step1] inView:self.view delegate:self];
-
+```
 
 To style the appearance of a banner simply call the style method
-
+```objectivec
     [banner styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
-
+```
 ## Customization
 
 DNTutorial comes with two standard tutorial elements (DNTutorialBanner, DNTutorialGesture).
@@ -45,14 +46,15 @@ And if you come up with a cool class, just submit a pull request so that I can a
 
 ## Installation
 
-There are two options:
-
-1. DNTutorial is available as DNTutorial in [CocoaPods](http://cocoapods.org). To install
+DNTutorial is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
     pod "DNTutorial"
 
 
+There are two options:
+
+1. Adding it to your pod file.
 2. Manually add the files into your Xcode project. Slightly simpler, but updates are also manual.
 
 DNTutorial requires iOS 7 or later.
@@ -63,11 +65,7 @@ DNTutorial requires iOS 7 or later.
 
 - Dismiss objects based on user actions √
 - Look into NSObject as the base type for tutorialElements √
-- Add a tutorial step middleman object that handles tutorial progress of middle objects and can take a block before shouldPresentObject: with an associated key √
-
-- Generalize tutorial system to take many tutorial objects as inputs √
 - Flexible implementation with polimorphic base classes for easy customizable subclasses √
-- Pass tutorial key as viewcontroller class name and use it to track current tutorial state √
 - Save state on user defaults √
 
 ## Author

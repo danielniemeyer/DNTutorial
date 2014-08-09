@@ -278,7 +278,7 @@ NSInteger const sTutorialTrackingDistance = 100;
         toComplete = tutorial.currentStep;
     }
     
-    if (toComplete != nil)
+    if (toComplete != nil && [toComplete.key isEqualToString:aKey])
     {
         [toComplete setCompleted:YES];
     }

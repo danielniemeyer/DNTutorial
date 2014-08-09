@@ -75,6 +75,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIStoryboard *)mainStoryboard;
+{
+    NSString *storyboardName = @"Main_iPhone";
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        storyboardName = @"Main_iPad";
+    
+    return [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+}
+
 #pragma mark --
 #pragma mark DNTutorial Delegate
 #pragma mark --
@@ -124,9 +134,9 @@
     if ((NSNull *)controller == [NSNull null])
     {
         if (page == 0)
-            controller = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"DNFirstController"];
+            controller = [[self mainStoryboard] instantiateViewControllerWithIdentifier:@"DNFirstController"];
         else
-            controller = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"DNViewController"];
+            controller = [[self mainStoryboard] instantiateViewControllerWithIdentifier:@"DNViewController"];
         
         [self.viewControllers replaceObjectAtIndex:page withObject:controller];
     }

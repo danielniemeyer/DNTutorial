@@ -273,14 +273,14 @@
     // Expand circle
     [self expandCircleInView:_containerView];
     
-    CGRect frame = CGRectZero;
-    frame.size.width = 600;
-    frame.size.height = 400;
-    frame.origin.x = CGRectGetMidX(_containerView.bounds)-CGRectGetMidX(frame);
-    frame.origin.y = CGRectGetMidY(_containerView.bounds)-CGRectGetMidY(frame);
+    CGRect endRect = CGRectZero;
+    endRect.size.height = 400;
+    endRect.size.width = CGRectGetWidth(_containerView.bounds) * 1.1f;
+    endRect.origin.x = -10;
+    endRect.origin.y -= CGRectGetHeight(endRect)/2.0 - CGRectGetMidY(_containerView.bounds);
     
     self.circleLayer.opacity = 0.8;
-    self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
+    self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:endRect].CGPath;
 }
 
 - (void)expandCircleInView:(UIView *)view
@@ -290,10 +290,10 @@
     CGRect startRect = self.closeButton.frame;
     
     CGRect endRect = CGRectZero;
-    endRect.size.width = 600;
     endRect.size.height = 400;
-    endRect.origin.x = CGRectGetMidX(view.bounds)-CGRectGetMidX(endRect);
-    endRect.origin.y = CGRectGetMidY(view.bounds)-CGRectGetMidY(endRect);
+    endRect.size.width = CGRectGetWidth(view.bounds) * 1.1f;
+    endRect.origin.x = -10;
+    endRect.origin.y -= CGRectGetHeight(endRect)/2.0 - CGRectGetMidY(view.bounds);
     
     [CATransaction begin];
     
