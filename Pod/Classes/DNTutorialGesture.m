@@ -154,7 +154,7 @@
     
     // Animations
     NSArray *animations;
-    CGFloat multiplier = 1.0;
+    CGFloat multiplier = 1.1;
     
     // Calculate end point based on origin and direction
     CGPoint startPoint = self.startPosition;
@@ -162,7 +162,6 @@
     
     CGRect startRect = self.circleLayer.bounds;
     CGRect endRect = CGRectZero;
-    multiplier = 1.1;
     
     // Center function
     endRect.size.height = endRect.size.width = startRect.size.height * multiplier;
