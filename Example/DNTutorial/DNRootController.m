@@ -101,9 +101,7 @@
     DNTutorialBanner *banner2 = [DNTutorialBanner bannerWithMessage:@"Tap 'complete action' to continue." completionMessage:@"Congratulations! You now know how to complete actions" key:@"secondBanner"];
     DNTutorialBanner *banner3 = [DNTutorialBanner bannerWithMessage:@"Tap and swipe down to drag objects across the screen." completionMessage:@"Congratulations! You now know how use swipe gestures" key:@"thirdBanner"];
     
-    [banner1 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
     [banner2 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
-    [banner3 styleWithColor:[UIColor blackColor] completedColor:[UIColor blueColor] opacity:0.7 font:[UIFont systemFontOfSize:13]];
     
     DNTutorialGesture *scrollGesture = [DNTutorialGesture gestureWithPosition:center type:DNTutorialGestureTypeScrollLeft key:@"firstGesture"];
     DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeTap key:@"tapGesture"];

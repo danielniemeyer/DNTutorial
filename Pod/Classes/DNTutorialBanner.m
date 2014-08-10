@@ -41,13 +41,13 @@
     
     // Init view
     DNTutorialBanner *banner = [DNTutorialBanner new];
-    banner.opacity = 0.85;
-    banner.backgroundColor = [UIColor lightGrayColor];
-    banner.completedColor = [UIColor greenColor];
+    banner.opacity = 0.7;
+    banner.backgroundColor = [UIColor blackColor];
+    banner.completedColor = [UIColor blueColor];
     banner.key = key;
     banner.message = message;
     banner.completedMessage = completionMessage;
-    banner.messageFont = [UIFont systemFontOfSize:17];
+    banner.messageFont = [UIFont systemFontOfSize:15];
     
     return banner;
 }
@@ -61,10 +61,17 @@
     // Initialize container view
     UIView *view = [UIView new];
     
-    // Default banner size
-    CGFloat screenHeight = CGRectGetHeight([[UIScreen mainScreen] bounds]);
-    CGFloat screenWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]);
-    CGRect frame = CGRectMake(0, screenHeight, screenWidth, 80);
+    CGFloat viewHeight = CGRectGetHeight(aView.bounds);
+    CGFloat viewWidth = CGRectGetWidth(aView.bounds);
+    CGRect frame = CGRectMake(0, viewHeight, viewWidth, 80);
+    
+    // Make sure the new frame doesn't put the view outside the window's bounds
+    CGRect windowFrame = [[UIScreen mainScreen] bounds];
+    
+    if (frame.size.height > CGRectGetHeight(windowFrame))
+    {
+        frame.origin.y = CGRectGetHeight(windowFrame);
+    }
     
     view.frame = frame;
     view.alpha = _opacity;
@@ -79,7 +86,7 @@
     self.circleLayer = circleLayer;
     
     // Message label
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screenWidth-60, CGRectGetHeight(frame))];
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(frame)-60, CGRectGetHeight(frame))];
     messageLabel.text = self.message;
     messageLabel.font = self.messageFont;
     messageLabel.textColor = [UIColor whiteColor];
@@ -95,6 +102,15 @@
     [closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:closeButton];
     self.closeButton = closeButton;
+    
+    // Progress indicator
+//    CAShapeLayer *progressLayer = [CAShapeLayer layer];
+//    progressLayer.path = [UIBezierPath bezierPathWithArcCenter:closeButton.center radius:18 startAngle:0 endAngle:0 clockwise:YES].CGPath;
+//    progressLayer.fillColor = [UIColor clearColor].CGColor;
+//    progressLayer.strokeColor = [UIColor whiteColor].CGColor;
+//    progressLayer.lineWidth = 1;
+//    [view.layer addSublayer:progressLayer];
+//    self.progressLayer = progressLayer;
     
     // Add subview
     [aView addSubview:view];
@@ -200,7 +216,7 @@
         return;
     }
     
-    // Load percentage indicator
+    // Load background indicator
     CGRect frame = CGRectZero;
     frame.origin.x = -10.0;
     frame.origin.y = CGRectGetHeight(_containerView.bounds) / 2.0;
@@ -208,13 +224,12 @@
     frame.size.width = CGRectGetWidth(_containerView.bounds) * (percentage + 0.1);
     frame.origin.y -= CGRectGetHeight(frame)/2.0;
     
-    self.circleLayer.opacity = (0.2 + percentage*0.8);
-    
+    self.circleLayer.opacity = (0.1 + percentage*0.9);
     self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
-
+    
+    // User action completed
     if (percentage >= 1.0)
     {
-        // User action completed
         [self setCompleted:YES animated:NO];
     }
 }

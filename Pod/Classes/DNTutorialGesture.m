@@ -154,7 +154,7 @@
     
     // Animations
     NSArray *animations;
-    CGFloat multiplier = 1.1;
+    CGFloat multiplier = 1.2;
     
     // Calculate end point based on origin and direction
     CGPoint startPoint = self.startPosition;
@@ -173,7 +173,7 @@
     pathAnimation.duration = self.animationDuration*0.3;
     pathAnimation.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:endRect] CGPath];
     pathAnimation.toValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
-    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
     // Animate position
     CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -202,6 +202,8 @@
     // Animate tap
     if (self.gestureType == DNTutorialGestureTypeTap)
     {
+        multiplier = 1.1;
+        
         // Animate size
         pathAnimation.duration = self.animationDuration*0.6;
         pathAnimation.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
