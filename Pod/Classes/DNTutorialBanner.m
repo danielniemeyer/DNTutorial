@@ -188,7 +188,7 @@
             self.circleLayer.opacity = 0.0;
         }
         
-        if (!_completedMessage || _completedMessage.length > 0)
+        if (_completedMessage != nil && _completedMessage.length > 0)
         {
             [self.messagelabel setText:_completedMessage];
         }
