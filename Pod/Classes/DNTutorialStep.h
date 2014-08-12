@@ -22,6 +22,7 @@
 }
 
 @property (nonatomic, strong) NSString          *key;
+@property (nonatomic, assign) BOOL              isHidden;
 
 
 // Public method for instantiating a new tutorial step
@@ -37,8 +38,8 @@
 - (void)showInView:(UIView *)aView;
 
 
-// Dismiss a step
-- (void)dismissStep;
+// Hide a step
+- (void)hideElements;
 
 
 // Set action completed

@@ -11,7 +11,6 @@
 @interface DNTutorialStep()
 {
     BOOL    isDismissingElement;
-    BOOL    isHidingElement;
 }
 
 @property (nonatomic, strong) NSMutableArray           *elements;
@@ -44,6 +43,9 @@
 
 - (void)showInView:(UIView *)aView;
 {
+    // Check if hidden
+    self.isHidden = NO;
+    
     // Present elements
     for (DNTutorialElement *tutorialElement in self.elements)
     {
@@ -137,6 +139,9 @@
 
 - (void)startAnimating;
 {
+    if (self.isHidden)
+        return;
+    
     for (DNTutorialElement *tutorialElement in self.elements)
     {
         [tutorialElement startAnimating];
@@ -151,17 +156,10 @@
     }
 }
 
-- (void)dismissStep;
+- (void)hideElements;
 {
-    if ([self.elements count] == 0)
-        return;
-    
-//    isHidingElement = YES;
-
-    for (DNTutorialElement *element in self.elements)
-    {
-        [element dismiss];
-    }    
+    self.isHidden = YES;
+    [self dismiss];
 }
 
 #pragma mark --
@@ -170,13 +168,19 @@
 
 - (void)dismiss;
 {
+    if ([self.elements count] == 0)
+    {
+        return;
+    }
+    
     if (_delegate && [_delegate respondsToSelector:@selector(willDismissStep:)])
     {
         [_delegate willDismissStep:self];
     }
     
-    if (_delegate && [_delegate respondsToSelector:@selector(didDismissStep:)]) {
-        [_delegate didDismissStep:self];
+    for (DNTutorialElement *element in self.elements)
+    {
+        [element dismiss];
     }
 }
 
@@ -198,7 +202,7 @@
 - (void)willDismissElement:(DNTutorialElement *)element;
 {
     // Called when element is about to be animated out of the parent view
-    if (isDismissingElement || isHidingElement)
+    if (isDismissingElement || self.isHidden)
     {
         return;
     }
@@ -219,8 +223,11 @@
 
 - (void)didDismissElement:(DNTutorialElement *)element;
 {
-    // Check for hiding
-    if (isHidingElement)
+    // Dealloc
+    [element tearDown];
+    
+    // Check if done hiding
+    if (self.isHidden)
     {
         return;
     }
@@ -228,16 +235,13 @@
     // Element dismissed!
     [self.elements removeObject:element];
     
-    // Dealloc
-    [element tearDown];
-    
     isDismissingElement = NO;
     
     // Check if step is completed
     if ([self.elements count] == 0)
     {
         // Mark as completed
-        [self dismiss];
+        [_delegate didDismissStep:self];
     }
 }
 

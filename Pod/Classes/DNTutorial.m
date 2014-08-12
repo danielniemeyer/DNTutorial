@@ -199,14 +199,10 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    
-    // TODO
-    // Elements will be null
-    // Check out if this should be allowed
-    
-    [tutorial.currentStep showInView:tutorial.parentView];
-    
-    NSLog(@"%lu", (unsigned long)[tutorial.tutorialSteps count]);
+    if ([tutorial.tutorialSteps count] == 0)
+        return;
+
+    [tutorial presentTutorialStep:tutorial.tutorialSteps[0] inView:tutorial.parentView];
 }
 
 + (void)hideTutorial;
@@ -214,19 +210,16 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    // Dequeue
-    NSMutableArray *copy = [tutorial.tutorialSteps mutableCopy];
+    // Dequeue current step
+    if (tutorial.currentStep == nil)
+        return;
     
-    if (tutorial.currentStep != nil)
-    {
-        [copy insertObject:tutorial.currentStep atIndex:0];
-    }
+    // Enqueue current step
+    [tutorial.tutorialSteps insertObject:tutorial.currentStep atIndex:0];
     
-    for (DNTutorialStep *step in copy)
-    {
-        // Save step for later
-        [step dismissStep];
-    }
+    // Hide it
+    [tutorial.currentStep hideElements];
+    tutorial.currentStep = nil;
 }
 
 + (void)presentStepForKey:(NSString *)aKey;
@@ -258,7 +251,8 @@ NSInteger const sTutorialTrackingDistance = 100;
         return;
     }
     
-    
+    // Hide it
+    [step hideElements];
 }
 
 + (void)completedStepForKey:(NSString *)aKey;
@@ -556,14 +550,6 @@ NSInteger const sTutorialTrackingDistance = 100;
              }
          }
      }];
-    
-    
-    //        NSUInteger toDelete = objectCount - remainingCount;
-    //
-    //        if (remainingCount < objectCount && toDelete > 0)
-    //        {
-    //            [self.tutorialSteps removeObjectsInRange:NSMakeRange(0, toDelete)];
-    //        }
 }
 
 - (void)saveData;

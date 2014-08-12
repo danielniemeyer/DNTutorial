@@ -14,11 +14,10 @@
 @property (nonatomic, weak) CAShapeLayer                    *circleLayer;
 @property (nonatomic, weak) UILabel                         *messagelabel;
 @property (nonatomic, weak) UIButton                        *closeButton;
-
 @property (nonatomic, strong) UIView                        *containerView;
+
 @property (nonatomic, strong) NSString                      *message;
 @property (nonatomic, strong) NSString                      *completedMessage;
-
 @property (nonatomic, strong,setter = setBannerFont:)UIFont *messageFont;
 @property (nonatomic, setter = setBannerColor:) UIColor     *backgroundColor;
 @property (nonatomic, strong) UIColor                       *completedColor;
@@ -127,7 +126,6 @@
 {
     [_containerView removeFromSuperview];
     
-    _message = nil;
     _messagelabel = nil;
     _closeButton = nil;
     _circleLayer = nil;
