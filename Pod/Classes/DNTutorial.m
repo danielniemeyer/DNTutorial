@@ -231,7 +231,7 @@ NSInteger const sTutorialTrackingDistance = 100;
     
     DNTutorialStep *step = [tutorial tutorialStepForKey:aKey];
     
-    if (step == nil) {
+    if (step == nil || tutorial.currentStep != nil) {
         return;
     }
     
