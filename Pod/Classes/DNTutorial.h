@@ -33,7 +33,7 @@
 
 @interface DNTutorial : NSObject <DNTutorialStepDelegate>
 {
-    @private
+@private
     __weak id<DNTutorialDelegate>   _delegate;
 }
 
@@ -43,8 +43,8 @@
 
 // Tells DNTutorial to load the given elements and check if should present them
 + (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
-                            inView:(UIView *)aView
-                          delegate:(id<DNTutorialDelegate>)delegate;
+                          inView:(UIView *)aView
+                        delegate:(id<DNTutorialDelegate>)delegate;
 
 
 // Pauses the tutorial, saves the current state and hides all elements
@@ -70,6 +70,10 @@
 
 // Set debug mode so a step is always displayed
 + (void)setDebug;
+
+
+// Set hidden mode, prevents all tutorial steps from displaying
++ (void)setHidden:(BOOL)hidden;
 
 
 // Returns the tutorial step corresponding the given key. If no object is found for the given key,

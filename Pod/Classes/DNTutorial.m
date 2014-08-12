@@ -31,7 +31,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     DNTutorialDictionary *tutorialDictionary = [DNTutorialDictionary new];
     tutorialDictionary.dictionary = [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:count];
-
+    
     // Populate data from user defaults
     if ([[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] != nil)
     {
@@ -125,8 +125,9 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 @property (nonatomic, strong) NSMutableArray            *tutorialSteps;
 @property (nonatomic, strong) DNTutorialStep            *currentStep;
-@property (nonatomic) CGPoint                           initialGesturePoint;
 @property (nonatomic, strong) UIView                    *parentView;
+@property (nonatomic, assign) BOOL                      hidden;
+@property (nonatomic) CGPoint                           initialGesturePoint;
 
 @property (nonatomic, strong) DNTutorialDictionary      *userDefaults;
 
@@ -159,8 +160,8 @@ NSInteger const sTutorialTrackingDistance = 100;
 #pragma mark --
 
 + (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
-                            inView:(UIView *)aView
-                          delegate:(id<DNTutorialDelegate>)delegate;
+                          inView:(UIView *)aView
+                        delegate:(id<DNTutorialDelegate>)delegate;
 {
     // Cannot init a null tutorial
     NSAssert(tutorialSteps != nil, @"AppTutorial: Cannot presnet tutorial with nil objetcs");
@@ -169,6 +170,12 @@ NSInteger const sTutorialTrackingDistance = 100;
     
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    // Check if should present
+    if (tutorial.hidden)
+    {
+        return;
+    }
     
     // Remember tutorial objects
     tutorial.tutorialSteps = [tutorialSteps mutableCopy];
@@ -214,7 +221,7 @@ NSInteger const sTutorialTrackingDistance = 100;
     {
         [copy insertObject:tutorial.currentStep atIndex:0];
     }
-        
+    
     for (DNTutorialStep *step in copy)
     {
         // Save step for later
@@ -228,7 +235,7 @@ NSInteger const sTutorialTrackingDistance = 100;
     
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-
+    
     DNTutorialStep *step = [tutorial tutorialStepForKey:aKey];
     
     if (step == nil) {
@@ -257,7 +264,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 + (void)completedStepForKey:(NSString *)aKey;
 {
     NSAssert(aKey != nil, @"AppTutorial: Cannot complete step with nil key");
-
+    
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
@@ -288,12 +295,20 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Restore to factory settings
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:sUserDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)setDebug;
 {
     [DNTutorial resetProgress];
+}
+
++ (void)setHidden:(BOOL)hidden;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    tutorial.hidden = hidden;
 }
 
 + (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
@@ -512,7 +527,7 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Load data from user defaults
     NSUInteger objectCount = [[self.userDefaults controller:[self currentController] getObjectforKey:sTutorialObjectsCountKey] integerValue];
     NSInteger remainingCount = [[self.userDefaults controller:[self currentController] getObjectforKey:sTutorialRemainingCountKey] integerValue];
-
+    
     // If no data found, save it
     if (objectCount == 0)
     {
@@ -532,23 +547,23 @@ NSInteger const sTutorialTrackingDistance = 100;
     NSDictionary *elementsDict = [self.userDefaults controller:[self currentController] getObjectforKey:sTutorialElementsKey];
     
     [elementsDict enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop)
-    {
-        for (DNTutorialStep *step in [self.tutorialSteps copy])
-        {
-            if ([key isEqualToString:step.key] && [value boolValue])
-            {
-                [self.tutorialSteps removeObject:step];
-            }
-        }
-    }];
-        
-        
-//        NSUInteger toDelete = objectCount - remainingCount;
-//        
-//        if (remainingCount < objectCount && toDelete > 0)
-//        {
-//            [self.tutorialSteps removeObjectsInRange:NSMakeRange(0, toDelete)];
-//        }
+     {
+         for (DNTutorialStep *step in [self.tutorialSteps copy])
+         {
+             if ([key isEqualToString:step.key] && [value boolValue])
+             {
+                 [self.tutorialSteps removeObject:step];
+             }
+         }
+     }];
+    
+    
+    //        NSUInteger toDelete = objectCount - remainingCount;
+    //
+    //        if (remainingCount < objectCount && toDelete > 0)
+    //        {
+    //            [self.tutorialSteps removeObjectsInRange:NSMakeRange(0, toDelete)];
+    //        }
 }
 
 - (void)saveData;
@@ -661,7 +676,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Save state
     [self.userDefaults controller:[self currentController] setCompletion:tutorialStep.isCompleted forElement:tutorialStep.key];
-
+    
     [self saveData];
 }
 
