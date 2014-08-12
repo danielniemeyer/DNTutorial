@@ -199,7 +199,7 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    if ([tutorial.tutorialSteps count] == 0)
+    if ([tutorial.tutorialSteps count] == 0 || tutorial.currentStep != nil)
         return;
 
     [tutorial presentTutorialStep:tutorial.tutorialSteps[0] inView:tutorial.parentView];
