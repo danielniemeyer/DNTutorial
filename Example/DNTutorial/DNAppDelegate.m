@@ -16,6 +16,11 @@
 {
     // Override point for customization after application launch.
     [DNTutorial setDebug];
+    
+    
+//    [DNTutorial shouldPresentElementsWithBlock:^BOOL {
+//        return NO;
+//    }];
 
     return YES;
 }

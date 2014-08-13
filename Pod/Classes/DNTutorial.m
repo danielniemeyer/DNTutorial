@@ -305,6 +305,14 @@ NSInteger const sTutorialTrackingDistance = 100;
     tutorial.hidden = hidden;
 }
 
++ (void)shouldPresentElementsWithBlock:(shouldPresent)block;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    tutorial.shouldPresentBlock = block;
+}
+
 + (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
 {
     // Retrive DNTutorial instance
@@ -583,6 +591,11 @@ NSInteger const sTutorialTrackingDistance = 100;
     if (step.isCompleted)
     {
         shouldPresent = NO;
+    }
+    
+    if (self.shouldPresentBlock)
+    {
+        shouldPresent = self.shouldPresentBlock();
     }
     
     if (!shouldPresent)

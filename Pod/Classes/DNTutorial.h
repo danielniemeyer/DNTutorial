@@ -27,6 +27,8 @@
 #import "DNTutorialBanner.h"
 #import "DNTutorialGesture.h"
 
+typedef BOOL (^shouldPresent)();
+
 @class DNTutorial;
 
 @protocol DNTutorialDelegate;
@@ -39,6 +41,8 @@
 
 // AppTutorial is delegate based, with functions notifying the delegate of user interactions with banners
 @property (nonatomic, weak) id<DNTutorialDelegate>  delegate;
+
+@property (nonatomic, copy) shouldPresent shouldPresentBlock;
 
 
 // Tells DNTutorial to load the given elements and check if should present them
@@ -74,6 +78,10 @@
 
 // Set hidden mode, prevents all tutorial steps from displaying
 + (void)setHidden:(BOOL)hidden;
+
+
+// Sets the universal should present tutorial elements block
++ (void)shouldPresentElementsWithBlock:(shouldPresent)block;
 
 
 // Returns the tutorial step corresponding the given key. If no object is found for the given key,
