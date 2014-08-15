@@ -168,11 +168,6 @@
 
 - (void)dismiss;
 {
-    if ([self.elements count] == 0)
-    {
-        return;
-    }
-    
     if (_delegate && [_delegate respondsToSelector:@selector(willDismissStep:)])
     {
         [_delegate willDismissStep:self];
@@ -241,6 +236,7 @@
     if ([self.elements count] == 0)
     {
         // Mark as completed
+        [self dismiss];
         [_delegate didDismissStep:self];
     }
 }
