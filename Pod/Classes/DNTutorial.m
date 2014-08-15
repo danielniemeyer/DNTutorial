@@ -581,6 +581,13 @@ NSInteger const sTutorialTrackingDistance = 100;
         return;
     }
     
+    // Check for global variable
+    if (self.shouldPresentBlock && !self.shouldPresentBlock())
+    {
+        [self skipTutorialStep:step];
+        return;
+    }
+    
     BOOL shouldPresent = YES;
     
     if ([_delegate respondsToSelector:@selector(shouldPresentStep:forKey:)])
@@ -591,11 +598,6 @@ NSInteger const sTutorialTrackingDistance = 100;
     if (step.isCompleted)
     {
         shouldPresent = NO;
-    }
-    
-    if (self.shouldPresentBlock)
-    {
-        shouldPresent = self.shouldPresentBlock();
     }
     
     if (!shouldPresent)
