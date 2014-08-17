@@ -77,7 +77,6 @@
 
 - (id)tutorialElementForKey:(NSString *)aKey;
 {
-    
     for (DNTutorialElement *element in self.elements)
     {
         if ([element.key isEqualToString:aKey])

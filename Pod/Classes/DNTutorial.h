@@ -15,7 +15,6 @@
 // Tutorials consist of multiple types.
 // DNTutorialBanner displays a banner with an appropriate message and an action that triggers its dismissal.
 // DNTutorialGesture displays a gesture motion with a starting location and direction.
-// DNTutorialBoth displays a gesture montion alongside a banner with a progress banner
 
 //- https://github.com/lostinthepines/TutorialKit
 //- https://github.com/kronik/UIViewController-Tutorial
@@ -34,16 +33,6 @@ typedef BOOL (^shouldPresent)();
 @protocol DNTutorialDelegate;
 
 @interface DNTutorial : NSObject <DNTutorialStepDelegate>
-{
-@private
-    __weak id<DNTutorialDelegate>   _delegate;
-}
-
-// AppTutorial is delegate based, with functions notifying the delegate of user interactions with banners
-@property (nonatomic, weak) id<DNTutorialDelegate>  delegate;
-
-@property (nonatomic, copy) shouldPresent shouldPresentBlock;
-
 
 // Tells DNTutorial to load the given elements and check if should present them
 + (void)presentTutorialWithSteps:(NSArray *)tutorialSteps
@@ -78,6 +67,10 @@ typedef BOOL (^shouldPresent)();
 
 // Set hidden mode, prevents all tutorial steps from displaying
 + (void)setHidden:(BOOL)hidden;
+
+
+// Set tutorial elements presentation delay, defaults to 0
++ (void)setPresentationDelay:(NSUInteger)delay;
 
 
 // Sets the universal should present tutorial elements block
@@ -115,5 +108,16 @@ typedef BOOL (^shouldPresent)();
 
 - (BOOL)shouldPresentStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 - (BOOL)shouldDismissStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
+
+@end
+
+@interface DNTutorialDictionary : NSMutableDictionary
+
+@property (nonatomic, strong) NSMutableDictionary       *dictionary;
+
+- (void)controller:(NSString *)aController setObject:(id)anObject forKey:(id<NSCopying>)aKey;
+- (id)controller:(NSString *)aController getObjectforKey:(id<NSCopying>)aKey;
+
+- (void)controller:(NSString *)aController setCompletion:(BOOL)completion forElement:(id<NSCopying>)aKey;
 
 @end

@@ -16,112 +16,11 @@ NSString* const sTutorialElementsKey = @"tutorialSteps";
 
 NSInteger const sTutorialTrackingDistance = 100;
 
-@interface DNTutorialDictionary : NSMutableDictionary
-
-@property (nonatomic, strong) NSMutableDictionary       *dictionary;
-
-- (void)controller:(NSString *)aController setObject:(id)anObject forKey:(id<NSCopying>)aKey;
-- (id)controller:(NSString *)aController getObjectforKey:(id<NSCopying>)aKey;
-
-@end
-
-@implementation DNTutorialDictionary
-
-- (instancetype)initWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)count;
-{
-    DNTutorialDictionary *tutorialDictionary = [DNTutorialDictionary new];
-    tutorialDictionary.dictionary = [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:count];
-    
-    // Populate data from user defaults
-    if ([[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] != nil)
-    {
-        tutorialDictionary.dictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] mutableCopy];
-    }
-    
-    return tutorialDictionary;
-}
-
-- (NSUInteger)count;
-{
-    return [_dictionary count];
-}
-
-- (id)objectForKey:(id)aKey;
-{
-    return [_dictionary objectForKey:aKey];
-}
-
-- (NSEnumerator *)keyEnumerator;
-{
-    return [_dictionary keyEnumerator];
-}
-
-- (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey;
-{
-    [_dictionary setObject:anObject forKey:aKey];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)removeObjectForKey:(id)aKey;
-{
-    [_dictionary removeObjectForKey:aKey];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)controller:(NSString *)aController setObject:(id)anObject forKey:(id<NSCopying>)aKey;
-{
-    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
-    [controllerDictionary setObject:anObject forKey:aKey];
-    [self setObject:controllerDictionary forKey:aController];
-}
-
-- (id)controller:(NSString *)aController getObjectforKey:(id<NSCopying>)aKey;
-{
-    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
-    return [controllerDictionary objectForKey:aKey];
-}
-
-- (void)controller:(NSString *)aController setCompletion:(BOOL)completion forElement:(id<NSCopying>)aKey;
-{
-    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
-    NSMutableDictionary *elementsDictionary = [controllerDictionary[sTutorialElementsKey] mutableCopy];
-    [elementsDictionary setObject:@(completion) forKey:aKey];
-    [controllerDictionary setObject:elementsDictionary forKey:sTutorialElementsKey];
-    [self setObject:controllerDictionary forKey:aController];
-}
-
-- (BOOL)controller:(NSString *)aController getCompletionforElement:(id<NSCopying>)aKey;
-{
-    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
-    return [[controllerDictionary objectForKey:controllerDictionary[sTutorialElementsKey]] boolValue];
-}
-
-- (NSMutableDictionary *)dictionaryForController:(NSString *)aController;
-{
-    // Check for existing entry in user defaults dictionary, create one if needed
-    NSMutableDictionary *controllerDictionary = nil;
-    
-    if (_dictionary[aController] == nil)
-    {
-        controllerDictionary = [NSMutableDictionary dictionary];
-        [controllerDictionary setObject:[NSDictionary dictionary] forKey:sTutorialElementsKey];
-        [_dictionary setObject:controllerDictionary forKey:aController];
-    }
-    else
-    {
-        controllerDictionary = [_dictionary[aController] mutableCopy];
-    }
-    
-    return controllerDictionary;
-}
-
-@end
-
 @interface DNTutorial()
+
+@property (nonatomic, copy) shouldPresent shouldPresentBlock;
+@property (nonatomic, assign) NSUInteger presentationDelay;
+@property (nonatomic, weak) id<DNTutorialDelegate>  delegate;
 
 @property (nonatomic, strong) NSMutableArray            *tutorialSteps;
 @property (nonatomic, strong) DNTutorialStep            *currentStep;
@@ -149,6 +48,7 @@ NSInteger const sTutorialTrackingDistance = 100;
             appTutorial = [[DNTutorial alloc] init];
             appTutorial.tutorialSteps = [NSMutableArray array];
             appTutorial.userDefaults = [DNTutorialDictionary dictionary];
+            appTutorial.presentationDelay = 0;
         });
     }
     
@@ -301,8 +201,16 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-    
+
     tutorial.hidden = hidden;
+}
+
++ (void)setPresentationDelay:(NSUInteger)delay;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    tutorial.presentationDelay = delay;
 }
 
 + (void)shouldPresentElementsWithBlock:(shouldPresent)block;
@@ -609,7 +517,11 @@ NSInteger const sTutorialTrackingDistance = 100;
     
     // Present step
     [step setDelegate:self];
-    [step showInView:aView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.presentationDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // Present
+        [step showInView:aView];
+    });
     
     // Current object
     self.currentStep = step;
@@ -703,6 +615,106 @@ NSInteger const sTutorialTrackingDistance = 100;
     }
     
     return toReturn;
+}
+
+@end
+
+#pragma mark --
+#pragma mark DNTutorialDictionary Subclass
+#pragma mark --
+
+@implementation DNTutorialDictionary
+
+- (instancetype)initWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)count;
+{
+    DNTutorialDictionary *tutorialDictionary = [DNTutorialDictionary new];
+    tutorialDictionary.dictionary = [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:count];
+    
+    // Populate data from user defaults
+    if ([[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] != nil)
+    {
+        tutorialDictionary.dictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] mutableCopy];
+    }
+    
+    return tutorialDictionary;
+}
+
+- (NSUInteger)count;
+{
+    return [_dictionary count];
+}
+
+- (id)objectForKey:(id)aKey;
+{
+    return [_dictionary objectForKey:aKey];
+}
+
+- (NSEnumerator *)keyEnumerator;
+{
+    return [_dictionary keyEnumerator];
+}
+
+- (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey;
+{
+    [_dictionary setObject:anObject forKey:aKey];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)removeObjectForKey:(id)aKey;
+{
+    [_dictionary removeObjectForKey:aKey];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)controller:(NSString *)aController setObject:(id)anObject forKey:(id<NSCopying>)aKey;
+{
+    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
+    [controllerDictionary setObject:anObject forKey:aKey];
+    [self setObject:controllerDictionary forKey:aController];
+}
+
+- (id)controller:(NSString *)aController getObjectforKey:(id<NSCopying>)aKey;
+{
+    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
+    return [controllerDictionary objectForKey:aKey];
+}
+
+- (void)controller:(NSString *)aController setCompletion:(BOOL)completion forElement:(id<NSCopying>)aKey;
+{
+    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
+    NSMutableDictionary *elementsDictionary = [controllerDictionary[sTutorialElementsKey] mutableCopy];
+    [elementsDictionary setObject:@(completion) forKey:aKey];
+    [controllerDictionary setObject:elementsDictionary forKey:sTutorialElementsKey];
+    [self setObject:controllerDictionary forKey:aController];
+}
+
+- (BOOL)controller:(NSString *)aController getCompletionforElement:(id<NSCopying>)aKey;
+{
+    NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
+    return [[controllerDictionary objectForKey:controllerDictionary[sTutorialElementsKey]] boolValue];
+}
+
+- (NSMutableDictionary *)dictionaryForController:(NSString *)aController;
+{
+    // Check for existing entry in user defaults dictionary, create one if needed
+    NSMutableDictionary *controllerDictionary = nil;
+    
+    if (_dictionary[aController] == nil)
+    {
+        controllerDictionary = [NSMutableDictionary dictionary];
+        [controllerDictionary setObject:[NSDictionary dictionary] forKey:sTutorialElementsKey];
+        [_dictionary setObject:controllerDictionary forKey:aController];
+    }
+    else
+    {
+        controllerDictionary = [_dictionary[aController] mutableCopy];
+    }
+    
+    return controllerDictionary;
 }
 
 @end
