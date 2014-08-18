@@ -17,9 +17,12 @@
     // Override point for customization after application launch.
     [DNTutorial setDebug];
     
+    // Presentation Delay
+    [DNTutorial setPresentationDelay:1];
     
+    // Check if should present tutorial elements
 //    [DNTutorial shouldPresentElementsWithBlock:^BOOL {
-//        return NO;
+//        return YES;
 //    }];
 
     return YES;
