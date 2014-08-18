@@ -87,8 +87,16 @@ NSInteger const sBannerVisibleHeight = 80;
     [view.layer addSublayer:circleLayer];
     self.circleLayer = circleLayer;
     
+    // Close button
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeButton.frame = CGRectMake(CGRectGetWidth(frame) - 40, 0, 40, sBannerVisibleHeight);
+    [closeButton setImage:[UIImage imageNamed:@"bannerClose"] forState:UIControlStateNormal];
+    [closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:closeButton];
+    self.closeButton = closeButton;
+    
     // Message label
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(frame)-60, sBannerVisibleHeight)];
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(frame) - CGRectGetWidth(closeButton.bounds) - 10, sBannerVisibleHeight)];
     messageLabel.text = self.message;
     messageLabel.font = self.messageFont;
     messageLabel.textColor = [UIColor whiteColor];
@@ -96,14 +104,6 @@ NSInteger const sBannerVisibleHeight = 80;
     messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [view addSubview:messageLabel];
     self.messagelabel = messageLabel;
-    
-    // Close button
-    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeButton.frame = CGRectMake(CGRectGetWidth(messageLabel.frame) + 20, 0, 40, sBannerVisibleHeight);
-    [closeButton setImage:[UIImage imageNamed:@"bannerClose"] forState:UIControlStateNormal];
-    [closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:closeButton];
-    self.closeButton = closeButton;
     
     // Progress indicator
 //    CAShapeLayer *progressLayer = [CAShapeLayer layer];

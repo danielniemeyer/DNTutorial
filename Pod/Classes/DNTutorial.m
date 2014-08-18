@@ -596,6 +596,8 @@ NSInteger const sTutorialTrackingDistance = 100;
 - (void)didDismissStep:(DNTutorialStep *)tutorialStep;
 {
     // Check if there are more steps to present and if so show it.
+    self.currentStep = nil;
+    
     if ([self.tutorialSteps count] == 0)
     {
         return;
