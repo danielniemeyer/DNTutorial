@@ -31,10 +31,13 @@
 // Banner completed color
 - (void)setCompletedColor:(UIColor *)completedColor;
 
-// Banner alpha, defaults to 0.85
+// Banner alpha, defaults to 0.8
 - (void)setBannerOpacity:(CGFloat)opacity;
 
 // Banner font, defaults to system font of size 17
 - (void)setBannerFont:(UIFont *)font;
+
+// Banner completion delay in seconds, defaults to 2 seconds.
+- (void)setCompletedDelay:(NSUInteger)completedDelay;
 
 @end

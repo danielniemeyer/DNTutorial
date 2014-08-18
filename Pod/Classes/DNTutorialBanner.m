@@ -8,6 +8,7 @@
 
 #import "DNTutorialBanner.h"
 
+NSInteger const sBannerVisibleHeight = 80;
 
 @interface DNTutorialBanner()
 
@@ -22,6 +23,7 @@
 @property (nonatomic, setter = setBannerColor:) UIColor     *backgroundColor;
 @property (nonatomic, strong) UIColor                       *completedColor;
 @property (nonatomic, setter = setBannerOpacity:) CGFloat   opacity;
+@property (nonatomic, assign) NSUInteger                    completedDelay;
 
 @end
 
@@ -40,12 +42,13 @@
     
     // Init view
     DNTutorialBanner *banner = [DNTutorialBanner new];
-    banner.opacity = 0.7;
+    banner.opacity = 0.8;
     banner.backgroundColor = [UIColor blackColor];
     banner.completedColor = [UIColor blueColor];
     banner.key = key;
     banner.message = message;
     banner.completedMessage = completionMessage;
+    banner.completedDelay = 2.0;
     banner.messageFont = [UIFont systemFontOfSize:15];
     
     return banner;
@@ -62,7 +65,7 @@
     
     CGFloat viewHeight = CGRectGetHeight(aView.bounds);
     CGFloat viewWidth = CGRectGetWidth(aView.bounds);
-    CGRect frame = CGRectMake(0, viewHeight, viewWidth, 80);
+    CGRect frame = CGRectMake(0, viewHeight, viewWidth, 100);
     
     // Make sure the new frame doesn't put the view outside the window's bounds
     CGRect windowFrame = [[UIScreen mainScreen] bounds];
@@ -85,7 +88,7 @@
     self.circleLayer = circleLayer;
     
     // Message label
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(frame)-60, CGRectGetHeight(frame))];
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(frame)-60, sBannerVisibleHeight)];
     messageLabel.text = self.message;
     messageLabel.font = self.messageFont;
     messageLabel.textColor = [UIColor whiteColor];
@@ -96,7 +99,7 @@
     
     // Close button
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeButton.frame = CGRectMake(CGRectGetWidth(messageLabel.frame) + 20, 0, 40, CGRectGetHeight(frame));
+    closeButton.frame = CGRectMake(CGRectGetWidth(messageLabel.frame) + 20, 0, 40, sBannerVisibleHeight);
     [closeButton setImage:[UIImage imageNamed:@"bannerClose"] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:closeButton];
@@ -139,7 +142,7 @@
     // Animate entrance
     [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.7 options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         _containerView.frame = CGRectOffset(_containerView.frame, 0, -CGRectGetHeight(_containerView.frame));
+                         _containerView.frame = CGRectOffset(_containerView.frame, 0, -sBannerVisibleHeight);
                      }
                      completion:^(BOOL finished) {
                          
@@ -193,7 +196,7 @@
         [self.closeButton setImage:[UIImage imageNamed:@"bannerCheck"] forState:UIControlStateNormal];
         
         // Should dismiss
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.completedDelay * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             if ([_delegate shouldDismissElement:self])
             {
                 [self dismiss];
@@ -222,7 +225,7 @@
     frame.size.width = CGRectGetWidth(_containerView.bounds) * (percentage + 0.1);
     frame.origin.y -= CGRectGetHeight(frame)/2.0;
     
-    self.circleLayer.opacity = (0.1 + percentage*0.9);
+    self.circleLayer.opacity = (percentage*1);
     self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:frame].CGPath;
     
     // User action completed
@@ -275,6 +278,11 @@
 {
     _messageFont = font;
     _messagelabel.font = font;
+}
+
+- (void)setCompletedDelay:(NSUInteger)completedDelay;
+{
+    _completedDelay = completedDelay;
 }
 
 #pragma mark --
