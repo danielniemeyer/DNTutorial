@@ -203,16 +203,6 @@
     
     // Check if there are other objects associated with this one that should be dismissed
     isDismissingElement = YES;
-
-    if ([self.elements count] > 1)
-    {
-        for (DNTutorialElement *object in self.elements)
-        {
-            if (object != element) {
-                [object dismiss];
-            }
-        }
-    }
 }
 
 - (void)didDismissElement:(DNTutorialElement *)element;
@@ -229,11 +219,11 @@
     // Element dismissed!
     [self.elements removeObject:element];
     
-    isDismissingElement = NO;
-    
     // Check if step is completed
     if ([self.elements count] == 0)
     {
+        isDismissingElement = NO;
+        
         // Mark as completed
         [self dismiss];
         [_delegate didDismissStep:self];

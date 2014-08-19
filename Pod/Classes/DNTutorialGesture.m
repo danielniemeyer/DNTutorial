@@ -84,6 +84,9 @@
         return;
     }
     
+    // Will dismiss element
+    [_delegate willDismissElement:self];
+    
     // Animate removal
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.duration = 0.2;
