@@ -39,4 +39,8 @@ typedef NS_ENUM (NSUInteger, DNTutorialGestureType)
 // Sets the center position
 - (void)setPosition:(CGPoint)point;
 
+
+// Sets the background image
+- (void)setBackgroundImage:(UIImage *)image;
+
 @end

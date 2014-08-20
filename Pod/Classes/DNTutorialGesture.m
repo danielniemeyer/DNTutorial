@@ -8,10 +8,13 @@
 
 #import "DNTutorialGesture.h"
 
+NSInteger const sGesturePositionDelta = 150;
+
 @interface DNTutorialGesture()
 
-@property (nonatomic) CGPoint                   startPosition;
-@property (nonatomic, weak) CAShapeLayer        *circleLayer;
+@property (nonatomic) CGPoint                                           startPosition;
+@property (nonatomic, weak) CAShapeLayer                                *circleLayer;
+@property (nonatomic, strong, setter = setBackgroundImage:) UIImage     *circleImage;
 
 @end
 
@@ -48,11 +51,22 @@
     layer.fillColor = [UIColor whiteColor].CGColor;
     layer.opacity = 0.0;
     layer.position = self.startPosition;
-    layer.shadowColor = [UIColor blueColor].CGColor;
-    layer.shadowOpacity = 0.75f;
-    layer.shadowRadius = 5;
-    layer.shadowOffset = CGSizeMake(0, 0);
-    layer.shadowPath = layer.path;
+    
+    // Check for backgroundImage
+    if (_circleImage == nil)
+    {
+        // Add shadow
+        layer.shadowColor = [UIColor blueColor].CGColor;
+        layer.shadowOpacity = 0.75f;
+        layer.shadowRadius = 5;
+        layer.shadowOffset = CGSizeMake(0, 0);
+        layer.shadowPath = layer.path;
+    }
+    else
+    {
+        layer.fillColor = nil;
+        layer.contents = (id)_circleImage.CGImage;
+    }
     
     // Add layer
     self.circleLayer = layer;
@@ -62,6 +76,7 @@
 - (void)tearDown;
 {
     [_circleLayer removeFromSuperlayer];
+    _circleImage = nil;
     _circleLayer = nil;
 }
 
@@ -161,7 +176,7 @@
     
     // Calculate end point based on origin and direction
     CGPoint startPoint = self.startPosition;
-    CGPoint endPoint = [self DNPointOffSet:startPoint delta:100];
+    CGPoint endPoint = [self DNPointOffSet:startPoint delta:sGesturePositionDelta];
     
     CGRect startRect = self.circleLayer.bounds;
     CGRect endRect = CGRectZero;
@@ -188,16 +203,16 @@
     
     // Animate opacity
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    opacityAnimation.duration = self.animationDuration * 0.9;
+    opacityAnimation.duration = self.animationDuration * 0.6;
     opacityAnimation.fromValue = @(0.0);
     opacityAnimation.toValue = @(1.0);
     opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
     CABasicAnimation *fadeOut = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fadeOut.duration = self.animationDuration * 0.1;
+    fadeOut.beginTime = opacityAnimation.duration;
+    fadeOut.duration = self.animationDuration * 0.4;
     fadeOut.fromValue = @(1.0);
     fadeOut.toValue = @(0.0);
-    fadeOut.beginTime = opacityAnimation.duration;
     fadeOut.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
     animations = [NSArray arrayWithObjects:pathAnimation, positionAnimation, opacityAnimation, fadeOut, nil];
@@ -246,7 +261,7 @@
 - (void)stopAnimating;
 {
     // Stop animating
-    [self.circleLayer removeAnimationForKey:@"gestureAnimation"];
+    [_circleLayer removeAnimationForKey:@"gestureAnimation"];
 }
 
 
@@ -257,6 +272,13 @@
 - (void)setPosition:(CGPoint)point;
 {
     _startPosition = point;
+}
+
+- (void)setBackgroundImage:(UIImage *)image;
+{
+    _circleImage = image;
+    _circleLayer.fillColor = nil;
+    _circleLayer.contents = (id)image.CGImage;
 }
 
 #pragma mark --
