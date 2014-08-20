@@ -195,22 +195,22 @@ NSInteger const sGesturePositionDelta = 150;
     
     // Animate position
     CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-    positionAnimation.beginTime = pathAnimation.duration;
-    positionAnimation.duration = self.animationDuration*0.7;
+    positionAnimation.beginTime = self.animationDuration*0.4;
+    positionAnimation.duration = self.animationDuration*0.6;
     positionAnimation.fromValue = [NSValue valueWithCGPoint:startPoint];
     positionAnimation.toValue = [NSValue valueWithCGPoint:endPoint];
     positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     // Animate opacity
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    opacityAnimation.duration = self.animationDuration * 0.6;
+    opacityAnimation.duration = self.animationDuration * 0.4;
     opacityAnimation.fromValue = @(0.0);
     opacityAnimation.toValue = @(1.0);
     opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
     CABasicAnimation *fadeOut = [CABasicAnimation animationWithKeyPath:@"opacity"];
     fadeOut.beginTime = opacityAnimation.duration;
-    fadeOut.duration = self.animationDuration * 0.4;
+    fadeOut.duration = self.animationDuration * 0.6;
     fadeOut.fromValue = @(1.0);
     fadeOut.toValue = @(0.0);
     fadeOut.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
@@ -223,7 +223,7 @@ NSInteger const sGesturePositionDelta = 150;
         multiplier = 1.1;
         
         // Animate size
-        pathAnimation.duration = self.animationDuration*0.6;
+        pathAnimation.duration = self.animationDuration*0.4;
         pathAnimation.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
         pathAnimation.toValue = (id)[[UIBezierPath bezierPathWithOvalInRect:endRect] CGPath];
         pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -235,7 +235,7 @@ NSInteger const sGesturePositionDelta = 150;
         shadowAnimation.timingFunction = pathAnimation.timingFunction;
         
         CABasicAnimation *pathAnimation1 = [CABasicAnimation animationWithKeyPath:@"path"];
-        pathAnimation1.duration = self.animationDuration*0.4;
+        pathAnimation1.duration = self.animationDuration*0.6;
         pathAnimation1.beginTime = pathAnimation.duration;
         pathAnimation1.fromValue = (id)[[UIBezierPath bezierPathWithOvalInRect:endRect] CGPath];
         pathAnimation1.toValue = (id)[[UIBezierPath bezierPathWithOvalInRect:startRect] CGPath];
