@@ -538,7 +538,10 @@ NSInteger const sTutorialTrackingDistance = 100;
 - (void)skipTutorialStep:(DNTutorialStep *)step;
 {
     // Save step for later
-    [self.userDefaults controller:[self currentController] setCompletion:NO forElement:step.key];
+    if (_delegate)
+    {
+        [self.userDefaults controller:[self currentController] setCompletion:NO forElement:step.key];
+    }
     
     // Dequeue
     [self.tutorialSteps removeObjectAtIndex:0];
@@ -588,9 +591,12 @@ NSInteger const sTutorialTrackingDistance = 100;
 - (void)willDismissStep:(DNTutorialStep *)tutorialStep;
 {
     // Save state
-    [self.userDefaults controller:[self currentController] setCompletion:tutorialStep.isCompleted forElement:tutorialStep.key];
-    
-    [self saveData];
+    if (_delegate != nil)
+    {
+        [self.userDefaults controller:[self currentController] setCompletion:tutorialStep.isCompleted forElement:tutorialStep.key];
+        
+        [self saveData];
+    }
 }
 
 - (void)didDismissStep:(DNTutorialStep *)tutorialStep;
@@ -658,6 +664,8 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey;
 {
+    NSAssert(aKey != nil, @"DNTutorialTutorial: Cannot get dictionary for a nil key");
+    
     [_dictionary setObject:anObject forKey:aKey];
     
     [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
@@ -666,6 +674,8 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (void)removeObjectForKey:(id)aKey;
 {
+    NSAssert(aKey != nil, @"DNTutorialTutorial: Cannot get dictionary for a nil key");
+    
     [_dictionary removeObjectForKey:aKey];
     
     [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
@@ -674,6 +684,8 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (void)controller:(NSString *)aController setObject:(id)anObject forKey:(id<NSCopying>)aKey;
 {
+    NSAssert(aKey != nil, @"DNTutorialTutorial: Cannot get dictionary for a nil key");
+
     NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
     [controllerDictionary setObject:anObject forKey:aKey];
     [self setObject:controllerDictionary forKey:aController];
@@ -681,12 +693,17 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (id)controller:(NSString *)aController getObjectforKey:(id<NSCopying>)aKey;
 {
+    NSAssert(aKey != nil, @"DNTutorialTutorial: Cannot get dictionary for a nil key");
+    
     NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
     return [controllerDictionary objectForKey:aKey];
 }
 
 - (void)controller:(NSString *)aController setCompletion:(BOOL)completion forElement:(id<NSCopying>)aKey;
 {
+    NSAssert(aKey != nil, @"DNTutorialTutorial: Cannot set dictionary for a nil element.");
+    NSAssert(aController != nil, @"DNTutorialTutorial: Cannot set dictionary for a nil controller, this generaly occurs when the tutorial delegate is nil.");
+    
     NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
     NSMutableDictionary *elementsDictionary = [controllerDictionary[sTutorialElementsKey] mutableCopy];
     [elementsDictionary setObject:@(completion) forKey:aKey];
@@ -696,6 +713,9 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (BOOL)controller:(NSString *)aController getCompletionforElement:(id<NSCopying>)aKey;
 {
+    NSAssert(aKey != nil, @"DNTutorialTutorial: Cannot set dictionary for a nil element.");
+    NSAssert(aController != nil, @"DNTutorialTutorial: Cannot set dictionary for a nil controller, this generaly occurs when the tutorial delegate is nil.");
+    
     NSMutableDictionary *controllerDictionary = [self dictionaryForController:aController];
     return [[controllerDictionary objectForKey:controllerDictionary[sTutorialElementsKey]] boolValue];
 }
