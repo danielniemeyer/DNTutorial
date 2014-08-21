@@ -82,5 +82,6 @@
 - (void)didDismissStep:(DNTutorialStep *)view;
 
 - (BOOL)shouldDismissStep:(DNTutorialStep *)step;
+- (BOOL)shouldAnimateStep:(DNTutorialStep *)step;
 
 @end

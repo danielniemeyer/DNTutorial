@@ -165,7 +165,7 @@ NSInteger const sGesturePositionDelta = 150;
 - (void)startAnimating;
 {
     // Check if can animate
-    if (_actionCompleted)
+    if (_actionCompleted || ![_delegate shouldAnimateElement:self])
     {
         return;
     }

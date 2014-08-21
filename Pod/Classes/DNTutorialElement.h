@@ -78,5 +78,7 @@ typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
 - (BOOL)shouldDismissElement:(DNTutorialElement *)element;
 - (void)userDismissedElement:(DNTutorialElement *)element;
 
+- (BOOL)shouldAnimateElement:(DNTutorialElement *)element;
+
 @end
 

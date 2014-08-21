@@ -188,6 +188,11 @@
     return [_delegate shouldDismissStep:self];
 }
 
+- (BOOL)shouldAnimateElement:(DNTutorialElement *)element;
+{
+    return [_delegate shouldAnimateStep:self];
+}
+
 - (void)userDismissedElement:(DNTutorialElement *)element;
 {
     [self setCompleted:YES];

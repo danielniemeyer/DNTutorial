@@ -109,6 +109,8 @@ typedef BOOL (^shouldPresent)();
 - (BOOL)shouldPresentStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 - (BOOL)shouldDismissStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 
+- (BOOL)shouldAnimateStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
+
 @end
 
 @interface DNTutorialDictionary : NSMutableDictionary

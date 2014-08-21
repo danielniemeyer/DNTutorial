@@ -119,6 +119,16 @@
     return YES;
 }
 
+- (BOOL)shouldAnimateStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
+{
+    if ([aKey isEqualToString:@"secondStep"] || [aKey isEqualToString:@"thirdStep"])
+    {
+        return self.pageControl.currentPage == 1;
+    }
+    
+    return YES;
+}
+
 #pragma mark --
 #pragma mark ScrollView
 #pragma mark --
@@ -165,8 +175,6 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [DNTutorial scrollViewDidEndDecelerating:scrollView];
-    
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
@@ -174,6 +182,8 @@
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
     [self loadScrollViewWithPage:page + 1];
+    
+    [DNTutorial scrollViewDidEndDecelerating:scrollView];
 }
 
 #pragma mark --

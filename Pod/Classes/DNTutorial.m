@@ -26,7 +26,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 @property (nonatomic, strong) DNTutorialStep            *currentStep;
 @property (nonatomic, strong) UIView                    *parentView;
 @property (nonatomic, assign) BOOL                      hidden;
-@property (nonatomic) CGPoint                           initialGesturePoint;
+@property (nonatomic) NSValue                           *initialGesturePoint;
 
 @property (nonatomic, strong) DNTutorialDictionary      *userDefaults;
 
@@ -287,7 +287,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 - (void)swipeBegan:(DNTutorialAction)action withPoint:(CGPoint)point;
 {
-    if (self.currentStep == nil)
+    if (self.currentStep == nil || self.initialGesturePoint != nil)
         return;
     
     // Stop Animating
@@ -303,7 +303,7 @@ NSInteger const sTutorialTrackingDistance = 100;
     }
     
     // Register initial point
-    self.initialGesturePoint = point;
+    self.initialGesturePoint = [NSValue valueWithCGPoint:point];
 }
 
 - (void)swipeMoved:(DNTutorialAction)action withPoint:(CGPoint)point size:(CGSize)size;
@@ -334,6 +334,10 @@ NSInteger const sTutorialTrackingDistance = 100;
     
     // Track current position in relation to initial point
     [self.currentStep setPercentageCompleted:delta];
+    
+    if (delta >= 1.0) {
+        self.initialGesturePoint = nil;
+    }
 }
 
 - (void)swipeEnded:(DNTutorialAction)action withPoint:(CGPoint)point size:(CGSize)size;
@@ -356,8 +360,10 @@ NSInteger const sTutorialTrackingDistance = 100;
     }
     
     // Start animating
-    if (delta <= 0.7)
+    if (delta < 1.0)
     {
+        self.initialGesturePoint = nil;
+        
         [self.currentStep startAnimating];
         
         [self.currentStep setPercentageCompleted:0];
@@ -392,33 +398,34 @@ NSInteger const sTutorialTrackingDistance = 100;
 - (CGFloat)point:(CGPoint)point deltaPositionForElement:(DNTutorialElement *)tutorialElement withSize:(CGSize)size;
 {
     CGFloat delta = 0.0f;
+    CGPoint initialPoint = [self.initialGesturePoint CGPointValue];
     
     DNTutorialGestureType direction = [(DNTutorialGesture *)tutorialElement gestureType];
     
     switch (direction) {
         case DNTutorialGestureTypeSwipeUp:
-            delta = (point.y - self.initialGesturePoint.y)/size.height;
+            delta = (point.y - initialPoint.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeRight:
-            delta = (point.x - self.initialGesturePoint.x)/size.width;
+            delta = (point.x - initialPoint.x)/size.width;
             break;
         case DNTutorialGestureTypeSwipeDown:
-            delta = (self.initialGesturePoint.y - point.y)/size.height;
+            delta = (initialPoint.y - point.y)/size.height;
             break;
         case DNTutorialGestureTypeSwipeLeft:
-            delta = (self.initialGesturePoint.x - point.x)/size.width;
+            delta = (initialPoint.x - point.x)/size.width;
             break;
         case DNTutorialGestureTypeScrollUp:
-            delta = (point.y - self.initialGesturePoint.y)/size.height;
+            delta = (point.y - initialPoint.y)/size.height;
             break;
         case DNTutorialGestureTypeScrollRight:
-            delta = (self.initialGesturePoint.x - point.x)/size.width;
+            delta = (initialPoint.x - point.x)/size.width;
             break;
         case DNTutorialGestureTypeScrollDown:
-            delta = (self.initialGesturePoint.y - point.y)/size.height;
+            delta = (initialPoint.y - point.y)/size.height;
             break;
         case DNTutorialGestureTypeScrollLeft:
-            delta = (point.x - self.initialGesturePoint.x)/size.width;
+            delta = (point.x - initialPoint.x)/size.width;
             break;
             
         default:
@@ -585,7 +592,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 }
 
 #pragma mark --
-#pragma mark Banner Delegate Methods
+#pragma mark Step Delegate Methods
 #pragma mark --
 
 - (void)willDismissStep:(DNTutorialStep *)tutorialStep;
@@ -620,6 +627,18 @@ NSInteger const sTutorialTrackingDistance = 100;
     if ([_delegate respondsToSelector:@selector(shouldDismissStep:forKey:)])
     {
         toReturn = [_delegate shouldDismissStep:step forKey:step.key];
+    }
+    
+    return toReturn;
+}
+
+- (BOOL)shouldAnimateStep:(DNTutorialStep *)step;
+{
+    BOOL toReturn = YES;
+    
+    if ([_delegate respondsToSelector:@selector(shouldAnimateStep:forKey:)])
+    {
+        toReturn = [_delegate shouldAnimateStep:step forKey:step.key];
     }
     
     return toReturn;
