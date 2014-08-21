@@ -182,6 +182,12 @@ NSInteger const sTutorialTrackingDistance = 100;
     if (toComplete != nil && [toComplete.key isEqualToString:aKey])
     {
         [toComplete setCompleted:YES];
+        
+        // Save state
+        if (tutorial.delegate != nil)
+        {
+            [tutorial.userDefaults controller:[tutorial currentController] setCompletion:YES forElement:toComplete.key];
+        }
     }
 }
 
@@ -727,7 +733,9 @@ NSInteger const sTutorialTrackingDistance = 100;
     NSMutableDictionary *elementsDictionary = [controllerDictionary[sTutorialElementsKey] mutableCopy];
     [elementsDictionary setObject:@(completion) forKey:aKey];
     [controllerDictionary setObject:elementsDictionary forKey:sTutorialElementsKey];
-    [self setObject:controllerDictionary forKey:aController];
+    
+    [_dictionary setObject:controllerDictionary forKey:aController];
+    [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
 }
 
 - (BOOL)controller:(NSString *)aController getCompletionforElement:(id<NSCopying>)aKey;
