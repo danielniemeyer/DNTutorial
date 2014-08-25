@@ -87,6 +87,10 @@ typedef BOOL (^shouldPresent)();
 + (id)tutorialElementForKey:(NSString *)aKey;
 
 
+// Returns the current tutorial step or nil if not found
++ (DNTutorialStep *)currentStep;
+
+
 // Used for tutorial gestures
 + (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
 + (void)touchesMoved:(CGPoint)touchPoint destinationSize:(CGSize)touchSize;

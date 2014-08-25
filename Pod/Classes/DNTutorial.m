@@ -287,6 +287,14 @@ NSInteger const sTutorialTrackingDistance = 100;
     return element;
 }
 
++ (DNTutorialStep *)currentStep;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    
+    return tutorial.currentStep;
+}
+
 #pragma mark --
 #pragma mark Gesture recognizers
 #pragma mark --
