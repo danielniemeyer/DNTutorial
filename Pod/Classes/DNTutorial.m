@@ -578,6 +578,16 @@ NSInteger const sTutorialTrackingDistance = 100;
     [self.tutorialSteps addObject:step];
 }
 
+- (void)setDelegate:(id<DNTutorialDelegate>)delegate
+{
+    if (_delegate == delegate)
+        return;
+
+    // Reset current step
+    _delegate = delegate;
+    _currentStep = nil;
+}
+
 - (NSString *)currentController
 {
     
