@@ -75,7 +75,11 @@ NSInteger const sGesturePositionDelta = 150;
 
 - (void)tearDown;
 {
-    [_circleLayer removeFromSuperlayer];
+    // Check if already dismissed
+    if (_circleLayer.superlayer)
+    {
+        [_circleLayer removeFromSuperlayer];
+    }
     _circleImage = nil;
     _circleLayer = nil;
 }
@@ -94,11 +98,6 @@ NSInteger const sGesturePositionDelta = 150;
 
 - (void)dismiss;
 {
-    // Check if already dismissed
-    if (!_circleLayer.superlayer) {
-        return;
-    }
-    
     // Will dismiss element
     [_delegate willDismissElement:self];
     

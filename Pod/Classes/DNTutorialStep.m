@@ -39,6 +39,11 @@
 - (void)setDelegate:(id<DNTutorialStepDelegate>)aDelegate;
 {
     _delegate = aDelegate;
+    
+    for (DNTutorialElement *element in self.elements)
+    {
+        [element setDelegate:self];
+    }
 }
 
 - (void)showInView:(UIView *)aView;
