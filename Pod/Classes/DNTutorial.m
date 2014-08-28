@@ -457,13 +457,12 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Load data from user defaults
     NSUInteger objectCount = [[self.userDefaults controller:[self currentController] getObjectforKey:sTutorialObjectsCountKey] integerValue];
-    NSInteger remainingCount = [[self.userDefaults controller:[self currentController] getObjectforKey:sTutorialRemainingCountKey] integerValue];
     
     // If no data found, save it
     if (objectCount == 0)
     {
         // Save current
-        objectCount = remainingCount = [self.tutorialSteps count];
+        objectCount = [self.tutorialSteps count];
         [self.userDefaults controller:[self currentController] setObject:@(objectCount) forKey:sTutorialObjectsCountKey];
         [self.userDefaults controller:[self currentController] setObject:@(objectCount) forKey:sTutorialRemainingCountKey];
     }
