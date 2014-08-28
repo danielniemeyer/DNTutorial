@@ -18,13 +18,13 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 @interface DNTutorial()
 
-@property (nonatomic, copy) shouldPresent shouldPresentBlock;
-@property (nonatomic, assign) NSUInteger presentationDelay;
-@property (nonatomic, weak) id<DNTutorialDelegate>  delegate;
+@property (nonatomic, copy) shouldPresent               shouldPresentBlock;
+@property (nonatomic, assign) NSUInteger                presentationDelay;
+@property (nonatomic, weak) id<DNTutorialDelegate>      delegate;
+@property (nonatomic, weak) UIView                      *parentView;
 
 @property (nonatomic, strong) NSMutableArray            *tutorialSteps;
 @property (nonatomic, strong) DNTutorialStep            *currentStep;
-@property (nonatomic, strong) UIView                    *parentView;
 @property (nonatomic, assign) BOOL                      hidden;
 @property (nonatomic) NSValue                           *initialGesturePoint;
 

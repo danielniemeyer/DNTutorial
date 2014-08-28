@@ -14,7 +14,7 @@ NSInteger const sGesturePositionDelta = 150;
 
 @property (nonatomic) CGPoint                                           startPosition;
 @property (nonatomic, weak) CAShapeLayer                                *circleLayer;
-@property (nonatomic, strong, setter = setBackgroundImage:) UIImage     *circleImage;
+@property (nonatomic, weak, setter = setBackgroundImage:) UIImage     *circleImage;
 
 @end
 
