@@ -90,7 +90,7 @@ NSInteger const sBannerVisibleHeight = 80;
     // Close button
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     closeButton.frame = CGRectMake(CGRectGetWidth(frame) - 40, 0, 40, sBannerVisibleHeight);
-    [closeButton setImage:[UIImage imageNamed:@"bannerClose"] forState:UIControlStateNormal];
+    [closeButton setImage:[UIImage imageNamed:@"DNTutorialClose"] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:closeButton];
     self.closeButton = closeButton;
@@ -193,7 +193,7 @@ NSInteger const sBannerVisibleHeight = 80;
         {
             [self.messagelabel setText:_completedMessage];
         }
-        [self.closeButton setImage:[UIImage imageNamed:@"bannerCheck"] forState:UIControlStateNormal];
+        [self.closeButton setImage:[UIImage imageNamed:@"DNTutorialCheck"] forState:UIControlStateNormal];
         
         // Should dismiss
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.completedDelay * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
