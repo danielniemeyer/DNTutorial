@@ -41,8 +41,12 @@ install_resource()
       ;;
   esac
 }
-install_resource "../../Pod/Assets/bannerCheck@2x.png"
-install_resource "../../Pod/Assets/bannerClose@2x.png"
+install_resource "../../Pod/Assets/DNTutorialCheck.png"
+install_resource "../../Pod/Assets/DNTutorialCheck@2x.png"
+install_resource "../../Pod/Assets/DNTutorialCheck@3x.png"
+install_resource "../../Pod/Assets/DNTutorialClose.png"
+install_resource "../../Pod/Assets/DNTutorialClose@2x.png"
+install_resource "../../Pod/Assets/DNTutorialClose@3x.png"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
