@@ -7,8 +7,9 @@
 //
 
 #import "DNRootController.h"
-
 #import "DNViewController.h"
+
+#define kPageControlHeight 45
 
 @interface DNRootController ()
 
@@ -45,10 +46,12 @@
     }
     self.viewControllers = controllers;
     
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    
     // a page is the width of the scroll view
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize =
-    CGSizeMake(CGRectGetWidth(self.scrollView.frame) * numberPages, CGRectGetHeight(self.scrollView.frame));
+    CGSizeMake(screenSize.width * numberPages, screenSize.height - kPageControlHeight);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
@@ -77,11 +80,7 @@
 
 - (UIStoryboard *)mainStoryboard;
 {
-    NSString *storyboardName = @"Main_iPhone";
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        storyboardName = @"Main_iPad";
-    
+    NSString *storyboardName = @"Storyboard";
     return [UIStoryboard storyboardWithName:storyboardName bundle:nil];
 }
 
@@ -95,7 +94,7 @@
     center = buttonCenter = objectCenter = self.view.center;
 
     center.x += 50;
-    buttonCenter.y -= 140;
+    buttonCenter.y = 60;
     
     DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Tap and swipe left to navigate to the next page. Swipe anywhere left or right to skip pages." completionMessage:@"Congratulations! You now know how to navigate throughout the app." key:@"initialBanner"];
     DNTutorialBanner *banner2 = [DNTutorialBanner bannerWithMessage:@"Tap 'complete action' to continue." completionMessage:@"Congratulations! You now know how to complete actions" key:@"secondBanner"];
@@ -152,7 +151,8 @@
     if (controller.view.superview == nil)
     {
         CGRect frame = self.scrollView.frame;
-        frame.origin.x = CGRectGetWidth(frame) * page;
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        frame.origin.x = screenSize.width * page;
         frame.origin.y = 0;
         controller.view.frame = frame;
         
