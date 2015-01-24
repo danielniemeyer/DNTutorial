@@ -221,7 +221,7 @@ NSInteger const sBannerVisibleHeight = 80;
     CGRect frame = CGRectZero;
     frame.origin.x = -10.0;
     frame.origin.y = CGRectGetHeight(_containerView.bounds) / 2.0;
-    frame.size.height = 400;
+    frame.size.height = 600;
     frame.size.width = CGRectGetWidth(_containerView.bounds) * (percentage + 0.1);
     frame.origin.y -= CGRectGetHeight(frame)/2.0;
     
@@ -298,7 +298,7 @@ NSInteger const sBannerVisibleHeight = 80;
     endRect.size.height = 400;
     endRect.size.width = CGRectGetWidth(_containerView.bounds) * 1.1f;
     endRect.origin.x = -10;
-    endRect.origin.y -= CGRectGetHeight(endRect)/2.0 - CGRectGetMidY(_containerView.bounds);
+    endRect.origin.y = -CGRectGetHeight(endRect)/2.0 + CGRectGetMidY(_containerView.bounds);
     
     self.circleLayer.opacity = 0.8;
     self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:endRect].CGPath;
@@ -314,8 +314,7 @@ NSInteger const sBannerVisibleHeight = 80;
     endRect.size.height = 400;
     endRect.size.width = CGRectGetWidth(view.bounds) * 1.1f;
     endRect.origin.x = -10;
-    endRect.origin.y -= CGRectGetHeight(endRect)/2.0 - CGRectGetMidY(view.bounds);
-    
+    endRect.origin.y = -CGRectGetHeight(endRect)/2.0 + CGRectGetMidY(view.bounds);
     [CATransaction begin];
     
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
