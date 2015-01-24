@@ -81,6 +81,10 @@
 - (UIStoryboard *)mainStoryboard;
 {
     NSString *storyboardName = @"Storyboard";
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        storyboardName = @"Main_iPad";
+    
     return [UIStoryboard storyboardWithName:storyboardName bundle:nil];
 }
 

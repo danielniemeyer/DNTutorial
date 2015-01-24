@@ -23,6 +23,7 @@
 		9D3C20B5198C9D18005451AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		9D3C20BB198C9D18005451AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D3C20B9198C9D18005451AA /* InfoPlist.strings */; };
 		9D3C20BD198C9D18005451AA /* DNTutorialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3C20BC198C9D18005451AA /* DNTutorialTests.m */; };
+		9D49AA101A733EB500180821 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D49AA0F1A733EB500180821 /* Main_iPad.storyboard */; };
 		DF28839B111D45369A1AA6B9 /* libPods-DNTutorial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED2FD0489144D1E96E33063 /* libPods-DNTutorial.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		9D3C20BA198C9D18005451AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D3C20BC198C9D18005451AA /* DNTutorialTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNTutorialTests.m; sourceTree = "<group>"; };
 		9D3C20BE198C9D18005451AA /* DNTutorialTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DNTutorialTests-Prefix.pch"; sourceTree = "<group>"; };
+		9D49AA0F1A733EB500180821 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		B6CA29BFA71646EAAC070189 /* DNTutorial.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DNTutorial.podspec; path = ../DNTutorial.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 			children = (
 				6003F59C195388D20070C39A /* DNAppDelegate.h */,
 				6003F59D195388D20070C39A /* DNAppDelegate.m */,
+				9D49AA0F1A733EB500180821 /* Main_iPad.storyboard */,
 				9D28DF4919EB3E17006821E1 /* Storyboard.storyboard */,
 				9D3C2059198C9B25005451AA /* DNRootController.h */,
 				9D3C205A198C9B25005451AA /* DNRootController.m */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				9D49AA101A733EB500180821 /* Main_iPad.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				9D28DF4A19EB3E17006821E1 /* Storyboard.storyboard in Resources */,
 			);
