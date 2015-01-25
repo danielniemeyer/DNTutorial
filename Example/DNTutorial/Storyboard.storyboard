@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sk-2S-BsK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sk-2S-BsK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="555"/>
                                 <connections>
                                     <outlet property="delegate" destination="ak3-NI-E5o" id="wPy-RJ-CyS"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KrD-on-0nS">
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KrD-on-0nS">
                                 <rect key="frame" x="0.0" y="563" width="600" height="37"/>
                                 <color key="backgroundColor" red="0.36078432199999999" green="0.77647066119999997" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
@@ -86,7 +87,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-sS-k09">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-sS-k09">
                                 <rect key="frame" x="0.0" y="104" width="320" height="30"/>
                                 <state key="normal" title="Show">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,7 +142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMk-av-rt6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMk-av-rt6">
                                 <rect key="frame" x="0.0" y="126" width="320" height="30"/>
                                 <state key="normal" title="Complete Action">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,7 +152,7 @@
                                     <action selector="investButtonAction:" destination="DGg-oj-gbm" eventType="touchUpInside" id="u7Z-gW-NPg"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mrc-zq-RC2">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrc-zq-RC2">
                                 <rect key="frame" x="110" y="234" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -171,7 +172,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YF7-69-HWk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YF7-69-HWk">
                                 <rect key="frame" x="0.0" y="414" width="320" height="30"/>
                                 <state key="normal" title="Hide">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,14 +182,27 @@
                                     <action selector="dismissTutorial:" destination="DGg-oj-gbm" eventType="touchUpInside" id="ozZ-ne-jL0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4u-kS-lIK">
+                                <rect key="frame" x="0.0" y="414" width="320" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetAction:" destination="DGg-oj-gbm" eventType="touchUpInside" id="Ops-1I-aXq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22745099660000001" green="0.55686277149999996" blue="0.72941178080000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="eMk-av-rt6" firstAttribute="trailing" secondItem="YF7-69-HWk" secondAttribute="trailing" id="79A-DX-PJw"/>
+                            <constraint firstItem="D4u-kS-lIK" firstAttribute="top" secondItem="YF7-69-HWk" secondAttribute="bottom" constant="8" symbolic="YES" id="DRL-Yg-Snu"/>
                             <constraint firstItem="Mrc-zq-RC2" firstAttribute="centerY" secondItem="gTg-LZ-VHj" secondAttribute="centerY" id="VGG-tc-WhM"/>
+                            <constraint firstItem="D4u-kS-lIK" firstAttribute="leading" secondItem="YF7-69-HWk" secondAttribute="leading" id="Vgd-ng-mn3"/>
                             <constraint firstItem="ZDy-uC-7gP" firstAttribute="top" secondItem="YF7-69-HWk" secondAttribute="bottom" constant="60" id="Voc-aT-FOu"/>
                             <constraint firstItem="Mrc-zq-RC2" firstAttribute="centerX" secondItem="eMk-av-rt6" secondAttribute="centerX" id="WfL-eH-NWM"/>
                             <constraint firstItem="eMk-av-rt6" firstAttribute="top" secondItem="pH2-Wg-dev" secondAttribute="bottom" constant="48" id="YAe-TA-4fJ"/>
+                            <constraint firstItem="D4u-kS-lIK" firstAttribute="trailing" secondItem="YF7-69-HWk" secondAttribute="trailing" id="klB-Kh-EZA"/>
                             <constraint firstItem="YF7-69-HWk" firstAttribute="leading" secondItem="gTg-LZ-VHj" secondAttribute="leadingMargin" id="lR1-mx-14t"/>
                             <constraint firstItem="YF7-69-HWk" firstAttribute="trailing" secondItem="gTg-LZ-VHj" secondAttribute="trailingMargin" id="mAP-PR-eBL"/>
                             <constraint firstItem="eMk-av-rt6" firstAttribute="leading" secondItem="YF7-69-HWk" secondAttribute="leading" id="oYy-uw-GRq"/>
@@ -198,6 +212,7 @@
                                 <exclude reference="eMk-av-rt6"/>
                                 <exclude reference="Mrc-zq-RC2"/>
                                 <exclude reference="YF7-69-HWk"/>
+                                <exclude reference="D4u-kS-lIK"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="79A-DX-PJw"/>
@@ -207,6 +222,9 @@
                                 <exclude reference="WfL-eH-NWM"/>
                                 <exclude reference="lR1-mx-14t"/>
                                 <exclude reference="mAP-PR-eBL"/>
+                                <exclude reference="DRL-Yg-Snu"/>
+                                <exclude reference="Vgd-ng-mn3"/>
+                                <exclude reference="klB-Kh-EZA"/>
                                 <exclude reference="Voc-aT-FOu"/>
                             </mask>
                         </variation>
@@ -215,6 +233,7 @@
                                 <include reference="eMk-av-rt6"/>
                                 <include reference="Mrc-zq-RC2"/>
                                 <include reference="YF7-69-HWk"/>
+                                <include reference="D4u-kS-lIK"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="79A-DX-PJw"/>
@@ -224,6 +243,9 @@
                                 <include reference="WfL-eH-NWM"/>
                                 <include reference="lR1-mx-14t"/>
                                 <include reference="mAP-PR-eBL"/>
+                                <include reference="DRL-Yg-Snu"/>
+                                <include reference="Vgd-ng-mn3"/>
+                                <include reference="klB-Kh-EZA"/>
                                 <include reference="Voc-aT-FOu"/>
                             </mask>
                         </variation>

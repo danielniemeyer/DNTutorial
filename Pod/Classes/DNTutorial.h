@@ -117,13 +117,23 @@ typedef BOOL (^shouldPresent)();
 
 @end
 
-@interface DNTutorialDictionary : NSMutableDictionary
+@interface DNTutorialDictionary : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary       *dictionary;
 
++ (instancetype)dictionary;
+- (instancetype)initWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)count;
+
+- (NSUInteger)count;
+- (id)objectForKey:(id)aKey;
+- (NSEnumerator *)keyEnumerator;
+- (void)setObject:(id)anObject forKey:(id < NSCopying >)aKey;
+- (void)removeObjectForKey:(id)aKey;
+
 - (void)controller:(NSString *)aController setObject:(id)anObject forKey:(id<NSCopying>)aKey;
 - (id)controller:(NSString *)aController getObjectforKey:(id<NSCopying>)aKey;
-
 - (void)controller:(NSString *)aController setCompletion:(BOOL)completion forElement:(id<NSCopying>)aKey;
+
+- (void)removeAllObjects;
 
 @end

@@ -193,9 +193,13 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 + (void)resetProgress;
 {
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+
     // Restore to factory settings
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:sUserDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [tutorial.userDefaults removeAllObjects];
+    //[[NSUserDefaults standardUserDefaults] removeObjectForKey:sUserDefaultsKey];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)setDebug;
@@ -675,18 +679,29 @@ NSInteger const sTutorialTrackingDistance = 100;
 
 @implementation DNTutorialDictionary
 
++ (instancetype)dictionary;
+{
+    DNTutorialDictionary *tutorialDictionary = [DNTutorialDictionary new];
+    [tutorialDictionary setupWithObjects:nil forKeys:nil count:0];
+    return tutorialDictionary;
+}
+
 - (instancetype)initWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)count;
 {
     DNTutorialDictionary *tutorialDictionary = [DNTutorialDictionary new];
-    tutorialDictionary.dictionary = [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:count];
+    [tutorialDictionary setupWithObjects:objects forKeys:keys count:count];
+    return tutorialDictionary;
+}
+
+- (void)setupWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)count;
+{
+    self.dictionary = [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:count];
     
     // Populate data from user defaults
     if ([[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] != nil)
     {
-        tutorialDictionary.dictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] mutableCopy];
+        self.dictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:sUserDefaultsKey] mutableCopy];
     }
-    
-    return tutorialDictionary;
 }
 
 - (NSUInteger)count;
@@ -781,6 +796,14 @@ NSInteger const sTutorialTrackingDistance = 100;
     }
     
     return controllerDictionary;
+}
+
+- (void)removeAllObjects;
+{
+    // Remove all objects
+    [_dictionary removeAllObjects];
+    [[NSUserDefaults standardUserDefaults] setObject:_dictionary forKey:sUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
