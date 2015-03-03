@@ -196,6 +196,13 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     [tutorial.userDefaults removeAllObjects];
+    
+    // Reset progress of current objects
+    for (DNTutorialStep *step in tutorial.tutorialSteps)
+    {
+        [step setPercentageCompleted:0.0f];
+        [step setCompleted:NO];
+    }
 }
 
 + (void)setDebug;
@@ -260,14 +267,15 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    DNTutorialStep *step = tutorial.currentStep;
-    
-    for (int i = 0; step == nil;)
+    for (DNTutorialStep *step in tutorial.tutorialSteps)
     {
-        step = tutorial.tutorialSteps[i];
+        if ([step.key isEqualToString:aKey])
+        {
+            return step;
+        }
     }
     
-    return step;
+    return nil;
 }
 
 + (id)tutorialElementForKey:(NSString *)aKey;
@@ -277,14 +285,19 @@ NSInteger const sTutorialTrackingDistance = 100;
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
     
-    DNTutorialElement *element = [tutorial.currentStep tutorialElementForKey:aKey];
+    DNTutorialElement *element = nil;
     
-    for (int i = 0; element == nil;)
+    for (DNTutorialStep *step in tutorial.tutorialSteps)
     {
-        element = [tutorial.tutorialSteps[i] tutorialElementForKey:aKey];
+        element = [step tutorialElementForKey:aKey];
+        
+        if (element)
+        {
+            return element;
+        }
     }
     
-    return element;
+    return nil;
 }
 
 + (DNTutorialStep *)currentStep;
