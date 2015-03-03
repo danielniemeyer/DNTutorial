@@ -195,11 +195,7 @@ NSInteger const sTutorialTrackingDistance = 100;
 {
     // Retrive DNTutorial instance
     DNTutorial *tutorial = [DNTutorial sharedInstance];
-
-    // Restore to factory settings
     [tutorial.userDefaults removeAllObjects];
-    //[[NSUserDefaults standardUserDefaults] removeObjectForKey:sUserDefaultsKey];
-    //[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)setDebug;
