@@ -139,6 +139,8 @@ NSInteger const sGesturePositionDelta = 150;
         return;
     }
     
+    _percentageCompleted = percentage;
+    
     if (percentage >= 1.0)
     {
         // User action completed

@@ -218,6 +218,7 @@ NSInteger const sBannerVisibleHeight = 80;
     }
     
     // Load background indicator
+    _percentageCompleted = percentage;
     CGRect frame = CGRectZero;
     frame.origin.x = -10.0;
     frame.origin.y = CGRectGetHeight(_containerView.bounds) / 2.0;

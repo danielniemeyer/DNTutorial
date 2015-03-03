@@ -106,6 +106,11 @@
 - (void)setPercentageCompleted:(CGFloat)percentage;
 {
     // Set percentage completion of child elements
+    if (percentage < 0)
+        return;
+    
+    _percentageCompleted = percentage;
+    
     for (DNTutorialElement *tutorialElement in self.elements)
     {
         [tutorialElement setPercentageCompleted:percentage];
@@ -115,6 +120,11 @@
     {
         _actionCompleted = YES;
     }
+}
+
+- (CGFloat)percentageCompleted;
+{
+    return _percentageCompleted;
 }
 
 - (void)setCompleted:(BOOL)completed;

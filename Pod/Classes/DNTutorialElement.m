@@ -45,9 +45,16 @@
 {
     if (percentage < 0)
         return;
+    
+    _percentageCompleted = percentage;
         
     if (percentage >= 1.0)
         [self setCompleted:YES animated:NO];
+}
+
+- (CGFloat)percentageCompleted;
+{
+    return _percentageCompleted;
 }
 
 - (DNTutorialAction)tutorialActions;

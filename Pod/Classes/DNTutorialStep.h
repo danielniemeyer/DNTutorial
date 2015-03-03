@@ -18,6 +18,7 @@
 {
     @protected
     BOOL                                    _actionCompleted;
+    CGFloat                                 _percentageCompleted;
     id<DNTutorialStepDelegate>              _delegate;
 }
 
@@ -72,6 +73,9 @@
 
 // Set percentage completed
 - (void)setPercentageCompleted:(CGFloat)percentage;
+
+// Getter for percentage completion
+- (CGFloat)percentageCompleted;
 
 @end
 

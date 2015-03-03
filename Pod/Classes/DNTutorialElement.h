@@ -24,6 +24,7 @@ typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
 {
     @protected
     BOOL                                        _actionCompleted;
+    CGFloat                                     _percentageCompleted;
     id<DNTutorialElementDelegate>               _delegate;
 }
 
@@ -57,6 +58,8 @@ typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
 // Set percentage completed
 - (void)setPercentageCompleted:(CGFloat)percentage;
 
+// Getter for percentage completion
+- (CGFloat)percentageCompleted;
 
 // Getter for tutorial actions
 - (DNTutorialAction)tutorialActions;

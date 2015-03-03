@@ -164,12 +164,30 @@ NSInteger const sTutorialGestureAll = DNTutorialActionTapGesture | DNTutorialAct
     
     [step1 setCompleted:NO];
     XCTAssertFalse(step1.isCompleted, @"DNAppTutorialTests:   Step returning the wrong completion status");
+}
+
+- (void)testPercentageCompletion;
+{
+    DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Test 1" completionMessage:@"Test 1 Passed!" key:@"bannerTest1"];
+    DNTutorialGesture *gesture1 = [DNTutorialGesture gestureWithPosition:self.center type:DNTutorialGestureTypeScrollLeft key:@"gestureTest1"];
+    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, gesture1] forKey:@"stepTest1"];
+    DNTutorialStep *step2 = [DNTutorialStep stepWithTutorialElements:@[gesture1, banner1] forKey:@"stepTest2"];
+    DNTutorialStep *step3 = [DNTutorialStep stepWithTutorialElements:@[banner1, banner1] forKey:@"stepTest3"];
     
     [step1 setPercentageCompleted:0.5];
+    [step2 setPercentageCompleted:0.5];
+    [step3 setPercentageCompleted:-0.5];
     XCTAssertFalse(step1.isCompleted, @"DNAppTutorialTests:   Step returning the wrong completion status");
-
+    
     [step1 setPercentageCompleted:1.0];
     XCTAssertTrue(step1.isCompleted, @"DNAppTutorialTests:   Step returning the wrong completion status");
+    
+    // Percentage completion
+    XCTAssertEqual(banner1.percentageCompleted, 1.0, @"DNAppTutorialTests:   Step returning the wrong percentage status");
+    XCTAssertEqual(gesture1.percentageCompleted, 1.0, @"DNAppTutorialTests:   Step returning the wrong percentage status");
+    XCTAssertEqual(step1.percentageCompleted, 1.0, @"DNAppTutorialTests:   Step returning the wrong percentage status");
+    XCTAssertEqual(step2.percentageCompleted, 0.5, @"DNAppTutorialTests:   Step returning the wrong percentage status");
+    XCTAssertEqual(step3.percentageCompleted, 0.0, @"DNAppTutorialTests:   Step returning the wrong percentage status");
 }
 
 @end
