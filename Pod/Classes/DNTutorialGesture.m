@@ -92,6 +92,10 @@ NSInteger const sGesturePositionDelta = 150;
 {
     // Start animation
     _actionCompleted = NO;
+    
+    // Test
+    //UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    //[_delegate willAnimateElement:self toInterfaceOrientation:interfaceOrientation duration:0.0];
 
     [self startAnimating];
 }

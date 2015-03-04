@@ -9,6 +9,8 @@
 #import "DNRootController.h"
 #import "DNViewController.h"
 
+NSInteger const sScrollViewPageCount = 2;
+
 #define kPageControlHeight 45
 
 @interface DNRootController ()
@@ -36,11 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    
-    NSUInteger numberPages = 2;
-    
+    // Do any additional setup after loading the view.
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 0; i < numberPages; i++)
+    for (NSUInteger i = 0; i < sScrollViewPageCount; i++)
     {
 		[controllers addObject:[NSNull null]];
     }
@@ -50,18 +50,16 @@
     
     // a page is the width of the scroll view
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize =
-    CGSizeMake(screenSize.width * numberPages, screenSize.height - kPageControlHeight);
+    self.scrollView.contentSize = CGSizeMake(screenSize.width * sScrollViewPageCount, screenSize.height - kPageControlHeight);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
     
-    self.pageControl.numberOfPages = numberPages;
+    self.pageControl.numberOfPages = sScrollViewPageCount;
     self.pageControl.currentPage = 0;
     
-    [self loadScrollViewWithPage:0];
-    [self loadScrollViewWithPage:1];
+    [self gotoPage:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -138,7 +136,19 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration;
 {
+    // Tutorial
     [DNTutorial willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    
+    // View rotations
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    self.scrollView.contentSize = CGSizeMake(screenSize.width * sScrollViewPageCount, screenSize.height - kPageControlHeight);
+    
+    for (UIViewController *viewController in self.viewControllers)
+    {
+        [viewController.view removeFromSuperview];
+    }
+    
+    [self gotoPage:NO];
 }
 
 - (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
