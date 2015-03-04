@@ -90,6 +90,8 @@ typedef BOOL (^shouldPresent)();
 // Returns the current tutorial step or nil if not found
 + (DNTutorialStep *)currentStep;
 
+// Used for screen rotation
++ (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
 // Used for tutorial gestures
 + (void)touchesBegan:(CGPoint)touchPoint inView:(UIView *)view;
@@ -114,6 +116,8 @@ typedef BOOL (^shouldPresent)();
 - (BOOL)shouldDismissStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
 
 - (BOOL)shouldAnimateStep:(DNTutorialStep *)step forKey:(NSString *)aKey;
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
 @end
 

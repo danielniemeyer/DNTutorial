@@ -133,6 +133,41 @@
 }
 
 #pragma mark --
+#pragma mark Screen rotation
+#pragma mark --
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration;
+{
+    [DNTutorial willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+}
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    if ([element isKindOfClass:[DNTutorialGesture class]])
+    {
+        // Reposition center
+        CGPoint center, buttonCenter, objectCenter;
+        center = buttonCenter = objectCenter = self.view.center;
+        
+        center.x += 50;
+        buttonCenter.y = 60;
+        
+        if ([element.key isEqualToString:@"firstGesture"])
+        {
+            [(DNTutorialGesture *)element setPosition:center];
+        }
+        else if ([element.key isEqualToString:@"tapGesture"])
+        {
+            [(DNTutorialGesture *)element setPosition:buttonCenter];
+        }
+        else if ([element.key isEqualToString:@"secondGesture"])
+        {
+            [(DNTutorialGesture *)element setPosition:objectCenter];
+        }
+    }
+}
+
+#pragma mark --
 #pragma mark ScrollView
 #pragma mark --
 

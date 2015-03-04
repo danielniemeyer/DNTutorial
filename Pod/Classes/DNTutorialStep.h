@@ -77,6 +77,9 @@
 // Getter for percentage completion
 - (CGFloat)percentageCompleted;
 
+// Interface rotation
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+
 @end
 
 @protocol DNTutorialStepDelegate <NSObject>
@@ -87,5 +90,7 @@
 
 - (BOOL)shouldDismissStep:(DNTutorialStep *)step;
 - (BOOL)shouldAnimateStep:(DNTutorialStep *)step;
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
 @end

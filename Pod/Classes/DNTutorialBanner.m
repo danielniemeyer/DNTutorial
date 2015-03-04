@@ -241,6 +241,21 @@ NSInteger const sBannerVisibleHeight = 80;
     return DNTutorialActionBanner;
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    // Redraw
+    UIView *aView = _containerView.superview;
+    
+    CGFloat viewHeight = CGRectGetHeight(aView.bounds) - sBannerVisibleHeight;
+    CGFloat viewWidth = CGRectGetWidth(aView.bounds);
+    CGRect frame = CGRectMake(0, viewHeight, viewWidth, 100);
+    
+    [UIView animateWithDuration:duration animations:^(void){
+        _containerView.frame = frame;
+        _closeButton.frame = CGRectMake(CGRectGetWidth(frame) - 40, 0, 40, sBannerVisibleHeight);
+        _messagelabel.frame = CGRectMake(10, 0, CGRectGetWidth(frame) - CGRectGetWidth(_closeButton.bounds) - 10, sBannerVisibleHeight);
+    }];
+}
 
 #pragma mark --
 #pragma mark Public Methods

@@ -73,4 +73,14 @@
     return;
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    [self willAnimateElement:self toInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    [_delegate willAnimateElement:element toInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+
 @end

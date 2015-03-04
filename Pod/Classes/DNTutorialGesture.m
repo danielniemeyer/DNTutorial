@@ -265,6 +265,10 @@ NSInteger const sGesturePositionDelta = 150;
     [_circleLayer removeAnimationForKey:@"gestureAnimation"];
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    
+}
 
 #pragma mark --
 #pragma mark - Public Methods
@@ -272,7 +276,17 @@ NSInteger const sGesturePositionDelta = 150;
 
 - (void)setPosition:(CGPoint)point;
 {
-    _startPosition = point;
+    if (!CGPointEqualToPoint(_startPosition, point))
+    {
+        _startPosition = point;
+        _circleLayer.position = point;
+        
+        if ([_circleLayer animationForKey:@"gestureAnimation"])
+        {
+            [self stopAnimating];
+            [self startAnimating];
+        }
+    }
 }
 
 - (void)setBackgroundImage:(UIImage *)image;

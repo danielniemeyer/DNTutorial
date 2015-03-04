@@ -176,6 +176,14 @@
     [self dismiss];
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    for (DNTutorialElement *tutorialElement in self.elements)
+    {
+        [tutorialElement willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    }
+}
+
 #pragma mark --
 #pragma mark Private
 #pragma mark --
@@ -248,6 +256,12 @@
         [self dismiss];
         [_delegate didDismissStep:self];
     }
+}
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    // Called when an element is about to animate view rotation
+    [_delegate willAnimateElement:element toInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
 
 @end

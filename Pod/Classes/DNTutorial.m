@@ -309,6 +309,17 @@ NSInteger const sTutorialTrackingDistance = 100;
 }
 
 #pragma mark --
+#pragma mark Screen rotation
+#pragma mark --
+
++ (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    // Retrive DNTutorial instance
+    DNTutorial *tutorial = [DNTutorial sharedInstance];
+    [tutorial.currentStep willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+
+#pragma mark --
 #pragma mark Gesture recognizers
 #pragma mark --
 
@@ -678,6 +689,14 @@ NSInteger const sTutorialTrackingDistance = 100;
     }
     
     return toReturn;
+}
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+{
+    if ([_delegate respondsToSelector:@selector(willAnimateElement:toInterfaceOrientation:duration:)])
+    {
+        [_delegate willAnimateElement:element toInterfaceOrientation:toInterfaceOrientation duration:duration];
+    }
 }
 
 @end

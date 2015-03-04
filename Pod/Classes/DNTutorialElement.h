@@ -70,6 +70,9 @@ typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
 // Called when user pauses animations
 - (void)stopAnimating;
 
+// Interface orientation
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+
 @end
 
 @protocol DNTutorialElementDelegate <NSObject>
@@ -82,6 +85,9 @@ typedef NS_OPTIONS (NSUInteger, DNTutorialAction)
 - (void)userDismissedElement:(DNTutorialElement *)element;
 
 - (BOOL)shouldAnimateElement:(DNTutorialElement *)element;
+
+- (void)willAnimateElement:(DNTutorialElement *)element toInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+
 
 @end
 
