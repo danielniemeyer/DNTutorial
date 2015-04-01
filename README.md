@@ -39,7 +39,7 @@ To style the appearance of a banner simply call the style method
 DNTutorial comes with two standard tutorial elements (DNTutorialBanner, DNTutorialGesture).
 
 Both standard classes derive from the same base class, DNTutorialElement.
-This polimorphic class provides an easy framework for you to come up with your own tutorial element subclasses that can
+This polymorphic class provides an easy framework for you to come up with your own tutorial element subclasses that can
 work with the tutorial system right from outside the box.
 
 And if you come up with a cool class, just submit a pull request so that I can add it to the repo.
