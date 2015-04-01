@@ -114,6 +114,15 @@ NSInteger const sTutorialGestureAll = DNTutorialActionTapGesture | DNTutorialAct
     XCTAssertEqual(gesture4.tutorialActions, sTutorialGestureAll, @"DNAppTutorialTests:   Tutorial element returning the wrong actions");
 }
 
+- (void)testTutorialAudio;
+{
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"completionSound" ofType:@"wav"]];
+    DNTutorialAudio *audio1 = [DNTutorialAudio audioWithURL:url key:@"audioTest1"];
+    DNTutorialAudio *audio2 = [DNTutorialAudio audioWithPath:@"completionSound" ofType:@"wav" key:@"audioTest2"];
+    XCTAssertNotNil(audio1, @"DNAppTutorialTests:   Cannot present a nil gesture");
+    XCTAssertNotNil(audio2, @"DNAppTutorialTests:   Cannot present a nil gesture");
+}
+
 - (void)testPresentTutorial;
 {
     DNTutorialBanner *banner1 = [DNTutorialBanner bannerWithMessage:@"Test 1" completionMessage:@"Test 1 Passed!" key:@"bannerTest1"];

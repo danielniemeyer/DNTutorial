@@ -108,7 +108,9 @@ NSInteger const sScrollViewPageCount = 2;
     DNTutorialGesture *tapGesture = [DNTutorialGesture gestureWithPosition:buttonCenter type:DNTutorialGestureTypeTap key:@"tapGesture"];
     DNTutorialGesture *swipeGesture = [DNTutorialGesture gestureWithPosition:objectCenter type:DNTutorialGestureTypeSwipeDown key:@"secondGesture"];
     
-    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, scrollGesture] forKey:@"firtStep"];
+    DNTutorialAudio *audio1 = [DNTutorialAudio audioWithPath:@"completionSound" ofType:@"wav" key:@"firstAudio"];
+    
+    DNTutorialStep *step1 = [DNTutorialStep stepWithTutorialElements:@[banner1, scrollGesture, audio1] forKey:@"firtStep"];
     DNTutorialStep *step2 = [DNTutorialStep stepWithTutorialElements:@[banner2, tapGesture] forKey:@"secondStep"];
     DNTutorialStep *step3 = [DNTutorialStep stepWithTutorialElements:@[banner3, swipeGesture] forKey:@"thirdStep"];
     
