@@ -26,7 +26,7 @@
 {
     // Proper initialization
     NSAssert(URL != nil, @"DNTutorialAudio: Cannot initialize action with no URL");
-    NSAssert(key != nil, @"DNTutorialGesture: Cannot initialize action with invalid key");
+    NSAssert(key != nil, @"DNTutorialAudio: Cannot initialize action with invalid key");
     
     DNTutorialAudio *audio = [DNTutorialAudio new];
     audio.key = key;
@@ -41,7 +41,7 @@
     // Proper initialization
     NSAssert(path != nil, @"DNTutorialAudio: Cannot initialize action with no path");
     NSAssert(type != nil, @"DNTutorialAudio: Cannot initialize action with no type");
-    NSAssert(key != nil, @"DNTutorialGesture: Cannot initialize action with invalid key");
+    NSAssert(key != nil, @"DNTutorialAudio: Cannot initialize action with invalid key");
     
     DNTutorialAudio *audio = [DNTutorialAudio new];
     
@@ -71,7 +71,7 @@
     // Check for errors
     if (error)
     {
-        NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
+        NSLog(@"DNTutorialAudio:   Error in audioPlayer: %@", [error localizedDescription]);
         return;
     }
     
@@ -87,12 +87,19 @@
 
 - (void)show;
 {
+    _actionCompleted = NO;
+    
     [self.audioPlayer play];
 }
 
 - (void)dismiss;
 {
+    // Will dismiss element
+    [_delegate willDismissElement:self];
+    
     [self.audioPlayer pause];
+    
+    [_delegate didDismissElement:self];
 }
 
 - (void)startAnimating;
@@ -103,6 +110,38 @@
 - (void)stopAnimating;
 {
     return;
+}
+
+- (void)setCompleted:(BOOL)completed animated:(BOOL)animated;
+{
+    if (_actionCompleted && completed) {
+        return;
+    }
+    
+    _actionCompleted = completed;
+    
+    if (completed)
+    {
+        // Should dismiss
+        [self dismiss];
+    }
+}
+
+- (void)setPercentageCompleted:(CGFloat)percentage;
+{
+    // percentage alpha and position based on position
+    if (percentage < 0 || _actionCompleted)
+    {
+        return;
+    }
+    
+    _percentageCompleted = percentage;
+    
+    if (percentage >= 1.0)
+    {
+        // User action completed
+        [self setCompleted:YES animated:NO];
+    }
 }
 
 #pragma mark --
