@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DNTutorial"
-  s.version          = "0.1.7"
+  s.version          = "0.1.8"
   s.summary          = "DNTutorial provides an easy to use introductory tutorial system based on Paper by Facebook."
   s.description      = <<-DESC
                        DNTutorial provides an easy to use introductory tutorial system based on Paper by Facebook.
