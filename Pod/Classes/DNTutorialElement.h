@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Daniel Niemeyer. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 typedef NS_OPTIONS (NSUInteger, DNTutorialAction)

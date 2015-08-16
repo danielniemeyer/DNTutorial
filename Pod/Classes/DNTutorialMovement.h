@@ -6,6 +6,10 @@
 //
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreMotion/CoreMotion.h>
+
 #import "DNTutorialElement.h"
 
 typedef NS_ENUM (NSUInteger, DNTutorialMovementDirection)
@@ -18,8 +22,10 @@ typedef NS_ENUM (NSUInteger, DNTutorialMovementDirection)
 
 @interface DNTutorialMovement : DNTutorialElement
 
+@property (nonatomic, assign) DNTutorialMovementDirection    movementDirection;
+
 // Public method for instantiating a new DNTutorialMovement with the appropriate direction
 + (id)movementWithDirection:(DNTutorialMovementDirection)direction
-                    key:(NSString *)key;
+                        key:(NSString *)key;
 
 @end

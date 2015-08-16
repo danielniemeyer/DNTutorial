@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ak3-NI-E5o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ak3-NI-E5o">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -215,17 +215,17 @@
                                 <exclude reference="D4u-kS-lIK"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Voc-aT-FOu"/>
                                 <exclude reference="79A-DX-PJw"/>
                                 <exclude reference="YAe-TA-4fJ"/>
                                 <exclude reference="oYy-uw-GRq"/>
                                 <exclude reference="VGG-tc-WhM"/>
                                 <exclude reference="WfL-eH-NWM"/>
-                                <exclude reference="lR1-mx-14t"/>
-                                <exclude reference="mAP-PR-eBL"/>
                                 <exclude reference="DRL-Yg-Snu"/>
                                 <exclude reference="Vgd-ng-mn3"/>
                                 <exclude reference="klB-Kh-EZA"/>
-                                <exclude reference="Voc-aT-FOu"/>
+                                <exclude reference="lR1-mx-14t"/>
+                                <exclude reference="mAP-PR-eBL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -236,17 +236,17 @@
                                 <include reference="D4u-kS-lIK"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Voc-aT-FOu"/>
                                 <include reference="79A-DX-PJw"/>
                                 <include reference="YAe-TA-4fJ"/>
                                 <include reference="oYy-uw-GRq"/>
                                 <include reference="VGG-tc-WhM"/>
                                 <include reference="WfL-eH-NWM"/>
-                                <include reference="lR1-mx-14t"/>
-                                <include reference="mAP-PR-eBL"/>
                                 <include reference="DRL-Yg-Snu"/>
                                 <include reference="Vgd-ng-mn3"/>
                                 <include reference="klB-Kh-EZA"/>
-                                <include reference="Voc-aT-FOu"/>
+                                <include reference="lR1-mx-14t"/>
+                                <include reference="mAP-PR-eBL"/>
                             </mask>
                         </variation>
                     </view>

@@ -26,6 +26,7 @@
 #import "DNTutorialBanner.h"
 #import "DNTutorialGesture.h"
 #import "DNTutorialAudio.h"
+#import "DNTutorialMovement.h"
 
 typedef BOOL (^shouldPresent)();
 
