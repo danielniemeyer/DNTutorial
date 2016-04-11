@@ -1,5 +1,5 @@
 PODS:
-  - DNTutorial (0.1.7)
+  - DNTutorial (0.1.8)
 
 DEPENDENCIES:
   - DNTutorial (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DNTutorial: 5647a0b6e06e9717eff892ebc53c0c4b947991f1
+  DNTutorial: 15f34fc489491af3def81ec54e40da51eb8f7a6f
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.3

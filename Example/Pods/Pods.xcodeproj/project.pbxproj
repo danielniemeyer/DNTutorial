@@ -1,2061 +1,769 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>046EE77B17A7B3B7CDF1B585</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>1C66CEA5B3A6A3769A4D950E</string>
-				<string>0790939626E744C2A2AEC00E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>065250B5B24A9B0AC74AE594</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-DNTutorial.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>071C76C2FBECF9562CB72135</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>71ABA824B4476C8A45400244</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>0790939626E744C2A2AEC00E</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CE040B1CA4E1471255D44EBD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-prefix.pch</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>07A60406617F1EC6571E2C19</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorialMovement.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialMovement.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>08BBC6C53535724E4A57F5C2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA5CCD751191B8686B39AC8E</string>
-				<string>6F1C84B793AE87C822A05965</string>
-				<string>497469C05F7741FA7092560E</string>
-				<string>72128892D2B7ECBF7DF4DB5B</string>
-				<string>86F9BD371F427784FACE8B9C</string>
-				<string>16984E51BF50E8868AD7F5C2</string>
-				<string>58276D01027C9D53B70470D9</string>
-				<string>CB375AFA1E8248D5949A0969</string>
-				<string>B10F692F552D19AB321F4FDF</string>
-				<string>1174759A6A0E98B1C97F7C3E</string>
-				<string>B87D45F604C277A4C36AA373</string>
-				<string>07A60406617F1EC6571E2C19</string>
-				<string>EA1252CF8E7E331A7C3EC15E</string>
-				<string>ECF7478D47D21DE68E4FB798</string>
-				<string>D05170CFD462BA0E372D7B9B</string>
-				<string>3B011266F05349EB16AEE6C0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>DNTutorial</string>
-			<key>path</key>
-			<string>../..</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0EC2E95D2CE76470D2BAA4E5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6F1C84B793AE87C822A05965</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1172D69AA04E4AC87C7A5660</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB375AFA1E8248D5949A0969</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1174759A6A0E98B1C97F7C3E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorialGesture.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialGesture.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>11E6C937EA84F55D7003BF17</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>DNTutorialCheck.png</string>
-			<key>path</key>
-			<string>Pod/Assets/DNTutorialCheck.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>150B4118A9A79E75D54562C0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB375AFA1E8248D5949A0969</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>16984E51BF50E8868AD7F5C2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorialBanner.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialBanner.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1703B50F5FE4DD26DEB438E3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E62F28DC11B38A00869F25C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>19F9A0C3F7AF4AEC613BA6BA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1C66CEA5B3A6A3769A4D950E</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CE040B1CA4E1471255D44EBD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>1DC3883472FEA38981D35A03</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>552669EF4E9F51B57C96D877</string>
-				<string>85FF41A3D568585F8527290B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>1E4618CE964F9618DBB627DF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>72AD545B6B2AB01859D916F1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>234ED07611CA9DF039F40E67</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B10F692F552D19AB321F4FDF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2ECB12E401DA417CCC3A994E</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>046EE77B17A7B3B7CDF1B585</string>
-			<key>buildPhases</key>
-			<array>
-				<string>A42200392C5AEE0967B6F8BC</string>
-				<string>071C76C2FBECF9562CB72135</string>
-				<string>834AA57A5907F4F01D52DDF7</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests-DNTutorial</string>
-			<key>productName</key>
-			<string>Pods-DNTutorialTests-DNTutorial</string>
-			<key>productReference</key>
-			<string>A87822C0CECCEBA30DD0683D</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>2FB168774F7713118AA66206</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>D441A197DDBEE105024A7E09</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>B41A779CB0E822D77AC058C7</string>
-			<key>productRefGroup</key>
-			<string>67BA9CCD149668749D4E4B20</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>F03AC084D1F6C84D264D5DF1</string>
-				<string>9D22E8292C9F03ECF8FCE9D6</string>
-				<string>EB71EB6AD6DA17121F7DB2D2</string>
-				<string>2ECB12E401DA417CCC3A994E</string>
-			</array>
-		</dict>
-		<key>339D7BB902EC441D37530164</key>
-		<dict>
-			<key>fileRef</key>
-			<string>72128892D2B7ECBF7DF4DB5B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>34D333F3E1243D0B4F4CD3B9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA5CCD751191B8686B39AC8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>34DD3991C943EAB13D207E84</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6F1C84B793AE87C822A05965</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3B011266F05349EB16AEE6C0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8C5431D0570352C7540B60D0</string>
-				<string>428A0BE06CA33A2C96F68681</string>
-				<string>FBC4551C50D1E569230BA867</string>
-				<string>F7B77867D860FD787D5282F7</string>
-				<string>AFF4C7A1C1E6DD2B40A41A24</string>
-				<string>CE040B1CA4E1471255D44EBD</string>
-				<string>6278D46EFB3D1A82BABCEAF9</string>
-				<string>BD44449ED09781A311A7B076</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>Example/Pods/Target Support Files/Pods-DNTutorial-DNTutorial</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3D60F4F33342D3E2B4AD3535</key>
-		<dict>
-			<key>fileRef</key>
-			<string>07A60406617F1EC6571E2C19</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3F8C88634A358B632A376B35</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1174759A6A0E98B1C97F7C3E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>428A0BE06CA33A2C96F68681</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-DNTutorial-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4337992C0E34BF3CFECBD40C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>58276D01027C9D53B70470D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>497469C05F7741FA7092560E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorialAudio.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialAudio.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>514D05BC4A2FE4705FB5799F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>19F9A0C3F7AF4AEC613BA6BA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>51E6BB0FED2F5DC557762765</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA1296249623155F38AA2FE7</string>
-				<string>A6D749718937F3C9BC6FA524</string>
-				<string>EFDF65AC26822D51DFE553EF</string>
-				<string>8620F44D83CD46E20AEBBCCE</string>
-				<string>52E20A8D1D16623024B05C90</string>
-				<string>A9858ABFB9557474D8EDBC98</string>
-				<string>5E87AFA61D7303F46B97BA25</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-DNTutorialTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>52E20A8D1D16623024B05C90</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>53BA7C191102E1ED81863210</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>DNTutorialClose@3x.png</string>
-			<key>path</key>
-			<string>Pod/Assets/DNTutorialClose@3x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5500980268CDD3BE3246C4D6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EA1252CF8E7E331A7C3EC15E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>552669EF4E9F51B57C96D877</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>7AFCFF21A3846C6ED2878AD3</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>562CF2E334E0E4C5248D7806</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>DNTutorialClose@2x.png</string>
-			<key>path</key>
-			<string>Pod/Assets/DNTutorialClose@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>565B9BDE951A959878B2572C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>5E87AFA61D7303F46B97BA25</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>565C8EC0F7DF57FC3B0946FC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>0EC2E95D2CE76470D2BAA4E5</string>
-				<string>AEBD921D55D8F45FB52B67A8</string>
-				<string>57E2D233D8C1CC25AEE82CD7</string>
-				<string>150B4118A9A79E75D54562C0</string>
-				<string>3F8C88634A358B632A376B35</string>
-				<string>3D60F4F33342D3E2B4AD3535</string>
-				<string>DD41D350B46C79ED20506CAF</string>
-				<string>8C61145EC14C55628E88D874</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57E2D233D8C1CC25AEE82CD7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16984E51BF50E8868AD7F5C2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>58276D01027C9D53B70470D9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorialElement.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialElement.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E2EB1F116099F9BCFD832E7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA5CCD751191B8686B39AC8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E87AFA61D7303F46B97BA25</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>615AD9721F34B3CEFFDC66AB</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>6278D46EFB3D1A82BABCEAF9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests-DNTutorial-dummy.m</string>
-			<key>path</key>
-			<string>../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>63316211B53B024446189B21</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>65A914B66B78025C26E7935F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B87D45F604C277A4C36AA373</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>669314F217D7B1E2B72828D5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>08BBC6C53535724E4A57F5C2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>67BA9CCD149668749D4E4B20</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>065250B5B24A9B0AC74AE594</string>
-				<string>B3DBA8CE3D191EB21187D386</string>
-				<string>FC6997E1DFA74F41AD321C04</string>
-				<string>A87822C0CECCEBA30DD0683D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>692F4F194D2FCECB2B956C38</key>
-		<dict>
-			<key>fileRef</key>
-			<string>58276D01027C9D53B70470D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>69D15B42F7444C59F913386A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>86F9BD371F427784FACE8B9C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C34BA820C5D504ECC1BD1C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFDF65AC26822D51DFE553EF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6D6E32B7961DB11D52033757</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F15C2EA0416212ECDAED80D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B10F692F552D19AB321F4FDF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6F1C84B793AE87C822A05965</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorial.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorial.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>70ACD907B01A2C42A993EB54</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>71ABA824B4476C8A45400244</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E62F28DC11B38A00869F25C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>72128892D2B7ECBF7DF4DB5B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorialAudio.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialAudio.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>72AD545B6B2AB01859D916F1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E62F28DC11B38A00869F25C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>756954C4E68181FB1A9980FA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FE17A85E0EFC4527FE32899C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75998C933E65FF03395CD589</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6278D46EFB3D1A82BABCEAF9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7754120C4EB8BBC333BF7772</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DNTutorial.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7AFCFF21A3846C6ED2878AD3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DNTutorial.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7E2C523F96DC5251B92C33C9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>497469C05F7741FA7092560E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7F7D4113C66B8457D840857C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests-DNTutorial</string>
-			<key>target</key>
-			<string>2ECB12E401DA417CCC3A994E</string>
-			<key>targetProxy</key>
-			<string>A0B9775BD894154CF680F03F</string>
-		</dict>
-		<key>82A133090C15F4BDD3924CA3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>DNTutorialClose.png</string>
-			<key>path</key>
-			<string>Pod/Assets/DNTutorialClose.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>834AA57A5907F4F01D52DDF7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5E2EB1F116099F9BCFD832E7</string>
-				<string>7E2C523F96DC5251B92C33C9</string>
-				<string>69D15B42F7444C59F913386A</string>
-				<string>692F4F194D2FCECB2B956C38</string>
-				<string>6F15C2EA0416212ECDAED80D</string>
-				<string>CBAEA5A283FA49A9B8C9EB37</string>
-				<string>CDD317B2015F289E76B82C3E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>838FF9DC879FFD7245EF9051</key>
-		<dict>
-			<key>fileRef</key>
-			<string>07A60406617F1EC6571E2C19</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>858B203F3F079BA92E15B7BC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6C34BA820C5D504ECC1BD1C3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>85FF41A3D568585F8527290B</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>7754120C4EB8BBC333BF7772</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>8620F44D83CD46E20AEBBCCE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>86F9BD371F427784FACE8B9C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorialBanner.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialBanner.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>897D6C7225197F3EF6F72547</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8C5431D0570352C7540B60D0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-DNTutorial.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8C61145EC14C55628E88D874</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FBC4551C50D1E569230BA867</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>92D891FB9F6316D3762100DD</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>99D34EE0DBE338E697C8B849</string>
-				<string>E599D059C007BEB6DE35AB96</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>94639D6AFBAE7B1B997D01C5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A44A2C768212959152484D52</string>
-				<string>565B9BDE951A959878B2572C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>94B091A5B85C17451A15C065</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>1703B50F5FE4DD26DEB438E3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9865984D1BB0C24CFC8FF822</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>514D05BC4A2FE4705FB5799F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>99D34EE0DBE338E697C8B849</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>428A0BE06CA33A2C96F68681</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-DNTutorial-DNTutorial/Pods-DNTutorial-DNTutorial-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>9BCD5009912C0F44D1140EEC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>Pods-DNTutorial-DNTutorial</string>
-			<key>target</key>
-			<string>9D22E8292C9F03ECF8FCE9D6</string>
-			<key>targetProxy</key>
-			<string>B69B77DD6FCB3823ECDFE55D</string>
-		</dict>
-		<key>9D22E8292C9F03ECF8FCE9D6</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>92D891FB9F6316D3762100DD</string>
-			<key>buildPhases</key>
-			<array>
-				<string>565C8EC0F7DF57FC3B0946FC</string>
-				<string>C624373FD021EAD2EC47C760</string>
-				<string>EF3BC601413FDA62EC705B90</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-DNTutorial-DNTutorial</string>
-			<key>productName</key>
-			<string>Pods-DNTutorial-DNTutorial</string>
-			<key>productReference</key>
-			<string>B3DBA8CE3D191EB21187D386</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>9E018F4E711A53F3E8D0A513</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FB3895C64DB6AFD304E73260</string>
-				<string>51E6BB0FED2F5DC557762765</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A0B9775BD894154CF680F03F</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2FB168774F7713118AA66206</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>2ECB12E401DA417CCC3A994E</string>
-			<key>remoteInfo</key>
-			<string>Pods-DNTutorialTests-DNTutorial</string>
-		</dict>
-		<key>A42200392C5AEE0967B6F8BC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>34DD3991C943EAB13D207E84</string>
-				<string>339D7BB902EC441D37530164</string>
-				<string>AEF1432B42CB2EE6E0D11632</string>
-				<string>1172D69AA04E4AC87C7A5660</string>
-				<string>B803BE601F0514CAFD9B1112</string>
-				<string>838FF9DC879FFD7245EF9051</string>
-				<string>BA421239DAD5BE2EB96759CE</string>
-				<string>75998C933E65FF03395CD589</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A44A2C768212959152484D52</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>A9858ABFB9557474D8EDBC98</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>A565221BD45F05305B5EB086</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E62F28DC11B38A00869F25C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A6D749718937F3C9BC6FA524</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A87822C0CECCEBA30DD0683D</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-DNTutorialTests-DNTutorial.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>A9858ABFB9557474D8EDBC98</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AEBD921D55D8F45FB52B67A8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>72128892D2B7ECBF7DF4DB5B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AEF1432B42CB2EE6E0D11632</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16984E51BF50E8868AD7F5C2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AFF4C7A1C1E6DD2B40A41A24</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests-DNTutorial.xcconfig</string>
-			<key>path</key>
-			<string>../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B10F692F552D19AB321F4FDF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorialGesture.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialGesture.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B230135928B1CCA901ADA4F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>497469C05F7741FA7092560E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B2787F18732E26339AE5BEBD</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B3364E546FFAE92C0883DCA0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3DBA8CE3D191EB21187D386</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-DNTutorial-DNTutorial.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B41A779CB0E822D77AC058C7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>63316211B53B024446189B21</string>
-				<string>669314F217D7B1E2B72828D5</string>
-				<string>756954C4E68181FB1A9980FA</string>
-				<string>67BA9CCD149668749D4E4B20</string>
-				<string>9E018F4E711A53F3E8D0A513</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B69B77DD6FCB3823ECDFE55D</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2FB168774F7713118AA66206</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>9D22E8292C9F03ECF8FCE9D6</string>
-			<key>remoteInfo</key>
-			<string>Pods-DNTutorial-DNTutorial</string>
-		</dict>
-		<key>B803BE601F0514CAFD9B1112</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1174759A6A0E98B1C97F7C3E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B87D45F604C277A4C36AA373</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorialMovement.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialMovement.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA1296249623155F38AA2FE7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA421239DAD5BE2EB96759CE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>ECF7478D47D21DE68E4FB798</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BD44449ED09781A311A7B076</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests-DNTutorial-prefix.pch</string>
-			<key>path</key>
-			<string>../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C624373FD021EAD2EC47C760</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A565221BD45F05305B5EB086</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CB375AFA1E8248D5949A0969</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorialElement.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialElement.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBAEA5A283FA49A9B8C9EB37</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B87D45F604C277A4C36AA373</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CDD317B2015F289E76B82C3E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EA1252CF8E7E331A7C3EC15E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CE040B1CA4E1471255D44EBD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests-DNTutorial-Private.xcconfig</string>
-			<key>path</key>
-			<string>../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D05170CFD462BA0E372D7B9B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>11E6C937EA84F55D7003BF17</string>
-				<string>F76AB0F13CA4E0D9D0C226F2</string>
-				<string>FF92F9DA4863D4EBADB7EB81</string>
-				<string>82A133090C15F4BDD3924CA3</string>
-				<string>562CF2E334E0E4C5248D7806</string>
-				<string>53BA7C191102E1ED81863210</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D441A197DDBEE105024A7E09</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B2787F18732E26339AE5BEBD</string>
-				<string>615AD9721F34B3CEFFDC66AB</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>DA5CCD751191B8686B39AC8E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorial.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorial.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DD41D350B46C79ED20506CAF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>ECF7478D47D21DE68E4FB798</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E599D059C007BEB6DE35AB96</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>428A0BE06CA33A2C96F68681</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-DNTutorial-DNTutorial/Pods-DNTutorial-DNTutorial-prefix.pch</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E62F28DC11B38A00869F25C1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>EA1252CF8E7E331A7C3EC15E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>DNTutorialStep.h</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialStep.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EB71EB6AD6DA17121F7DB2D2</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>94639D6AFBAE7B1B997D01C5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>858B203F3F079BA92E15B7BC</string>
-				<string>94B091A5B85C17451A15C065</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>7F7D4113C66B8457D840857C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-DNTutorialTests</string>
-			<key>productName</key>
-			<string>Pods-DNTutorialTests</string>
-			<key>productReference</key>
-			<string>FC6997E1DFA74F41AD321C04</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>ECF7478D47D21DE68E4FB798</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>DNTutorialStep.m</string>
-			<key>path</key>
-			<string>Pod/Classes/DNTutorialStep.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EF3BC601413FDA62EC705B90</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>34D333F3E1243D0B4F4CD3B9</string>
-				<string>B230135928B1CCA901ADA4F2</string>
-				<string>FB00F3F47A494A2E8AAFFA3D</string>
-				<string>4337992C0E34BF3CFECBD40C</string>
-				<string>234ED07611CA9DF039F40E67</string>
-				<string>65A914B66B78025C26E7935F</string>
-				<string>5500980268CDD3BE3246C4D6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EFDF65AC26822D51DFE553EF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-DNTutorialTests-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F03AC084D1F6C84D264D5DF1</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>1DC3883472FEA38981D35A03</string>
-			<key>buildPhases</key>
-			<array>
-				<string>9865984D1BB0C24CFC8FF822</string>
-				<string>1E4618CE964F9618DBB627DF</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>9BCD5009912C0F44D1140EEC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-DNTutorial</string>
-			<key>productName</key>
-			<string>Pods-DNTutorial</string>
-			<key>productReference</key>
-			<string>065250B5B24A9B0AC74AE594</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>F76AB0F13CA4E0D9D0C226F2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>DNTutorialCheck@2x.png</string>
-			<key>path</key>
-			<string>Pod/Assets/DNTutorialCheck@2x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F7B77867D860FD787D5282F7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-DNTutorial-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FB00F3F47A494A2E8AAFFA3D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>86F9BD371F427784FACE8B9C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FB3895C64DB6AFD304E73260</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6D6E32B7961DB11D52033757</string>
-				<string>897D6C7225197F3EF6F72547</string>
-				<string>19F9A0C3F7AF4AEC613BA6BA</string>
-				<string>70ACD907B01A2C42A993EB54</string>
-				<string>B3364E546FFAE92C0883DCA0</string>
-				<string>7AFCFF21A3846C6ED2878AD3</string>
-				<string>7754120C4EB8BBC333BF7772</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-DNTutorial</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-DNTutorial</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBC4551C50D1E569230BA867</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-DNTutorial-DNTutorial-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FC6997E1DFA74F41AD321C04</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-DNTutorialTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FE17A85E0EFC4527FE32899C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E62F28DC11B38A00869F25C1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FF92F9DA4863D4EBADB7EB81</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>DNTutorialCheck@3x.png</string>
-			<key>path</key>
-			<string>Pod/Assets/DNTutorialCheck@3x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>2FB168774F7713118AA66206</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00317AFB6DBF82FFE5E33586 /* Pods-DNTutorialTests-DNTutorial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E80ABCBA2C98C832F2C55 /* Pods-DNTutorialTests-DNTutorial-dummy.m */; };
+		0901924C8C454B20EE6466C8 /* DNTutorialGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = E88F3B845FE0757069714E56 /* DNTutorialGesture.h */; };
+		09DF96AE46FF70A654DAFA27 /* DNTutorialStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E761271BA82CF084BE463 /* DNTutorialStep.m */; };
+		0ED540105E178342F7F4D7C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEF953A94455D7EFBCE367 /* Foundation.framework */; };
+		0F59755655487DF73FDF6C43 /* DNTutorialStep.h in Headers */ = {isa = PBXBuildFile; fileRef = D871DA09BEDFD2DC7CFFD7F0 /* DNTutorialStep.h */; };
+		135BBEF07377884F40FD560D /* DNTutorialMovement.m in Sources */ = {isa = PBXBuildFile; fileRef = 00976BE129F856409C6ABE24 /* DNTutorialMovement.m */; };
+		21C59710D44508A01902BF2B /* DNTutorialGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F122C9262A4E6405602431C /* DNTutorialGesture.m */; };
+		23C6CD103288B61242E9C77D /* DNTutorialGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = E88F3B845FE0757069714E56 /* DNTutorialGesture.h */; };
+		25BA5FA7396D742D0741DE07 /* DNTutorialBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC925A92955C75748BE28A /* DNTutorialBanner.m */; };
+		2A3C2B927FEFF33570B285E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEF953A94455D7EFBCE367 /* Foundation.framework */; };
+		2C9844F0CC7B72018223F47C /* DNTutorialAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D2B4C75EDA75B20CBC90BA /* DNTutorialAudio.h */; };
+		3144C839D05161FEE989E4C2 /* DNTutorialBanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E0ED2E11DFFD19A52FA990C3 /* DNTutorialBanner.h */; };
+		37A4FE6E4F4EC5F42E1A089F /* DNTutorialElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF87B4F66DCB6CB03CD98A /* DNTutorialElement.m */; };
+		37DFFE9FE069425D3D4497EB /* DNTutorialStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E761271BA82CF084BE463 /* DNTutorialStep.m */; };
+		3A1300D09C5C4904E32EB487 /* DNTutorial.h in Headers */ = {isa = PBXBuildFile; fileRef = E7ED66FF51931D930C6EED2C /* DNTutorial.h */; };
+		50D4C2919513BDAECDFEB78F /* DNTutorialMovement.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F97F16FFD69053F83FCEA55 /* DNTutorialMovement.h */; };
+		5C262A9F4719C099CE4A4BF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEF953A94455D7EFBCE367 /* Foundation.framework */; };
+		6430C647F8B5B8D6C0C63552 /* DNTutorialAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F9F5BAFA9124E4A61E17A0 /* DNTutorialAudio.m */; };
+		68FE92308DC503568F0F6BAD /* DNTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5818D4484B06CB7D6EE45FBD /* DNTutorial.m */; };
+		79036D83125986B4FF5801C4 /* DNTutorialMovement.m in Sources */ = {isa = PBXBuildFile; fileRef = 00976BE129F856409C6ABE24 /* DNTutorialMovement.m */; };
+		86AF2757E06BC08096A5EB36 /* DNTutorialGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F122C9262A4E6405602431C /* DNTutorialGesture.m */; };
+		8C3D332FF77D8D599EA3AFBE /* DNTutorialStep.h in Headers */ = {isa = PBXBuildFile; fileRef = D871DA09BEDFD2DC7CFFD7F0 /* DNTutorialStep.h */; };
+		A255B65550564F837BB9A2E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEF953A94455D7EFBCE367 /* Foundation.framework */; };
+		B0DB6C43CBC8ED5BF09119E8 /* DNTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5818D4484B06CB7D6EE45FBD /* DNTutorial.m */; };
+		B9918775AA39ABCF1B34FD54 /* DNTutorialBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC925A92955C75748BE28A /* DNTutorialBanner.m */; };
+		C574F3F3996525F76B8771CE /* Pods-DNTutorialTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E51FEF73A1CA387B715AC5B8 /* Pods-DNTutorialTests-dummy.m */; };
+		C5C2E5CB0CD0333E6B468821 /* DNTutorialAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F9F5BAFA9124E4A61E17A0 /* DNTutorialAudio.m */; };
+		CD0E204F47FBBC5C692DF86B /* Pods-DNTutorial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3371F9808F3264E3C022D8E4 /* Pods-DNTutorial-dummy.m */; };
+		D3FCE8AA4A196172A8752161 /* DNTutorial.h in Headers */ = {isa = PBXBuildFile; fileRef = E7ED66FF51931D930C6EED2C /* DNTutorial.h */; };
+		DC250CA67B16AF479D2E134E /* DNTutorialAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D2B4C75EDA75B20CBC90BA /* DNTutorialAudio.h */; };
+		E926B8EA9A3B5CD43ABF6D0F /* DNTutorialBanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E0ED2E11DFFD19A52FA990C3 /* DNTutorialBanner.h */; };
+		EBB7D1B79D41EB17BC25EC45 /* Pods-DNTutorial-DNTutorial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E41482A94711C1E5FACDDA /* Pods-DNTutorial-DNTutorial-dummy.m */; };
+		F09FB1EF7801830DC46D6C80 /* DNTutorialElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF87B4F66DCB6CB03CD98A /* DNTutorialElement.m */; };
+		F5B3880CB5051506C1A3EFAD /* DNTutorialElement.h in Headers */ = {isa = PBXBuildFile; fileRef = A0E50C58AF74DAB7A1319959 /* DNTutorialElement.h */; };
+		F9CDEEE4A63A20F4F0F5D8A8 /* DNTutorialMovement.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F97F16FFD69053F83FCEA55 /* DNTutorialMovement.h */; };
+		FEDFA011EBE23C2BD4F73B34 /* DNTutorialElement.h in Headers */ = {isa = PBXBuildFile; fileRef = A0E50C58AF74DAB7A1319959 /* DNTutorialElement.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB0CEA766EFEEDBCE1117D0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F6E1173C3D98A48A4977550 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEF6B695CD1CD46660F97CDC;
+			remoteInfo = "Pods-DNTutorial-DNTutorial";
+		};
+		ECDEE43426F7693C8D2C9D91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F6E1173C3D98A48A4977550 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8AE4FA63A058894DF739BA1;
+			remoteInfo = "Pods-DNTutorialTests-DNTutorial";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0019E072937AFAE654756FF9 /* libPods-DNTutorialTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DNTutorialTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00976BE129F856409C6ABE24 /* DNTutorialMovement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorialMovement.m; sourceTree = "<group>"; };
+		0E9360668D40AE338BD5B92A /* Pods-DNTutorialTests-DNTutorial-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-DNTutorialTests-DNTutorial-prefix.pch"; path = "../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-prefix.pch"; sourceTree = "<group>"; };
+		116C9897FADDFB7050BA7B9A /* Pods-DNTutorial-DNTutorial-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DNTutorial-DNTutorial-Private.xcconfig"; sourceTree = "<group>"; };
+		12D2B4C75EDA75B20CBC90BA /* DNTutorialAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorialAudio.h; sourceTree = "<group>"; };
+		1758E14AF153A0A465EE4818 /* Pods-DNTutorial-DNTutorial-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DNTutorial-DNTutorial-prefix.pch"; sourceTree = "<group>"; };
+		19516C1688EA408045E9EA5C /* DNTutorialClose@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "DNTutorialClose@2x.png"; sourceTree = "<group>"; };
+		1D4151E4ED49978D57288F65 /* DNTutorialCheck@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "DNTutorialCheck@3x.png"; sourceTree = "<group>"; };
+		1EE78894618CC0B3801614B0 /* Pods-DNTutorial-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DNTutorial-acknowledgements.plist"; sourceTree = "<group>"; };
+		299B74EDCD1E23CC0F0DFCF0 /* libPods-DNTutorial-DNTutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DNTutorial-DNTutorial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		335BC2ED2DD069E9AD8FC1BF /* Pods-DNTutorialTests-DNTutorial.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNTutorialTests-DNTutorial.xcconfig"; path = "../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial.xcconfig"; sourceTree = "<group>"; };
+		3371F9808F3264E3C022D8E4 /* Pods-DNTutorial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DNTutorial-dummy.m"; sourceTree = "<group>"; };
+		3E859E95067652B4C3263A46 /* DNTutorialClose@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "DNTutorialClose@3x.png"; sourceTree = "<group>"; };
+		446ECE567A5314A9C17CE0CF /* Pods-DNTutorialTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DNTutorialTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		459EF9DF8202832CB0344B50 /* Pods-DNTutorialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DNTutorialTests.release.xcconfig"; sourceTree = "<group>"; };
+		469E3AB4EC11A1E2887CB44A /* DNTutorialClose.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = DNTutorialClose.png; sourceTree = "<group>"; };
+		4F122C9262A4E6405602431C /* DNTutorialGesture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorialGesture.m; sourceTree = "<group>"; };
+		500FF2597B4AC31D9BA30B06 /* libPods-DNTutorialTests-DNTutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DNTutorialTests-DNTutorial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5818D4484B06CB7D6EE45FBD /* DNTutorial.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorial.m; sourceTree = "<group>"; };
+		62E41482A94711C1E5FACDDA /* Pods-DNTutorial-DNTutorial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DNTutorial-DNTutorial-dummy.m"; sourceTree = "<group>"; };
+		62F5FF6ACB38059B71B1C73B /* Pods-DNTutorial-DNTutorial.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DNTutorial-DNTutorial.xcconfig"; sourceTree = "<group>"; };
+		67A6B5AE4771556B502D40EE /* Pods-DNTutorial-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DNTutorial-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6C4E80ABCBA2C98C832F2C55 /* Pods-DNTutorialTests-DNTutorial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-DNTutorialTests-DNTutorial-dummy.m"; path = "../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-dummy.m"; sourceTree = "<group>"; };
+		701A2D5650BBACD565F089BC /* Pods-DNTutorialTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DNTutorialTests-environment.h"; sourceTree = "<group>"; };
+		777E49E714963979BDF423EC /* DNTutorialCheck@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "DNTutorialCheck@2x.png"; sourceTree = "<group>"; };
+		820D3BC64DF19404D93F209F /* Pods-DNTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DNTutorial.debug.xcconfig"; sourceTree = "<group>"; };
+		83FC925A92955C75748BE28A /* DNTutorialBanner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorialBanner.m; sourceTree = "<group>"; };
+		8432063580E16BAE6D289D2D /* Pods-DNTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DNTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B534A6C3181B01E5AA57ED8 /* libPods-DNTutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DNTutorial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F97F16FFD69053F83FCEA55 /* DNTutorialMovement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorialMovement.h; sourceTree = "<group>"; };
+		A09601CC895EF47D1714D75F /* Pods-DNTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DNTutorial.release.xcconfig"; sourceTree = "<group>"; };
+		A0E50C58AF74DAB7A1319959 /* DNTutorialElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorialElement.h; sourceTree = "<group>"; };
+		A2F9F5BAFA9124E4A61E17A0 /* DNTutorialAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorialAudio.m; sourceTree = "<group>"; };
+		AC026405A0CF10574F4764F3 /* Pods-DNTutorialTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DNTutorialTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C1D793641A4CBC65DE6D8556 /* Pods-DNTutorialTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DNTutorialTests-resources.sh"; sourceTree = "<group>"; };
+		C45C6254EEF9DECE29650D8A /* DNTutorialCheck.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = DNTutorialCheck.png; sourceTree = "<group>"; };
+		D0DF87B4F66DCB6CB03CD98A /* DNTutorialElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorialElement.m; sourceTree = "<group>"; };
+		D2AEF953A94455D7EFBCE367 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D41D6D208F616022E1829166 /* Pods-DNTutorial-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DNTutorial-resources.sh"; sourceTree = "<group>"; };
+		D871DA09BEDFD2DC7CFFD7F0 /* DNTutorialStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorialStep.h; sourceTree = "<group>"; };
+		E0ED2E11DFFD19A52FA990C3 /* DNTutorialBanner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorialBanner.h; sourceTree = "<group>"; };
+		E51FEF73A1CA387B715AC5B8 /* Pods-DNTutorialTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DNTutorialTests-dummy.m"; sourceTree = "<group>"; };
+		E5FB68C0AAD86CBAEA9AA4CC /* Pods-DNTutorial-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DNTutorial-environment.h"; sourceTree = "<group>"; };
+		E74E761271BA82CF084BE463 /* DNTutorialStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DNTutorialStep.m; sourceTree = "<group>"; };
+		E7ED66FF51931D930C6EED2C /* DNTutorial.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorial.h; sourceTree = "<group>"; };
+		E88F3B845FE0757069714E56 /* DNTutorialGesture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DNTutorialGesture.h; sourceTree = "<group>"; };
+		EFAA3EBF5908EFA47F81416E /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F2C426B11D64E21F4DB4CBC4 /* Pods-DNTutorialTests-DNTutorial-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNTutorialTests-DNTutorial-Private.xcconfig"; path = "../Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-Private.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27F7C32343CF775C49DAECF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C262A9F4719C099CE4A4BF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43330BB141529E40FB16F8F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A3C2B927FEFF33570B285E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CCD2094BD0992AA6EFA224A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A255B65550564F837BB9A2E8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A416AA8E61A48DCCB4D26F64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED540105E178342F7F4D7C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02EEC92E231AFE1D19C6894B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D2AEF953A94455D7EFBCE367 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		0C1B8DF99836D08665CC901E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B534A6C3181B01E5AA57ED8 /* libPods-DNTutorial.a */,
+				299B74EDCD1E23CC0F0DFCF0 /* libPods-DNTutorial-DNTutorial.a */,
+				0019E072937AFAE654756FF9 /* libPods-DNTutorialTests.a */,
+				500FF2597B4AC31D9BA30B06 /* libPods-DNTutorialTests-DNTutorial.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		149DECC1EC6F79FF3A9BC568 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				570206FBBBF5C9FAF1A6926E /* Pod */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A9AFF265E136E8FC3422737 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				62F5FF6ACB38059B71B1C73B /* Pods-DNTutorial-DNTutorial.xcconfig */,
+				116C9897FADDFB7050BA7B9A /* Pods-DNTutorial-DNTutorial-Private.xcconfig */,
+				62E41482A94711C1E5FACDDA /* Pods-DNTutorial-DNTutorial-dummy.m */,
+				1758E14AF153A0A465EE4818 /* Pods-DNTutorial-DNTutorial-prefix.pch */,
+				335BC2ED2DD069E9AD8FC1BF /* Pods-DNTutorialTests-DNTutorial.xcconfig */,
+				F2C426B11D64E21F4DB4CBC4 /* Pods-DNTutorialTests-DNTutorial-Private.xcconfig */,
+				6C4E80ABCBA2C98C832F2C55 /* Pods-DNTutorialTests-DNTutorial-dummy.m */,
+				0E9360668D40AE338BD5B92A /* Pods-DNTutorialTests-DNTutorial-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-DNTutorial-DNTutorial";
+			sourceTree = "<group>";
+		};
+		2E4D58EEC175F07B4FC8C174 = {
+			isa = PBXGroup;
+			children = (
+				EFAA3EBF5908EFA47F81416E /* Podfile */,
+				8745DEA9C52F51BC906E4781 /* Development Pods */,
+				59DF1373E759216C86196C17 /* Frameworks */,
+				0C1B8DF99836D08665CC901E /* Products */,
+				5F9FFCDCCA1D6B8602CE72CC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		570206FBBBF5C9FAF1A6926E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C9F70D44955FD3701879EB87 /* Assets */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		59DF1373E759216C86196C17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02EEC92E231AFE1D19C6894B /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F9FFCDCCA1D6B8602CE72CC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEBFE6B675D79FDDCB0D4946 /* Pods-DNTutorial */,
+				7BBFC143A6B685F69BA3BB55 /* Pods-DNTutorialTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		67DDDCD42BFE15725550B6E4 /* DNTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				EFADBEEB54CBBE6CE982C318 /* Pod */,
+				149DECC1EC6F79FF3A9BC568 /* Resources */,
+				2A9AFF265E136E8FC3422737 /* Support Files */,
+			);
+			name = DNTutorial;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7BBFC143A6B685F69BA3BB55 /* Pods-DNTutorialTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC026405A0CF10574F4764F3 /* Pods-DNTutorialTests-acknowledgements.markdown */,
+				446ECE567A5314A9C17CE0CF /* Pods-DNTutorialTests-acknowledgements.plist */,
+				E51FEF73A1CA387B715AC5B8 /* Pods-DNTutorialTests-dummy.m */,
+				701A2D5650BBACD565F089BC /* Pods-DNTutorialTests-environment.h */,
+				C1D793641A4CBC65DE6D8556 /* Pods-DNTutorialTests-resources.sh */,
+				8432063580E16BAE6D289D2D /* Pods-DNTutorialTests.debug.xcconfig */,
+				459EF9DF8202832CB0344B50 /* Pods-DNTutorialTests.release.xcconfig */,
+			);
+			name = "Pods-DNTutorialTests";
+			path = "Target Support Files/Pods-DNTutorialTests";
+			sourceTree = "<group>";
+		};
+		8745DEA9C52F51BC906E4781 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67DDDCD42BFE15725550B6E4 /* DNTutorial */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		B5DD61506E44F709BD7A47C0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED66FF51931D930C6EED2C /* DNTutorial.h */,
+				5818D4484B06CB7D6EE45FBD /* DNTutorial.m */,
+				12D2B4C75EDA75B20CBC90BA /* DNTutorialAudio.h */,
+				A2F9F5BAFA9124E4A61E17A0 /* DNTutorialAudio.m */,
+				E0ED2E11DFFD19A52FA990C3 /* DNTutorialBanner.h */,
+				83FC925A92955C75748BE28A /* DNTutorialBanner.m */,
+				A0E50C58AF74DAB7A1319959 /* DNTutorialElement.h */,
+				D0DF87B4F66DCB6CB03CD98A /* DNTutorialElement.m */,
+				E88F3B845FE0757069714E56 /* DNTutorialGesture.h */,
+				4F122C9262A4E6405602431C /* DNTutorialGesture.m */,
+				8F97F16FFD69053F83FCEA55 /* DNTutorialMovement.h */,
+				00976BE129F856409C6ABE24 /* DNTutorialMovement.m */,
+				D871DA09BEDFD2DC7CFFD7F0 /* DNTutorialStep.h */,
+				E74E761271BA82CF084BE463 /* DNTutorialStep.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C9F70D44955FD3701879EB87 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C45C6254EEF9DECE29650D8A /* DNTutorialCheck.png */,
+				777E49E714963979BDF423EC /* DNTutorialCheck@2x.png */,
+				1D4151E4ED49978D57288F65 /* DNTutorialCheck@3x.png */,
+				469E3AB4EC11A1E2887CB44A /* DNTutorialClose.png */,
+				19516C1688EA408045E9EA5C /* DNTutorialClose@2x.png */,
+				3E859E95067652B4C3263A46 /* DNTutorialClose@3x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EEBFE6B675D79FDDCB0D4946 /* Pods-DNTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				67A6B5AE4771556B502D40EE /* Pods-DNTutorial-acknowledgements.markdown */,
+				1EE78894618CC0B3801614B0 /* Pods-DNTutorial-acknowledgements.plist */,
+				3371F9808F3264E3C022D8E4 /* Pods-DNTutorial-dummy.m */,
+				E5FB68C0AAD86CBAEA9AA4CC /* Pods-DNTutorial-environment.h */,
+				D41D6D208F616022E1829166 /* Pods-DNTutorial-resources.sh */,
+				820D3BC64DF19404D93F209F /* Pods-DNTutorial.debug.xcconfig */,
+				A09601CC895EF47D1714D75F /* Pods-DNTutorial.release.xcconfig */,
+			);
+			name = "Pods-DNTutorial";
+			path = "Target Support Files/Pods-DNTutorial";
+			sourceTree = "<group>";
+		};
+		EFADBEEB54CBBE6CE982C318 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B5DD61506E44F709BD7A47C0 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AAECCC87131BAB5B06C6DE81 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A1300D09C5C4904E32EB487 /* DNTutorial.h in Headers */,
+				DC250CA67B16AF479D2E134E /* DNTutorialAudio.h in Headers */,
+				E926B8EA9A3B5CD43ABF6D0F /* DNTutorialBanner.h in Headers */,
+				FEDFA011EBE23C2BD4F73B34 /* DNTutorialElement.h in Headers */,
+				0901924C8C454B20EE6466C8 /* DNTutorialGesture.h in Headers */,
+				F9CDEEE4A63A20F4F0F5D8A8 /* DNTutorialMovement.h in Headers */,
+				0F59755655487DF73FDF6C43 /* DNTutorialStep.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFB8A17FD0FE3C61A39C379B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3FCE8AA4A196172A8752161 /* DNTutorial.h in Headers */,
+				2C9844F0CC7B72018223F47C /* DNTutorialAudio.h in Headers */,
+				3144C839D05161FEE989E4C2 /* DNTutorialBanner.h in Headers */,
+				F5B3880CB5051506C1A3EFAD /* DNTutorialElement.h in Headers */,
+				23C6CD103288B61242E9C77D /* DNTutorialGesture.h in Headers */,
+				50D4C2919513BDAECDFEB78F /* DNTutorialMovement.h in Headers */,
+				8C3D332FF77D8D599EA3AFBE /* DNTutorialStep.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		185A7921678272E1D28D0E12 /* Pods-DNTutorial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C13429921B1F8B84D0D253E1 /* Build configuration list for PBXNativeTarget "Pods-DNTutorial" */;
+			buildPhases = (
+				523ECB3908C861037BE905B0 /* Sources */,
+				A416AA8E61A48DCCB4D26F64 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				770876C5B093632A43BE2809 /* PBXTargetDependency */,
+			);
+			name = "Pods-DNTutorial";
+			productName = "Pods-DNTutorial";
+			productReference = 8B534A6C3181B01E5AA57ED8 /* libPods-DNTutorial.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B2C4ADDB5BE78CA47194B764 /* Pods-DNTutorialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA43F385451CE8180AD069E /* Build configuration list for PBXNativeTarget "Pods-DNTutorialTests" */;
+			buildPhases = (
+				3BC7F076A1F290B76BC003DB /* Sources */,
+				4CCD2094BD0992AA6EFA224A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35B732226AB557D181DAB520 /* PBXTargetDependency */,
+			);
+			name = "Pods-DNTutorialTests";
+			productName = "Pods-DNTutorialTests";
+			productReference = 0019E072937AFAE654756FF9 /* libPods-DNTutorialTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CEF6B695CD1CD46660F97CDC /* Pods-DNTutorial-DNTutorial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A422F5CB3A58AD37B1C5088 /* Build configuration list for PBXNativeTarget "Pods-DNTutorial-DNTutorial" */;
+			buildPhases = (
+				AE77F26A752F9D423E637038 /* Sources */,
+				43330BB141529E40FB16F8F9 /* Frameworks */,
+				AFB8A17FD0FE3C61A39C379B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-DNTutorial-DNTutorial";
+			productName = "Pods-DNTutorial-DNTutorial";
+			productReference = 299B74EDCD1E23CC0F0DFCF0 /* libPods-DNTutorial-DNTutorial.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E8AE4FA63A058894DF739BA1 /* Pods-DNTutorialTests-DNTutorial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81E88FEDDFB9B9AF31772647 /* Build configuration list for PBXNativeTarget "Pods-DNTutorialTests-DNTutorial" */;
+			buildPhases = (
+				FD6DB0FE74A5987E5AA11DF2 /* Sources */,
+				27F7C32343CF775C49DAECF5 /* Frameworks */,
+				AAECCC87131BAB5B06C6DE81 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-DNTutorialTests-DNTutorial";
+			productName = "Pods-DNTutorialTests-DNTutorial";
+			productReference = 500FF2597B4AC31D9BA30B06 /* libPods-DNTutorialTests-DNTutorial.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F6E1173C3D98A48A4977550 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = D2839725D1D3F9E68401E04F /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2E4D58EEC175F07B4FC8C174;
+			productRefGroup = 0C1B8DF99836D08665CC901E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				185A7921678272E1D28D0E12 /* Pods-DNTutorial */,
+				CEF6B695CD1CD46660F97CDC /* Pods-DNTutorial-DNTutorial */,
+				B2C4ADDB5BE78CA47194B764 /* Pods-DNTutorialTests */,
+				E8AE4FA63A058894DF739BA1 /* Pods-DNTutorialTests-DNTutorial */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BC7F076A1F290B76BC003DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C574F3F3996525F76B8771CE /* Pods-DNTutorialTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		523ECB3908C861037BE905B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0E204F47FBBC5C692DF86B /* Pods-DNTutorial-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE77F26A752F9D423E637038 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DB6C43CBC8ED5BF09119E8 /* DNTutorial.m in Sources */,
+				6430C647F8B5B8D6C0C63552 /* DNTutorialAudio.m in Sources */,
+				B9918775AA39ABCF1B34FD54 /* DNTutorialBanner.m in Sources */,
+				F09FB1EF7801830DC46D6C80 /* DNTutorialElement.m in Sources */,
+				86AF2757E06BC08096A5EB36 /* DNTutorialGesture.m in Sources */,
+				135BBEF07377884F40FD560D /* DNTutorialMovement.m in Sources */,
+				09DF96AE46FF70A654DAFA27 /* DNTutorialStep.m in Sources */,
+				EBB7D1B79D41EB17BC25EC45 /* Pods-DNTutorial-DNTutorial-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD6DB0FE74A5987E5AA11DF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68FE92308DC503568F0F6BAD /* DNTutorial.m in Sources */,
+				C5C2E5CB0CD0333E6B468821 /* DNTutorialAudio.m in Sources */,
+				25BA5FA7396D742D0741DE07 /* DNTutorialBanner.m in Sources */,
+				37A4FE6E4F4EC5F42E1A089F /* DNTutorialElement.m in Sources */,
+				21C59710D44508A01902BF2B /* DNTutorialGesture.m in Sources */,
+				79036D83125986B4FF5801C4 /* DNTutorialMovement.m in Sources */,
+				37DFFE9FE069425D3D4497EB /* DNTutorialStep.m in Sources */,
+				00317AFB6DBF82FFE5E33586 /* Pods-DNTutorialTests-DNTutorial-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		35B732226AB557D181DAB520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DNTutorialTests-DNTutorial";
+			target = E8AE4FA63A058894DF739BA1 /* Pods-DNTutorialTests-DNTutorial */;
+			targetProxy = ECDEE43426F7693C8D2C9D91 /* PBXContainerItemProxy */;
+		};
+		770876C5B093632A43BE2809 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DNTutorial-DNTutorial";
+			target = CEF6B695CD1CD46660F97CDC /* Pods-DNTutorial-DNTutorial */;
+			targetProxy = CB0CEA766EFEEDBCE1117D0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04D4D033F591F2DE341C9B66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2C426B11D64E21F4DB4CBC4 /* Pods-DNTutorialTests-DNTutorial-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		251BB3AD8B497B329B0F8E9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 820D3BC64DF19404D93F209F /* Pods-DNTutorial.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		32796AE41038029254332207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		415D309508F4DD0E2406D651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 459EF9DF8202832CB0344B50 /* Pods-DNTutorialTests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5787C4C66490333067EBEC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 116C9897FADDFB7050BA7B9A /* Pods-DNTutorial-DNTutorial-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DNTutorial-DNTutorial/Pods-DNTutorial-DNTutorial-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8082EBEA4C2870F09357CC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A09601CC895EF47D1714D75F /* Pods-DNTutorial.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A557E1AD949250A014F6FCF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2C426B11D64E21F4DB4CBC4 /* Pods-DNTutorialTests-DNTutorial-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DNTutorialTests-DNTutorial/Pods-DNTutorialTests-DNTutorial-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DF3043DD9C5BBC570023C637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8432063580E16BAE6D289D2D /* Pods-DNTutorialTests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EE1B38F76A7301CA9196A8A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F571B897FA5FC5FCE8E16E88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 116C9897FADDFB7050BA7B9A /* Pods-DNTutorial-DNTutorial-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DNTutorial-DNTutorial/Pods-DNTutorial-DNTutorial-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A422F5CB3A58AD37B1C5088 /* Build configuration list for PBXNativeTarget "Pods-DNTutorial-DNTutorial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5787C4C66490333067EBEC0B /* Debug */,
+				F571B897FA5FC5FCE8E16E88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA43F385451CE8180AD069E /* Build configuration list for PBXNativeTarget "Pods-DNTutorialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF3043DD9C5BBC570023C637 /* Debug */,
+				415D309508F4DD0E2406D651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81E88FEDDFB9B9AF31772647 /* Build configuration list for PBXNativeTarget "Pods-DNTutorialTests-DNTutorial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D4D033F591F2DE341C9B66 /* Debug */,
+				A557E1AD949250A014F6FCF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C13429921B1F8B84D0D253E1 /* Build configuration list for PBXNativeTarget "Pods-DNTutorial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251BB3AD8B497B329B0F8E9C /* Debug */,
+				8082EBEA4C2870F09357CC5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2839725D1D3F9E68401E04F /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32796AE41038029254332207 /* Debug */,
+				EE1B38F76A7301CA9196A8A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8F6E1173C3D98A48A4977550 /* Project object */;
+}
